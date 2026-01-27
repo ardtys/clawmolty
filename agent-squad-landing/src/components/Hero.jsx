@@ -167,6 +167,26 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
+            <a
+              href="https://bags.fm/GoqtGLdsQC34zrFboFyJZaBSTESxqm7JJ2QXUXpLBAGS"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3.5 text-base font-semibold text-white bg-gradient-to-r from-[#00D26A] to-[#00B85C] rounded-lg hover:from-[#00B85C] hover:to-[#009E4F] transition-all shadow-lg shadow-[#00D26A]/30"
+            >
+              <motion.img
+                src="/bags-icon.png"
+                alt="Bags"
+                className="w-6 h-6"
+                animate={{ rotate: [0, -5, 5, 0], scale: [1, 1.1, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              Buy on Bags
+            </a>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
             <Link
               to="/demo"
               className="btn-primary inline-flex items-center gap-2 group"

@@ -143,13 +143,27 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <motion.div
-            className="hidden md:flex items-center gap-4"
+            className="hidden md:flex items-center gap-3"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, delay: 0.3 }}
           >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <a
+                href="https://bags.fm/GoqtGLdsQC34zrFboFyJZaBSTESxqm7JJ2QXUXpLBAGS"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#00D26A] to-[#00B85C] rounded-lg hover:from-[#00B85C] hover:to-[#009E4F] transition-all shadow-lg shadow-[#00D26A]/20"
+              >
+                <img src="/bags-icon.png" alt="Bags" className="w-5 h-5" />
+                Buy on Bags
+              </a>
+            </motion.div>
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
@@ -240,8 +254,23 @@ const Navigation = () => {
                 ))}
                 <motion.div
                   variants={mobileLinkVariants}
-                  className="pt-4 px-4"
+                  className="pt-4 px-4 space-y-3"
                 >
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <a
+                      href="https://bags.fm/GoqtGLdsQC34zrFboFyJZaBSTESxqm7JJ2QXUXpLBAGS"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full px-4 py-3 text-sm font-medium text-white bg-gradient-to-r from-[#00D26A] to-[#00B85C] rounded-lg hover:from-[#00B85C] hover:to-[#009E4F] transition-all shadow-lg shadow-[#00D26A]/20"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <img src="/bags-icon.png" alt="Bags" className="w-5 h-5" />
+                      Buy on Bags
+                    </a>
+                  </motion.div>
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
