@@ -1,14 +1,47 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import {
   Book, Rocket, Settings, Code2, Terminal, Shield,
   ChevronRight, Search, ChevronDown, Copy, Check,
   Brain, TrendingUp, Menu, X, Home, FileText,
   Zap, Database, GitBranch, Server, MessageSquare,
   Clock, Users, ArrowLeft, ArrowRight, ExternalLink,
-  Sun, Cpu, HardDrive, Mail, CreditCard, Globe
+  Sun, Cpu, HardDrive, Mail, CreditCard, Globe,
+  Sparkles
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const slideIn = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0 }
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1 }
+};
+
+const pulseAnimation = {
+  scale: [1, 1.02, 1],
+  transition: { duration: 2, repeat: Infinity }
+};
 
 // Documentation structure
 const docStructure = [
@@ -4607,38 +4640,190 @@ compliance:
   },
 };
 
-// Code block component
+// Code block component with animations
 const CodeBlock = ({ code, language = 'bash' }) => {
   const [copied, setCopied] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleCopy = () => {
-    // Extract just the code, removing markdown formatting
     const cleanCode = code.replace(/```[\w]*\n?/g, '').trim();
     navigator.clipboard.writeText(cleanCode);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
+  // Get language color
+  const getLangColor = () => {
+    const colors = {
+      bash: 'text-emerald-400',
+      javascript: 'text-yellow-400',
+      typescript: 'text-blue-400',
+      python: 'text-green-400',
+      yaml: 'text-pink-400',
+      json: 'text-orange-400',
+    };
+    return colors[language] || 'text-emerald-400';
+  };
+
   return (
-    <div className="relative group my-4">
-      <pre className="bg-zinc-900 border border-zinc-800 rounded-lg p-4 overflow-x-auto">
-        <code className="text-emerald-400 font-mono text-sm whitespace-pre">{code}</code>
-      </pre>
-      <button
-        onClick={handleCopy}
-        className="absolute top-3 right-3 p-2 rounded-md bg-zinc-800 hover:bg-zinc-700 transition-colors opacity-0 group-hover:opacity-100"
+    <motion.div
+      className="relative group my-4"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Language badge */}
+      {language && (
+        <motion.div
+          className="absolute -top-2 left-4 px-2 py-0.5 bg-zinc-800 border border-zinc-700 rounded text-xs text-zinc-400 font-mono z-10"
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+        >
+          {language}
+        </motion.div>
+      )}
+
+      <motion.pre
+        className="bg-zinc-900/80 backdrop-blur-sm border border-zinc-800 rounded-lg p-4 pt-6 overflow-x-auto"
+        animate={{
+          borderColor: isHovered ? 'rgba(251, 191, 36, 0.3)' : 'rgba(39, 39, 42, 1)',
+          boxShadow: isHovered ? '0 0 30px rgba(251, 191, 36, 0.1)' : '0 0 0 rgba(0, 0, 0, 0)'
+        }}
+        transition={{ duration: 0.2 }}
       >
-        {copied ? (
-          <Check className="w-4 h-4 text-emerald-400" />
-        ) : (
-          <Copy className="w-4 h-4 text-zinc-400" />
-        )}
-      </button>
-    </div>
+        <code className={`${getLangColor()} font-mono text-sm whitespace-pre`}>{code}</code>
+      </motion.pre>
+
+      <motion.button
+        onClick={handleCopy}
+        className="absolute top-4 right-3 p-2 rounded-md bg-zinc-800/80 backdrop-blur-sm border border-zinc-700 transition-colors"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isHovered ? 1 : 0 }}
+        whileHover={{ scale: 1.05, backgroundColor: 'rgba(251, 191, 36, 0.2)' }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <AnimatePresence mode="wait">
+          {copied ? (
+            <motion.div
+              key="check"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0 }}
+            >
+              <Check className="w-4 h-4 text-emerald-400" />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="copy"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0 }}
+            >
+              <Copy className="w-4 h-4 text-zinc-400" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.button>
+    </motion.div>
   );
 };
 
-// Markdown renderer
+// Animated Table component
+const AnimatedTable = ({ headers, rows, index }) => {
+  return (
+    <motion.div
+      key={`table-${index}`}
+      className="my-6 overflow-x-auto"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      <motion.table
+        className="w-full border-collapse bg-zinc-900/50 rounded-lg overflow-hidden"
+        initial="hidden"
+        animate="visible"
+        variants={staggerContainer}
+      >
+        <thead>
+          <tr className="border-b border-zinc-800 bg-zinc-900/80">
+            {headers.map((h, idx) => (
+              <motion.th
+                key={idx}
+                className="text-left py-3 px-4 text-zinc-300 font-medium text-sm"
+                variants={fadeInUp}
+              >
+                {h.trim().replace(/\*\*/g, '')}
+              </motion.th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, rowIdx) => (
+            <motion.tr
+              key={rowIdx}
+              className="border-b border-zinc-800/50 hover:bg-zinc-800/30 transition-colors"
+              variants={fadeInUp}
+              whileHover={{ x: 4 }}
+            >
+              {row.map((cell, cellIdx) => (
+                <td key={cellIdx} className="py-3 px-4 text-zinc-400 text-sm">
+                  {cell.trim().replace(/\*\*/g, '')}
+                </td>
+              ))}
+            </motion.tr>
+          ))}
+        </tbody>
+      </motion.table>
+    </motion.div>
+  );
+};
+
+// Animated List component
+const AnimatedList = ({ items, ordered = false, index }) => {
+  const ListTag = ordered ? motion.ol : motion.ul;
+
+  return (
+    <ListTag
+      key={`list-${index}`}
+      className="my-4 space-y-2"
+      initial="hidden"
+      animate="visible"
+      variants={staggerContainer}
+    >
+      {items.map((item, idx) => (
+        <motion.li
+          key={idx}
+          className="flex items-start gap-3 text-zinc-400"
+          variants={slideIn}
+          whileHover={{ x: 4 }}
+          transition={{ type: 'spring', stiffness: 300 }}
+        >
+          {ordered ? (
+            <span className="text-amber-400 font-mono text-sm min-w-[1.5rem]">{idx + 1}.</span>
+          ) : (
+            <motion.span
+              className="text-amber-400 mt-1.5"
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+            >
+              •
+            </motion.span>
+          )}
+          <span dangerouslySetInnerHTML={{
+            __html: item
+              .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>')
+              .replace(/`(.*?)`/g, '<code class="bg-zinc-800 px-1.5 py-0.5 rounded text-emerald-400 text-sm">$1</code>')
+          }} />
+        </motion.li>
+      ))}
+    </ListTag>
+  );
+};
+
+// Markdown renderer with animations
 const MarkdownRenderer = ({ content }) => {
   const renderContent = (text) => {
     const lines = text.trim().split('\n');
@@ -4647,6 +4832,7 @@ const MarkdownRenderer = ({ content }) => {
     let inCodeBlock = false;
     let codeContent = '';
     let codeLanguage = '';
+    let elementIndex = 0;
 
     while (i < lines.length) {
       const line = lines[i];
@@ -4660,7 +4846,7 @@ const MarkdownRenderer = ({ content }) => {
         } else {
           inCodeBlock = false;
           elements.push(
-            <CodeBlock key={`code-${i}`} code={codeContent.trim()} language={codeLanguage} />
+            <CodeBlock key={`code-${elementIndex++}`} code={codeContent.trim()} language={codeLanguage} />
           );
         }
         i++;
@@ -4673,24 +4859,49 @@ const MarkdownRenderer = ({ content }) => {
         continue;
       }
 
-      // Headers
+      // Headers with animations
       if (line.startsWith('# ')) {
         elements.push(
-          <h1 key={i} className="text-3xl font-bold text-white mt-8 mb-4">
+          <motion.h1
+            key={elementIndex++}
+            className="text-3xl font-bold text-white mt-8 mb-4 flex items-center gap-3"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4, type: 'spring' }}
+          >
+            <motion.span
+              className="w-1 h-8 bg-gradient-to-b from-amber-400 to-amber-600 rounded-full"
+              initial={{ scaleY: 0 }}
+              animate={{ scaleY: 1 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+            />
             {line.slice(2)}
-          </h1>
+          </motion.h1>
         );
       } else if (line.startsWith('## ')) {
         elements.push(
-          <h2 key={i} className="text-2xl font-semibold text-white mt-8 mb-3">
+          <motion.h2
+            key={elementIndex++}
+            className="text-2xl font-semibold text-white mt-10 mb-4 pb-2 border-b border-zinc-800"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
             {line.slice(3)}
-          </h2>
+          </motion.h2>
         );
       } else if (line.startsWith('### ')) {
         elements.push(
-          <h3 key={i} className="text-xl font-semibold text-white mt-6 mb-2">
+          <motion.h3
+            key={elementIndex++}
+            className="text-xl font-semibold text-white mt-6 mb-3 flex items-center gap-2"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Sparkles className="w-4 h-4 text-amber-400" />
             {line.slice(4)}
-          </h3>
+          </motion.h3>
         );
       }
       // Tables
@@ -4700,36 +4911,13 @@ const MarkdownRenderer = ({ content }) => {
           tableLines.push(lines[i]);
           i++;
         }
-        i--; // Back up one since we'll increment at the end
+        i--;
 
         const headers = tableLines[0].split('|').filter(c => c.trim());
         const rows = tableLines.slice(2).map(row => row.split('|').filter(c => c.trim()));
 
         elements.push(
-          <div key={`table-${i}`} className="my-4 overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="border-b border-zinc-800">
-                  {headers.map((h, idx) => (
-                    <th key={idx} className="text-left py-2 px-3 text-zinc-300 font-medium text-sm">
-                      {h.trim().replace(/\*\*/g, '')}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row, rowIdx) => (
-                  <tr key={rowIdx} className="border-b border-zinc-800/50">
-                    {row.map((cell, cellIdx) => (
-                      <td key={cellIdx} className="py-2 px-3 text-zinc-400 text-sm">
-                        {cell.trim().replace(/\*\*/g, '')}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <AnimatedTable key={elementIndex++} headers={headers} rows={rows} index={elementIndex} />
         );
       }
       // Lists
@@ -4742,18 +4930,7 @@ const MarkdownRenderer = ({ content }) => {
         i--;
 
         elements.push(
-          <ul key={`list-${i}`} className="my-4 space-y-2">
-            {listItems.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-2 text-zinc-400">
-                <span className="text-amber-400 mt-1.5">•</span>
-                <span dangerouslySetInnerHTML={{
-                  __html: item
-                    .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>')
-                    .replace(/`(.*?)`/g, '<code class="bg-zinc-800 px-1 rounded text-emerald-400 text-sm">$1</code>')
-                }} />
-              </li>
-            ))}
-          </ul>
+          <AnimatedList key={elementIndex++} items={listItems} ordered={false} index={elementIndex} />
         );
       }
       // Numbered lists
@@ -4766,29 +4943,25 @@ const MarkdownRenderer = ({ content }) => {
         i--;
 
         elements.push(
-          <ol key={`olist-${i}`} className="my-4 space-y-2">
-            {listItems.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-zinc-400">
-                <span className="text-amber-400 font-mono text-sm">{idx + 1}.</span>
-                <span dangerouslySetInnerHTML={{
-                  __html: item
-                    .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>')
-                    .replace(/`(.*?)`/g, '<code class="bg-zinc-800 px-1 rounded text-emerald-400 text-sm">$1</code>')
-                }} />
-              </li>
-            ))}
-          </ol>
+          <AnimatedList key={elementIndex++} items={listItems} ordered={true} index={elementIndex} />
         );
       }
       // Paragraphs
       else if (line.trim()) {
         elements.push(
-          <p key={i} className="text-zinc-400 leading-relaxed my-4" dangerouslySetInnerHTML={{
-            __html: line
-              .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>')
-              .replace(/`(.*?)`/g, '<code class="bg-zinc-800 px-1.5 py-0.5 rounded text-emerald-400 text-sm">$1</code>')
-              .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-amber-400 hover:underline">$1</a>')
-          }} />
+          <motion.p
+            key={elementIndex++}
+            className="text-zinc-400 leading-relaxed my-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            dangerouslySetInnerHTML={{
+              __html: line
+                .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>')
+                .replace(/`(.*?)`/g, '<code class="bg-zinc-800 px-1.5 py-0.5 rounded text-emerald-400 text-sm font-mono">$1</code>')
+                .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-amber-400 hover:text-amber-300 underline decoration-amber-400/30 hover:decoration-amber-400 transition-colors">$1</a>')
+            }}
+          />
         );
       }
 
@@ -4798,7 +4971,101 @@ const MarkdownRenderer = ({ content }) => {
     return elements;
   };
 
-  return <div className="prose-invert max-w-none">{renderContent(content)}</div>;
+  return (
+    <motion.div
+      className="prose-invert max-w-none"
+      initial="hidden"
+      animate="visible"
+      variants={staggerContainer}
+    >
+      {renderContent(content)}
+    </motion.div>
+  );
+};
+
+// Scroll Progress Indicator
+const ScrollProgress = () => {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  return (
+    <motion.div
+      className="fixed top-16 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 origin-left z-50"
+      style={{ scaleX }}
+    />
+  );
+};
+
+// Animated Sidebar Item
+const SidebarItem = ({ child, activeSection, setActiveSection, setSidebarOpen, index }) => {
+  const isActive = activeSection === child.id;
+
+  return (
+    <motion.button
+      key={child.id}
+      onClick={() => {
+        setActiveSection(child.id);
+        setSidebarOpen(false);
+      }}
+      className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all relative overflow-hidden ${
+        isActive
+          ? 'text-amber-400'
+          : 'text-zinc-500 hover:text-zinc-300'
+      }`}
+      initial={{ opacity: 0, x: -10 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: index * 0.03 }}
+      whileHover={{ x: 4 }}
+    >
+      {isActive && (
+        <motion.div
+          className="absolute inset-0 bg-amber-500/10 rounded-lg"
+          layoutId="activeSection"
+          transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+        />
+      )}
+      <span className="relative z-10">{child.title}</span>
+    </motion.button>
+  );
+};
+
+// Animated Navigation Button
+const NavButton = ({ direction, page, onClick }) => {
+  const isPrev = direction === 'prev';
+
+  return (
+    <motion.button
+      onClick={onClick}
+      className="flex items-center gap-3 px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/50 backdrop-blur-sm text-zinc-400 hover:text-white hover:border-amber-500/50 transition-all group"
+      whileHover={{ scale: 1.02, y: -2 }}
+      whileTap={{ scale: 0.98 }}
+    >
+      {isPrev && (
+        <motion.div
+          className="p-2 rounded-lg bg-zinc-800 group-hover:bg-amber-500/20"
+          whileHover={{ x: -4 }}
+        >
+          <ArrowLeft className="w-4 h-4" />
+        </motion.div>
+      )}
+      <div className={isPrev ? 'text-left' : 'text-right'}>
+        <div className="text-xs text-zinc-600 mb-0.5">{isPrev ? 'Previous' : 'Next'}</div>
+        <div className="text-sm font-medium">{page.title}</div>
+      </div>
+      {!isPrev && (
+        <motion.div
+          className="p-2 rounded-lg bg-zinc-800 group-hover:bg-amber-500/20"
+          whileHover={{ x: 4 }}
+        >
+          <ArrowRight className="w-4 h-4" />
+        </motion.div>
+      )}
+    </motion.button>
+  );
 };
 
 const Documentation = () => {
@@ -4806,6 +5073,8 @@ const Documentation = () => {
   const [expandedSections, setExpandedSections] = useState(['getting-started']);
   const [searchQuery, setSearchQuery] = useState('');
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [searchFocused, setSearchFocused] = useState(false);
+  const mainRef = useRef(null);
 
   // Get current content
   const currentContent = docContent[activeSection] || docContent.introduction;
@@ -4831,6 +5100,17 @@ const Documentation = () => {
     };
   };
 
+  // Filter sections based on search
+  const filteredStructure = searchQuery
+    ? docStructure.map(section => ({
+        ...section,
+        children: section.children.filter(child =>
+          child.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          (docContent[child.id]?.content || '').toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      })).filter(section => section.children.length > 0)
+    : docStructure;
+
   const toggleSection = (sectionId) => {
     setExpandedSections(prev =>
       prev.includes(sectionId)
@@ -4839,159 +5119,313 @@ const Documentation = () => {
     );
   };
 
+  // Scroll to top when section changes
+  useEffect(() => {
+    if (mainRef.current) {
+      mainRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [activeSection]);
+
   const navigation = getNavigation();
   const breadcrumbs = getBreadcrumbs();
 
   return (
     <div className="min-h-screen bg-zinc-950">
+      {/* Scroll Progress */}
+      <ScrollProgress />
+
+      {/* Ambient Background */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl" />
+      </div>
+
       {/* Mobile sidebar toggle */}
-      <button
+      <motion.button
         onClick={() => setSidebarOpen(!sidebarOpen)}
-        className="fixed top-20 left-4 z-50 lg:hidden p-2 bg-zinc-900 border border-zinc-800 rounded-lg"
+        className="fixed top-20 left-4 z-50 lg:hidden p-2 bg-zinc-900/90 backdrop-blur-sm border border-zinc-800 rounded-lg"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
-        {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-      </button>
+        <AnimatePresence mode="wait">
+          {sidebarOpen ? (
+            <motion.div
+              key="close"
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 90, opacity: 0 }}
+            >
+              <X className="w-5 h-5" />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="menu"
+              initial={{ rotate: 90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: -90, opacity: 0 }}
+            >
+              <Menu className="w-5 h-5" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.button>
 
       <div className="flex pt-16">
         {/* Sidebar */}
-        <aside className={`fixed lg:sticky top-16 left-0 h-[calc(100vh-4rem)] w-72 bg-zinc-950 border-r border-zinc-800 overflow-y-auto z-40 transition-transform lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-          {/* Search */}
-          <div className="p-4 border-b border-zinc-800">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
-              <input
-                type="text"
-                placeholder="Search docs..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500/50"
-              />
-            </div>
-          </div>
-
-          {/* Navigation */}
-          <nav className="p-4">
-            {docStructure.map((section) => {
-              const Icon = section.icon;
-              const isExpanded = expandedSections.includes(section.id);
-
-              return (
-                <div key={section.id} className="mb-2">
-                  <button
-                    onClick={() => toggleSection(section.id)}
-                    className="w-full flex items-center justify-between p-2 rounded-lg hover:bg-zinc-900 transition-colors group"
+        <AnimatePresence>
+          <motion.aside
+            className={`fixed lg:sticky top-16 left-0 h-[calc(100vh-4rem)] w-72 bg-zinc-950/95 backdrop-blur-xl border-r border-zinc-800 overflow-y-auto z-40 ${sidebarOpen ? '' : 'max-lg:pointer-events-none'}`}
+            initial={false}
+            animate={{
+              x: sidebarOpen || window.innerWidth >= 1024 ? 0 : -288,
+              opacity: sidebarOpen || window.innerWidth >= 1024 ? 1 : 0
+            }}
+            transition={{ type: 'spring', bounce: 0.1, duration: 0.4 }}
+          >
+            {/* Search */}
+            <div className="p-4 border-b border-zinc-800">
+              <motion.div
+                className="relative"
+                animate={{
+                  scale: searchFocused ? 1.02 : 1,
+                  boxShadow: searchFocused ? '0 0 20px rgba(251, 191, 36, 0.1)' : '0 0 0 rgba(0, 0, 0, 0)'
+                }}
+              >
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
+                <input
+                  type="text"
+                  placeholder="Search docs..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onFocus={() => setSearchFocused(true)}
+                  onBlur={() => setSearchFocused(false)}
+                  className="w-full pl-10 pr-4 py-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500/50 transition-colors"
+                />
+                {searchQuery && (
+                  <motion.button
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white"
+                    onClick={() => setSearchQuery('')}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    whileHover={{ scale: 1.1 }}
                   >
-                    <div className="flex items-center gap-2">
-                      <Icon className="w-4 h-4 text-zinc-500 group-hover:text-amber-400" />
-                      <span className="text-sm font-medium text-zinc-300">{section.title}</span>
-                    </div>
-                    <ChevronDown className={`w-4 h-4 text-zinc-600 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
-                  </button>
-
-                  {isExpanded && (
-                    <div className="ml-6 mt-1 space-y-1">
-                      {section.children.map((child) => (
-                        <button
-                          key={child.id}
-                          onClick={() => {
-                            setActiveSection(child.id);
-                            setSidebarOpen(false);
-                          }}
-                          className={`w-full text-left px-3 py-1.5 rounded text-sm transition-colors ${
-                            activeSection === child.id
-                              ? 'bg-amber-500/10 text-amber-400'
-                              : 'text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900'
-                          }`}
-                        >
-                          {child.title}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </nav>
-
-          {/* Footer links */}
-          <div className="p-4 border-t border-zinc-800 mt-auto">
-            <div className="space-y-2">
-              <a href="#" className="flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-300">
-                <ExternalLink className="w-4 h-4" />
-                GitHub
-              </a>
-              <a href="#" className="flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-300">
-                <MessageSquare className="w-4 h-4" />
-                Discord
-              </a>
+                    <X className="w-4 h-4" />
+                  </motion.button>
+                )}
+              </motion.div>
             </div>
-          </div>
-        </aside>
+
+            {/* Navigation */}
+            <nav className="p-4">
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={staggerContainer}
+              >
+                {filteredStructure.map((section, sectionIndex) => {
+                  const Icon = section.icon;
+                  const isExpanded = expandedSections.includes(section.id) || searchQuery;
+
+                  return (
+                    <motion.div
+                      key={section.id}
+                      className="mb-3"
+                      variants={fadeInUp}
+                    >
+                      <motion.button
+                        onClick={() => toggleSection(section.id)}
+                        className="w-full flex items-center justify-between p-2.5 rounded-lg hover:bg-zinc-900/80 transition-all group"
+                        whileHover={{ x: 2 }}
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <motion.div
+                            className="p-1.5 rounded-md bg-zinc-900 group-hover:bg-amber-500/20 transition-colors"
+                            whileHover={{ rotate: [0, -10, 10, 0] }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <Icon className="w-4 h-4 text-zinc-500 group-hover:text-amber-400 transition-colors" />
+                          </motion.div>
+                          <span className="text-sm font-medium text-zinc-300">{section.title}</span>
+                        </div>
+                        <motion.div
+                          animate={{ rotate: isExpanded ? 180 : 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <ChevronDown className="w-4 h-4 text-zinc-600" />
+                        </motion.div>
+                      </motion.button>
+
+                      <AnimatePresence>
+                        {isExpanded && (
+                          <motion.div
+                            className="ml-4 mt-1 space-y-0.5 border-l border-zinc-800 pl-3"
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            {section.children.map((child, childIndex) => (
+                              <SidebarItem
+                                key={child.id}
+                                child={child}
+                                activeSection={activeSection}
+                                setActiveSection={setActiveSection}
+                                setSidebarOpen={setSidebarOpen}
+                                index={childIndex}
+                              />
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            </nav>
+
+            {/* Footer links */}
+            <div className="p-4 border-t border-zinc-800 mt-auto">
+              <div className="space-y-2">
+                {[
+                  { icon: ExternalLink, label: 'GitHub', href: '#' },
+                  { icon: MessageSquare, label: 'Discord', href: '#' }
+                ].map((link, i) => (
+                  <motion.a
+                    key={link.label}
+                    href={link.href}
+                    className="flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
+                    whileHover={{ x: 4 }}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                  >
+                    <link.icon className="w-4 h-4" />
+                    {link.label}
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+          </motion.aside>
+        </AnimatePresence>
+
+        {/* Sidebar backdrop */}
+        <AnimatePresence>
+          {sidebarOpen && (
+            <motion.div
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 lg:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSidebarOpen(false)}
+            />
+          )}
+        </AnimatePresence>
 
         {/* Main content */}
-        <main className="flex-1 min-w-0">
+        <main ref={mainRef} className="flex-1 min-w-0 relative">
           <div className="max-w-4xl mx-auto px-6 py-12">
             {/* Breadcrumbs */}
-            <div className="flex items-center gap-2 text-sm text-zinc-500 mb-8">
-              <Link to="/" className="hover:text-zinc-300">
-                <Home className="w-4 h-4" />
-              </Link>
-              <ChevronRight className="w-4 h-4" />
-              <Link to="/docs" className="hover:text-zinc-300">Docs</Link>
-              {breadcrumbs.map((crumb, i) => (
-                <span key={i} className="flex items-center gap-2">
-                  <ChevronRight className="w-4 h-4" />
-                  <span className={i === breadcrumbs.length - 1 ? 'text-zinc-300' : ''}>{crumb}</span>
-                </span>
-              ))}
-            </div>
-
-            {/* Content header */}
             <motion.div
-              key={activeSection}
-              initial={{ opacity: 0, y: 20 }}
+              className="flex items-center gap-2 text-sm text-zinc-500 mb-8"
+              initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="mb-8">
-                <h1 className="text-4xl font-bold text-white mb-2">{currentContent.title}</h1>
-                <p className="text-zinc-500">{currentContent.description}</p>
-              </div>
-
-              {/* Content */}
-              <article className="pb-16">
-                <MarkdownRenderer content={currentContent.content} />
-              </article>
-
-              {/* Navigation */}
-              <div className="flex items-center justify-between pt-8 border-t border-zinc-800">
-                {navigation.prev ? (
-                  <button
-                    onClick={() => setActiveSection(navigation.prev.id)}
-                    className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors"
-                  >
-                    <ArrowLeft className="w-4 h-4" />
-                    <div className="text-left">
-                      <div className="text-xs text-zinc-600">Previous</div>
-                      <div className="text-sm">{navigation.prev.title}</div>
-                    </div>
-                  </button>
-                ) : <div />}
-
-                {navigation.next && (
-                  <button
-                    onClick={() => setActiveSection(navigation.next.id)}
-                    className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors"
-                  >
-                    <div className="text-right">
-                      <div className="text-xs text-zinc-600">Next</div>
-                      <div className="text-sm">{navigation.next.title}</div>
-                    </div>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                )}
-              </div>
+              <Link to="/" className="hover:text-zinc-300 transition-colors">
+                <motion.div whileHover={{ scale: 1.1 }}>
+                  <Home className="w-4 h-4" />
+                </motion.div>
+              </Link>
+              <ChevronRight className="w-4 h-4" />
+              <Link to="/docs" className="hover:text-zinc-300 transition-colors">Docs</Link>
+              {breadcrumbs.map((crumb, i) => (
+                <motion.span
+                  key={i}
+                  className="flex items-center gap-2"
+                  initial={{ opacity: 0, x: -5 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <ChevronRight className="w-4 h-4" />
+                  <span className={i === breadcrumbs.length - 1 ? 'text-zinc-300' : ''}>{crumb}</span>
+                </motion.span>
+              ))}
             </motion.div>
+
+            {/* Content */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeSection}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4, type: 'spring', bounce: 0.1 }}
+              >
+                {/* Header */}
+                <motion.div
+                  className="mb-10"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  <motion.div
+                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-medium mb-4"
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <Sparkles className="w-3 h-3" />
+                    Documentation
+                  </motion.div>
+                  <motion.h1
+                    className="text-4xl sm:text-5xl font-bold text-white mb-3"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, type: 'spring' }}
+                  >
+                    {currentContent.title}
+                  </motion.h1>
+                  <motion.p
+                    className="text-lg text-zinc-500"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    {currentContent.description}
+                  </motion.p>
+                </motion.div>
+
+                {/* Content */}
+                <article className="pb-16">
+                  <MarkdownRenderer content={currentContent.content} />
+                </article>
+
+                {/* Navigation */}
+                <motion.div
+                  className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-8 border-t border-zinc-800"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  {navigation.prev ? (
+                    <NavButton
+                      direction="prev"
+                      page={navigation.prev}
+                      onClick={() => setActiveSection(navigation.prev.id)}
+                    />
+                  ) : <div className="hidden sm:block" />}
+
+                  {navigation.next && (
+                    <NavButton
+                      direction="next"
+                      page={navigation.next}
+                      onClick={() => setActiveSection(navigation.next.id)}
+                    />
+                  )}
+                </motion.div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </main>
       </div>
