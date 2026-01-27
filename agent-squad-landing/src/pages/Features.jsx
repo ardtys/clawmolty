@@ -59,7 +59,7 @@ const agents = [
     tagline: 'Security & Compliance',
     description: 'Reviews every line before merge. Scans for OWASP vulnerabilities, credential leaks, and compliance issues. Generates audit trails automatically.',
     icon: Shield,
-    color: 'from-amber-500 to-orange-500',
+    color: 'from-orange-500 to-orange-500',
     capabilities: [
       { title: 'Vulnerability Scan', desc: 'SAST/DAST analysis', icon: Bug },
       { title: 'Secret Detection', desc: 'Catches leaked credentials', icon: Lock },
@@ -278,7 +278,7 @@ const Features = () => {
               Use Cases
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              See How Teams Use omniclawd
+              See How Teams Use omnimolty
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
               From feature development to release management, see how agents collaborate on real tasks.
@@ -357,7 +357,7 @@ const Features = () => {
             {/* Workflow Steps */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {[
-                { step: 1, title: 'You Describe', desc: 'Tell omniclawd what you want in plain language', icon: MessageCircle, color: 'from-white/20 to-white/10' },
+                { step: 1, title: 'You Describe', desc: 'Tell omnimolty what you want in plain language', icon: MessageCircle, color: 'from-white/20 to-white/10' },
                 { step: 2, title: 'Architect Plans', desc: 'Breaks down into tasks and assigns to agents', icon: Brain, color: 'from-cyan-500 to-purple-600' },
                 { step: 3, title: 'Agents Execute', desc: 'Engineer codes, Auditor reviews, Growth documents', icon: Sparkles, color: 'from-blue-500 to-cyan-500' },
                 { step: 4, title: 'You Review', desc: 'Approve changes, merge PRs, ship to production', icon: CheckCircle2, color: 'from-green-500 to-emerald-500' },
@@ -455,7 +455,7 @@ const Features = () => {
               </h2>
 
               <p className="text-white/60 mb-8 leading-relaxed">
-                omniclawd runs entirely on your machine. No cloud calls, no data leaving your
+                omnimolty runs entirely on your machine. No cloud calls, no data leaving your
                 infrastructure, no network latency. Your code stays private while you get
                 instant responses.
               </p>
@@ -530,7 +530,7 @@ const Features = () => {
               Ready to Deploy Your Squad?
             </h2>
             <p className="text-white/60 mb-8 max-w-xl mx-auto">
-              Install omniclawd and start building in minutes. No cloud accounts, no complex setup.
+              Install omnimolty and start building in minutes. No cloud accounts, no complex setup.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/pricing" className="btn-primary flex items-center justify-center gap-2">

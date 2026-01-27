@@ -58,7 +58,7 @@ const plans = [
     description: 'For organizations requiring dedicated support and compliance.',
     price: { monthly: 'Custom', yearly: 'Custom' },
     icon: Building2,
-    color: 'from-amber-500 to-orange-500',
+    color: 'from-orange-500 to-orange-500',
     popular: false,
     features: [
       { text: 'Unlimited Projects', included: true },
@@ -109,7 +109,7 @@ const faqs = [
     answer: 'A task is any discrete action an agent performs: writing a function, running a test, generating a changelog entry, or scanning for vulnerabilities. Complex operations like "build a login system" will be broken into multiple tasks by the Architect.'
   },
   {
-    question: 'Can I try omniclawd before purchasing?',
+    question: 'Can I try omnimolty before purchasing?',
     answer: 'Yes! All plans include a 14-day free trial with full access to every feature. No credit card required. Start building immediately and only pay when you\'re convinced.'
   },
   {
@@ -122,11 +122,11 @@ const faqs = [
   },
   {
     question: 'Do you offer refunds?',
-    answer: 'Yes. We offer a 30-day money-back guarantee on all paid plans. If omniclawd isn\'t right for you, contact support for a full refund—no questions asked.'
+    answer: 'Yes. We offer a 30-day money-back guarantee on all paid plans. If omnimolty isn\'t right for you, contact support for a full refund—no questions asked.'
   },
   {
-    question: 'Is my code secure with omniclawd?',
-    answer: 'Your code never leaves your machine. omniclawd runs 100% locally. We don\'t have access to your codebase, credentials, or any project data. Everything stays on-premise.'
+    question: 'Is my code secure with omnimolty?',
+    answer: 'Your code never leaves your machine. omnimolty runs 100% locally. We don\'t have access to your codebase, credentials, or any project data. Everything stays on-premise.'
   },
   {
     question: 'What payment methods do you accept?',
@@ -361,7 +361,7 @@ const Pricing = () => {
                   </th>
                   <th className="text-center p-4 text-white font-medium">
                     <div className="flex flex-col items-center">
-                      <Building2 className="w-5 h-5 text-amber-400 mb-1" />
+                      <Building2 className="w-5 h-5 text-orange-400 mb-1" />
                       Enterprise
                     </div>
                   </th>
@@ -465,7 +465,7 @@ const Pricing = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-4">Every Plan Includes</h2>
-            <p className="text-white/60">Core features available to all omniclawd users.</p>
+            <p className="text-white/60">Core features available to all omnimolty users.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -554,7 +554,7 @@ const Pricing = () => {
             viewport={{ once: true }}
             className="glass-card p-8 md:p-12 text-center"
           >
-            <Building2 className="w-12 h-12 text-amber-400 mx-auto mb-6" />
+            <Building2 className="w-12 h-12 text-orange-400 mx-auto mb-6" />
             <h2 className="text-3xl font-bold text-white mb-4">
               Need Enterprise Features?
             </h2>

@@ -12,7 +12,7 @@ const useCases = [
     icon: Rocket,
     title: 'SaaS Startups',
     subtitle: 'Ship faster without hiring',
-    description: 'Early-stage startups use omniclawd to maintain development velocity without burning through runway on expensive engineering hires. One founder ran a solo SaaS to $50k MRR with omniclawd handling 80% of the coding.',
+    description: 'Early-stage startups use omnimolty to maintain development velocity without burning through runway on expensive engineering hires. One founder ran a solo SaaS to $50k MRR with omnimolty handling 80% of the coding.',
     metrics: [
       { label: 'Avg time saved', value: '32 hrs/week' },
       { label: 'Bug reduction', value: '47%' },
@@ -25,7 +25,7 @@ const useCases = [
       { step: 'Auditor reviews and approves', icon: CheckCircle2 }
     ],
     testimonial: {
-      quote: "I went from idea to production in 3 weeks. omniclawd wrote 90% of my backend while I focused on talking to customers.",
+      quote: "I went from idea to production in 3 weeks. omnimolty wrote 90% of my backend while I focused on talking to customers.",
       author: 'Marcus Chen',
       role: 'Founder, DataSync.io'
     }
@@ -35,7 +35,7 @@ const useCases = [
     icon: ShoppingCart,
     title: 'E-commerce Teams',
     subtitle: 'Automate the boring stuff',
-    description: 'E-commerce engineering teams offload repetitive tasks like inventory sync integrations, payment gateway updates, and CMS migrations to omniclawd while focusing on customer-facing features.',
+    description: 'E-commerce engineering teams offload repetitive tasks like inventory sync integrations, payment gateway updates, and CMS migrations to omnimolty while focusing on customer-facing features.',
     metrics: [
       { label: 'Integration time', value: '-65%' },
       { label: 'Incidents reduced', value: '52%' },
@@ -58,7 +58,7 @@ const useCases = [
     icon: Building2,
     title: 'Enterprise DevOps',
     subtitle: 'Scale without complexity',
-    description: 'Large organizations deploy omniclawd for internal tooling, CI/CD optimization, and technical debt reduction. On-premise deployment satisfies security requirements while accelerating delivery.',
+    description: 'Large organizations deploy omnimolty for internal tooling, CI/CD optimization, and technical debt reduction. On-premise deployment satisfies security requirements while accelerating delivery.',
     metrics: [
       { label: 'CI/CD time', value: '-70%' },
       { label: 'Tech debt cleared', value: '2x faster' },
@@ -71,7 +71,7 @@ const useCases = [
       { step: 'Automated documentation', icon: CheckCircle2 }
     ],
     testimonial: {
-      quote: "omniclawd helped us modernize a 15-year-old codebase without disrupting production. Security loved the audit trails.",
+      quote: "omnimolty helped us modernize a 15-year-old codebase without disrupting production. Security loved the audit trails.",
       author: 'James Morrison',
       role: 'VP Engineering, Fortune 500'
     }
@@ -81,7 +81,7 @@ const useCases = [
     icon: Stethoscope,
     title: 'Healthcare & Fintech',
     subtitle: 'Compliance-first development',
-    description: 'Regulated industries require on-premise solutions. omniclawd runs entirely within your security perimeter with HIPAA and SOC2 compliance documentation built into every workflow.',
+    description: 'Regulated industries require on-premise solutions. omnimolty runs entirely within your security perimeter with HIPAA and SOC2 compliance documentation built into every workflow.',
     metrics: [
       { label: 'Compliance docs', value: 'Auto-generated' },
       { label: 'Audit prep time', value: '-80%' },
@@ -94,7 +94,7 @@ const useCases = [
       { step: 'Auto-generated compliance reports', icon: CheckCircle2 }
     ],
     testimonial: {
-      quote: "We passed our SOC2 audit with flying colors. omniclawd's audit trails impressed our assessors.",
+      quote: "We passed our SOC2 audit with flying colors. omnimolty's audit trails impressed our assessors.",
       author: 'Dr. Emily Watson',
       role: 'CTO, HealthData Systems'
     }
@@ -124,7 +124,7 @@ const UseCases = () => {
           </h2>
           <p className="text-xl text-white/60 max-w-2xl mx-auto">
             From solo founders to enterprise teams, see how organizations
-            are using omniclawd to transform their development process.
+            are using omnimolty to transform their development process.
           </p>
         </motion.div>
 

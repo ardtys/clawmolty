@@ -11,7 +11,13 @@
       "Bash(dir:*)",
       "Bash(pip install:*)",
       "Bash(python:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(node -e:*)",
+      "Bash(node create-favicon.cjs:*)",
+      "Bash(cat:*)",
+      "Bash(npx png-to-ico:*)",
+      "Bash(find:*)",
+      "Bash(node remove-bg.cjs:*)"
     ]
   }
 }

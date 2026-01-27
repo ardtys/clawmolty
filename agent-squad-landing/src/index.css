@@ -12,14 +12,26 @@
   --color-charcoal-700: #27272a;
   --color-charcoal-600: #3f3f46;
 
-  /* Accent - refined cyan */
-  --color-accent: #06b6d4;
-  --color-accent-light: #22d3ee;
-  --color-accent-muted: #0891b2;
+  /* Accent - Shrimp/Coral color */
+  --color-accent: #FF6B4A;
+  --color-accent-light: #FF8566;
+  --color-accent-muted: #E85A3D;
+
+  /* Shrimp color palette */
+  --color-shrimp-50: #FFF5F2;
+  --color-shrimp-100: #FFE8E2;
+  --color-shrimp-200: #FFD1C7;
+  --color-shrimp-300: #FFB09E;
+  --color-shrimp-400: #FF8566;
+  --color-shrimp-500: #FF6B4A;
+  --color-shrimp-600: #E85A3D;
+  --color-shrimp-700: #C44A32;
+  --color-shrimp-800: #A33D29;
+  --color-shrimp-900: #7A2E1F;
 
   /* Legacy compatibility */
-  --color-indigo-electric: #06b6d4;
-  --color-indigo-glow: #22d3ee;
+  --color-indigo-electric: #FF6B4A;
+  --color-indigo-glow: #FF8566;
 
   --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-family-mono: 'JetBrains Mono', 'SF Mono', monospace;
@@ -44,7 +56,7 @@ body {
 }
 
 ::selection {
-  background-color: rgba(6, 182, 212, 0.3);
+  background-color: rgba(255, 107, 74, 0.3);
   color: white;
 }
 
@@ -126,7 +138,7 @@ body {
 
 /* Focus styles */
 input:focus, button:focus-visible {
-  outline: 2px solid rgba(6, 182, 212, 0.5);
+  outline: 2px solid rgba(255, 107, 74, 0.5);
   outline-offset: 2px;
 }
 

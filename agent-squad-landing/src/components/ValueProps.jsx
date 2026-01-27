@@ -5,7 +5,7 @@ const valueProps = [
   {
     icon: Shield,
     title: 'Your Code Never Leaves',
-    description: 'Unlike cloud-based AI assistants that send your code to external servers, omniclawd runs entirely on your infrastructure. Your proprietary code, trade secrets, and customer data stay exactly where they belong—under your control.',
+    description: 'Unlike cloud-based AI assistants that send your code to external servers, omnimolty runs entirely on your infrastructure. Your proprietary code, trade secrets, and customer data stay exactly where they belong—under your control.',
     highlight: '100% Local',
     color: 'from-cyan-500 to-teal-500',
     detail: 'Supports air-gapped deployments for maximum security'
@@ -13,7 +13,7 @@ const valueProps = [
   {
     icon: Zap,
     title: 'Instant Response Times',
-    description: 'No waiting for API calls to complete. No cloud latency. omniclawd executes directly on your machine with sub-10ms response times. When you need a file read, a command run, or code written—it happens immediately.',
+    description: 'No waiting for API calls to complete. No cloud latency. omnimolty executes directly on your machine with sub-10ms response times. When you need a file read, a command run, or code written—it happens immediately.',
     highlight: '<10ms Latency',
     color: 'from-teal-500 to-emerald-500',
     detail: 'Direct access to filesystem, terminal, and databases'
@@ -21,7 +21,7 @@ const valueProps = [
   {
     icon: Brain,
     title: 'Context That Compounds',
-    description: 'Every session builds on the last. omniclawd maintains persistent memory of your codebase architecture, your preferred patterns, your past decisions, and your team\'s conventions. The longer you use it, the more it understands.',
+    description: 'Every session builds on the last. omnimolty maintains persistent memory of your codebase architecture, your preferred patterns, your past decisions, and your team\'s conventions. The longer you use it, the more it understands.',
     highlight: 'Adaptive Memory',
     color: 'from-sky-500 to-cyan-500',
     detail: 'Learns your coding style and project structure over time'
@@ -36,7 +36,7 @@ const comparisonPoints = [
     details: ['Recruiting takes months', 'Onboarding takes weeks', 'Limited availability']
   },
   {
-    label: 'omniclawd Pro',
+    label: 'omnimolty Pro',
     cost: '$1,788/year',
     icon: Zap,
     details: ['Deploys in minutes', 'Works 24/7', 'Scales instantly'],
@@ -81,7 +81,7 @@ const ValueProps = () => {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-sm font-medium mb-6">
-            Why Choose omniclawd
+            Why Choose omnimolty
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             The Advantages You Can't Get
@@ -89,7 +89,7 @@ const ValueProps = () => {
             <span className="text-white/60">From Cloud-Based AI</span>
           </h2>
           <p className="text-xl text-white/60 max-w-3xl mx-auto">
-            We built omniclawd for teams who can't compromise on security, performance, or control.
+            We built omnimolty for teams who can't compromise on security, performance, or control.
             Here's what makes local-first AI different.
           </p>
         </motion.div>

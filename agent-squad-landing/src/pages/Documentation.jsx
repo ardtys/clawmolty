@@ -138,16 +138,16 @@ const docStructure = [
 // Documentation content
 const docContent = {
   introduction: {
-    title: 'Introduction to OmniClawd',
+    title: 'Introduction to OmniMolty',
     description: 'Your autonomous digital enterprise',
     content: `
-# Introduction to OmniClawd
+# Introduction to OmniMolty
 
-Welcome to OmniClawd — your autonomous AI enterprise that lives on your infrastructure.
+Welcome to OmniMolty — your autonomous AI enterprise that lives on your infrastructure.
 
-## What is OmniClawd?
+## What is OmniMolty?
 
-OmniClawd is a revolutionary platform that transforms your vision into a self-sufficient digital enterprise. Unlike single-task AI tools, OmniClawd deploys a complete **C-Suite Squad** of specialized AI agents that work together autonomously to drive your business forward.
+OmniMolty is a revolutionary platform that transforms your vision into a self-sufficient digital enterprise. Unlike single-task AI tools, OmniMolty deploys a complete **C-Suite Squad** of specialized AI agents that work together autonomously to drive your business forward.
 
 ## The C-Suite Squad
 
@@ -170,11 +170,11 @@ Your digital organization consists of four specialized agents:
 
 ## How It's Different
 
-Traditional AI assistants wait for your commands. OmniClawd agents are **proactive** — they monitor, plan, execute, and report autonomously. They don't just advise; they build your business.
+Traditional AI assistants wait for your commands. OmniMolty agents are **proactive** — they monitor, plan, execute, and report autonomously. They don't just advise; they build your business.
 
 \`\`\`bash
 # Deploy your squad with one command
-omniclawd deploy --squad=full --mode=autonomous
+omnimolty deploy --squad=full --mode=autonomous
 \`\`\`
 
 Ready to get started? Continue to [Installation](/docs#installation).
@@ -182,20 +182,20 @@ Ready to get started? Continue to [Installation](/docs#installation).
   },
   installation: {
     title: 'Installation',
-    description: 'Install OmniClawd on your machine',
+    description: 'Install OmniMolty on your machine',
     content: `
 # Installation
 
-OmniClawd runs locally on your infrastructure. Choose your platform below.
+OmniMolty runs locally on your infrastructure. Choose your platform below.
 
 ## macOS
 
 \`\`\`bash
 # Using Homebrew (recommended)
-brew install omniclawd
+brew install omnimolty
 
 # Or using curl
-curl -fsSL https://get.omniclawd.dev | bash
+curl -fsSL https://get.omnimolty.dev | bash
 \`\`\`
 
 Supports Apple Silicon (M1/M2/M3/M4) and Intel Macs.
@@ -204,10 +204,10 @@ Supports Apple Silicon (M1/M2/M3/M4) and Intel Macs.
 
 \`\`\`bash
 # Ubuntu/Debian
-curl -fsSL https://get.omniclawd.dev | bash
+curl -fsSL https://get.omnimolty.dev | bash
 
 # Or using apt
-sudo apt install omniclawd
+sudo apt install omnimolty
 \`\`\`
 
 Supports Ubuntu 20.04+, Debian 11+, Fedora 36+.
@@ -216,10 +216,10 @@ Supports Ubuntu 20.04+, Debian 11+, Fedora 36+.
 
 \`\`\`bash
 # Using winget
-winget install omniclawd
+winget install omnimolty
 
 # Or in WSL2
-curl -fsSL https://get.omniclawd.dev | bash
+curl -fsSL https://get.omnimolty.dev | bash
 \`\`\`
 
 Requires Windows 10/11 with WSL2 enabled.
@@ -227,15 +227,15 @@ Requires Windows 10/11 with WSL2 enabled.
 ## Docker
 
 \`\`\`bash
-docker pull omniclawd/omniclawd:latest
-docker run -v $(pwd):/workspace omniclawd/omniclawd start
+docker pull omnimolty/omnimolty:latest
+docker run -v $(pwd):/workspace omnimolty/omnimolty start
 \`\`\`
 
 ## Verify Installation
 
 \`\`\`bash
-omniclawd --version
-# omniclawd v2.1.0
+omnimolty --version
+# omnimolty v2.1.0
 \`\`\`
 
 ## Next Steps
@@ -257,23 +257,23 @@ Navigate to your project directory and run:
 
 \`\`\`bash
 cd your-project
-omniclawd init
+omnimolty init
 \`\`\`
 
 This will:
 - Scan your codebase structure
 - Detect language and frameworks
-- Create \`.omniclawd/\` config folder
+- Create \`.omnimolty/\` config folder
 
 ## Step 2: Configure Your Squad
 
 Open the configuration wizard:
 
 \`\`\`bash
-omniclawd config
+omnimolty config
 \`\`\`
 
-Or edit \`.omniclawd/config.yaml\` directly:
+Or edit \`.omnimolty/config.yaml\` directly:
 
 \`\`\`yaml
 project:
@@ -299,7 +299,7 @@ notifications:
 ## Step 3: Deploy Your Squad
 
 \`\`\`bash
-omniclawd deploy --mode=autonomous
+omnimolty deploy --mode=autonomous
 \`\`\`
 
 Your squad is now active!
@@ -307,7 +307,7 @@ Your squad is now active!
 ## Step 4: Assign Your First Task
 
 \`\`\`bash
-omniclawd task "Build user authentication with JWT"
+omnimolty task "Build user authentication with JWT"
 \`\`\`
 
 Watch your agents collaborate in real-time:
@@ -333,7 +333,7 @@ Watch your agents collaborate in real-time:
     content: `
 # System Requirements
 
-OmniClawd is designed to run efficiently on modern hardware.
+OmniMolty is designed to run efficiently on modern hardware.
 
 ## Minimum Requirements
 
@@ -364,7 +364,7 @@ For 24/7 autonomous operation, we recommend:
 
 ## Software Dependencies
 
-OmniClawd automatically manages these dependencies:
+OmniMolty automatically manages these dependencies:
 
 - Node.js 18+
 - Python 3.10+
@@ -381,7 +381,7 @@ For faster AI processing:
 
 ## Network Requirements
 
-OmniClawd works **100% offline** after initial setup.
+OmniMolty works **100% offline** after initial setup.
 
 Optional network access for:
 - License validation (can be disabled)
@@ -451,13 +451,13 @@ The Architect:
 
 \`\`\`bash
 # Assign task to Architect
-omniclawd task "Launch new feature by Friday"
+omnimolty task "Launch new feature by Friday"
 
 # Check Architect's current plan
-omniclawd status --agent=architect
+omnimolty status --agent=architect
 
 # View decision history
-omniclawd logs --agent=architect --type=decisions
+omnimolty logs --agent=architect --type=decisions
 \`\`\`
     `,
   },
@@ -530,13 +530,13 @@ agents:
 
 \`\`\`bash
 # Direct task to Engineer
-omniclawd task "Fix memory leak in DataProcessor" --agent=engineer
+omnimolty task "Fix memory leak in DataProcessor" --agent=engineer
 
 # View Engineer's activity
-omniclawd logs --agent=engineer --follow
+omnimolty logs --agent=engineer --follow
 
 # Check code coverage
-omniclawd status --agent=engineer --metrics
+omnimolty status --agent=engineer --metrics
 \`\`\`
     `,
   },
@@ -619,13 +619,13 @@ agents:
 
 \`\`\`bash
 # Research competitors
-omniclawd task "Analyze competitor pricing" --agent=growth
+omnimolty task "Analyze competitor pricing" --agent=growth
 
 # Generate content
-omniclawd task "Write blog post about AI automation"
+omnimolty task "Write blog post about AI automation"
 
 # View social metrics
-omniclawd status --agent=growth --metrics
+omnimolty status --agent=growth --metrics
 \`\`\`
     `,
   },
@@ -705,13 +705,13 @@ agents:
 
 \`\`\`bash
 # Generate invoice
-omniclawd task "Invoice client for Project Alpha"
+omnimolty task "Invoice client for Project Alpha"
 
 # Run security scan
-omniclawd audit --type=security
+omnimolty audit --type=security
 
 # Check compliance status
-omniclawd status --agent=auditor --compliance
+omnimolty status --agent=auditor --compliance
 \`\`\`
     `,
   },
@@ -721,7 +721,7 @@ omniclawd status --agent=auditor --compliance
     content: `
 # Agent Communication
 
-OmniClawd agents communicate using the **Model Context Protocol (MCP)**, enabling seamless collaboration and context sharing.
+OmniMolty agents communicate using the **Model Context Protocol (MCP)**, enabling seamless collaboration and context sharing.
 
 ## How It Works
 
@@ -791,13 +791,13 @@ action:
 
 \`\`\`bash
 # View all agent messages
-omniclawd logs --type=mcp
+omnimolty logs --type=mcp
 
 # View specific agent communication
-omniclawd logs --agent=architect --type=messages
+omnimolty logs --agent=architect --type=messages
 
 # Real-time monitoring
-omniclawd monitor --agents=all
+omnimolty monitor --agents=all
 \`\`\`
     `,
   },
@@ -807,7 +807,7 @@ omniclawd monitor --agents=all
     content: `
 # Proactive Heartbeat
 
-The Proactive Heartbeat is OmniClawd's autonomous operation system. Unlike reactive AI that waits for commands, your squad continuously monitors, plans, and acts.
+The Proactive Heartbeat is OmniMolty's autonomous operation system. Unlike reactive AI that waits for commands, your squad continuously monitors, plans, and acts.
 
 ## The Loop
 
@@ -882,7 +882,7 @@ heartbeat:
 Or pause temporarily:
 
 \`\`\`bash
-omniclawd pause --duration=4h
+omnimolty pause --duration=4h
 \`\`\`
     `,
   },
@@ -918,7 +918,7 @@ Every day at your configured time, The Architect delivers a comprehensive daily 
 None detected.
 
 ---
-*Generated by OmniClawd at 08:00 AM*
+*Generated by OmniMolty at 08:00 AM*
 \`\`\`
 
 ## Configuration
@@ -972,10 +972,10 @@ notifications:
 
 \`\`\`bash
 # Generate standup now
-omniclawd standup
+omnimolty standup
 
 # Generate and send
-omniclawd standup --send
+omnimolty standup --send
 \`\`\`
     `,
   },
@@ -985,12 +985,12 @@ omniclawd standup --send
     content: `
 # Configuration File
 
-OmniClawd uses a YAML configuration file stored at \`.omniclawd/config.yaml\`.
+OmniMolty uses a YAML configuration file stored at \`.omnimolty/config.yaml\`.
 
 ## Full Example
 
 \`\`\`yaml
-# .omniclawd/config.yaml
+# .omnimolty/config.yaml
 
 # Project settings
 project:
@@ -1083,10 +1083,10 @@ integrations:
 
 \`\`\`bash
 # Validate config file
-omniclawd config --validate
+omnimolty config --validate
 
 # Show current config
-omniclawd config --show
+omnimolty config --show
 \`\`\`
     `,
   },
@@ -1096,77 +1096,77 @@ omniclawd config --show
     content: `
 # CLI Commands
 
-Complete reference for OmniClawd CLI commands.
+Complete reference for OmniMolty CLI commands.
 
 ## Core Commands
 
 | Command | Description |
 |---------|-------------|
-| \`omniclawd init\` | Initialize OmniClawd in current directory |
-| \`omniclawd deploy\` | Deploy the agent squad |
-| \`omniclawd stop\` | Stop all running agents |
-| \`omniclawd status\` | View current status |
+| \`omnimolty init\` | Initialize OmniMolty in current directory |
+| \`omnimolty deploy\` | Deploy the agent squad |
+| \`omnimolty stop\` | Stop all running agents |
+| \`omnimolty status\` | View current status |
 
 ## Task Commands
 
 | Command | Description |
 |---------|-------------|
-| \`omniclawd task "..."\` | Assign a new task |
-| \`omniclawd tasks\` | List all tasks |
-| \`omniclawd tasks --pending\` | List pending tasks |
-| \`omniclawd task cancel <id>\` | Cancel a task |
+| \`omnimolty task "..."\` | Assign a new task |
+| \`omnimolty tasks\` | List all tasks |
+| \`omnimolty tasks --pending\` | List pending tasks |
+| \`omnimolty task cancel <id>\` | Cancel a task |
 
 ## Agent Commands
 
 | Command | Description |
 |---------|-------------|
-| \`omniclawd agents\` | List all agents |
-| \`omniclawd logs --agent=<name>\` | View agent logs |
-| \`omniclawd pause --agent=<name>\` | Pause an agent |
-| \`omniclawd resume --agent=<name>\` | Resume an agent |
+| \`omnimolty agents\` | List all agents |
+| \`omnimolty logs --agent=<name>\` | View agent logs |
+| \`omnimolty pause --agent=<name>\` | Pause an agent |
+| \`omnimolty resume --agent=<name>\` | Resume an agent |
 
 ## Configuration Commands
 
 | Command | Description |
 |---------|-------------|
-| \`omniclawd config\` | Open config wizard |
-| \`omniclawd config --show\` | Show current config |
-| \`omniclawd config --validate\` | Validate config |
-| \`omniclawd config --reset\` | Reset to defaults |
+| \`omnimolty config\` | Open config wizard |
+| \`omnimolty config --show\` | Show current config |
+| \`omnimolty config --validate\` | Validate config |
+| \`omnimolty config --reset\` | Reset to defaults |
 
 ## Utility Commands
 
 | Command | Description |
 |---------|-------------|
-| \`omniclawd standup\` | Generate standup report |
-| \`omniclawd audit\` | Run security audit |
-| \`omniclawd monitor\` | Real-time monitoring |
-| \`omniclawd upgrade\` | Upgrade OmniClawd |
+| \`omnimolty standup\` | Generate standup report |
+| \`omnimolty audit\` | Run security audit |
+| \`omnimolty monitor\` | Real-time monitoring |
+| \`omnimolty upgrade\` | Upgrade OmniMolty |
 
 ## Examples
 
 \`\`\`bash
 # Deploy with specific agents
-omniclawd deploy --agents=architect,engineer
+omnimolty deploy --agents=architect,engineer
 
 # Assign high-priority task
-omniclawd task "Fix production bug" --priority=high
+omnimolty task "Fix production bug" --priority=high
 
 # View logs in real-time
-omniclawd logs --follow
+omnimolty logs --follow
 
 # Export configuration
-omniclawd config --export > backup.yaml
+omnimolty config --export > backup.yaml
 \`\`\`
     `,
   },
   'local-deployment': {
     title: 'Local Deployment',
-    description: 'Running OmniClawd on your hardware',
+    description: 'Running OmniMolty on your hardware',
     content: `
 # Local Deployment
 
-OmniClawd is designed for 100% local execution. Your code and data never leave your infrastructure.
+OmniMolty is designed for 100% local execution. Your code and data never leave your infrastructure.
 
 ## Deployment Options
 
@@ -1174,7 +1174,7 @@ OmniClawd is designed for 100% local execution. Your code and data never leave y
 
 \`\`\`bash
 # Install and run directly
-omniclawd deploy --mode=autonomous
+omnimolty deploy --mode=autonomous
 \`\`\`
 
 Best for: Development machines, dedicated servers
@@ -1183,10 +1183,10 @@ Best for: Development machines, dedicated servers
 
 \`\`\`bash
 docker run -d \\
-  --name omniclawd \\
+  --name omnimolty \\
   -v $(pwd):/workspace \\
-  -v ~/.omniclawd:/root/.omniclawd \\
-  omniclawd/omniclawd:latest \\
+  -v ~/.omnimolty:/root/.omnimolty \\
+  omnimolty/omnimolty:latest \\
   deploy --mode=autonomous
 \`\`\`
 
@@ -1196,11 +1196,11 @@ Best for: Isolated environments, CI/CD
 
 \`\`\`bash
 # Install as system service
-sudo omniclawd service install
+sudo omnimolty service install
 
 # Start service
-sudo systemctl start omniclawd
-sudo systemctl enable omniclawd
+sudo systemctl start omnimolty
+sudo systemctl enable omnimolty
 \`\`\`
 
 Best for: 24/7 operation on Linux servers
@@ -1209,10 +1209,10 @@ Best for: 24/7 operation on Linux servers
 
 \`\`\`bash
 # Install as launch daemon
-omniclawd service install --macos
+omnimolty service install --macos
 
 # Start automatically on boot
-launchctl load ~/Library/LaunchAgents/com.omniclawd.plist
+launchctl load ~/Library/LaunchAgents/com.omnimolty.plist
 \`\`\`
 
 Best for: 24/7 operation on Mac Mini
@@ -1228,7 +1228,7 @@ Best for: 24/7 operation on Mac Mini
 
 ## Network Configuration
 
-OmniClawd works offline, but for integrations:
+OmniMolty works offline, but for integrations:
 
 \`\`\`yaml
 # Allow specific outbound connections
@@ -1246,13 +1246,13 @@ network:
 
 \`\`\`bash
 # Check health
-omniclawd health
+omnimolty health
 
 # View resource usage
-omniclawd status --resources
+omnimolty status --resources
 
 # Real-time monitoring
-omniclawd monitor --dashboard
+omnimolty monitor --dashboard
 \`\`\`
     `,
   },
@@ -1262,7 +1262,7 @@ omniclawd monitor --dashboard
     content: `
 # MCP Protocol
 
-The Model Context Protocol (MCP) is the communication backbone of OmniClawd, enabling agents to share context and collaborate seamlessly.
+The Model Context Protocol (MCP) is the communication backbone of OmniMolty, enabling agents to share context and collaborate seamlessly.
 
 ## What is MCP?
 
@@ -1347,13 +1347,13 @@ mcp:
 
 \`\`\`bash
 # View MCP messages
-omniclawd logs --type=mcp
+omnimolty logs --type=mcp
 
 # Debug mode
-omniclawd deploy --mcp-debug
+omnimolty deploy --mcp-debug
 
 # Message inspector
-omniclawd mcp inspect
+omnimolty mcp inspect
 \`\`\`
     `,
   },
@@ -1363,7 +1363,7 @@ omniclawd mcp inspect
     content: `
 # Vector Database
 
-The vector database serves as OmniClawd's "long-term memory," enabling your squad to remember past decisions, learnings, and project context.
+The vector database serves as OmniMolty's "long-term memory," enabling your squad to remember past decisions, learnings, and project context.
 
 ## Why Vector Storage?
 
@@ -1379,7 +1379,7 @@ Traditional databases store exact matches. Vector databases store **semantic mea
 \`\`\`yaml
 memory:
   backend: "chroma"
-  path: ".omniclawd/memory"
+  path: ".omnimolty/memory"
   embedding_model: "default"
 \`\`\`
 
@@ -1390,7 +1390,7 @@ Best for: Local development, single projects
 memory:
   backend: "pinecone"
   api_key: \${PINECONE_API_KEY}
-  index: "omniclawd-memory"
+  index: "omnimolty-memory"
 \`\`\`
 
 Best for: Cloud deployments, large scale
@@ -1400,7 +1400,7 @@ Best for: Cloud deployments, large scale
 memory:
   backend: "qdrant"
   url: "http://localhost:6333"
-  collection: "omniclawd"
+  collection: "omnimolty"
 \`\`\`
 
 Best for: Self-hosted, high performance
@@ -1418,16 +1418,16 @@ Best for: Self-hosted, high performance
 
 \`\`\`bash
 # View memory stats
-omniclawd memory stats
+omnimolty memory stats
 
 # Search memory
-omniclawd memory search "authentication patterns"
+omnimolty memory search "authentication patterns"
 
 # Export memory
-omniclawd memory export > backup.json
+omnimolty memory export > backup.json
 
 # Clear memory (careful!)
-omniclawd memory clear --confirm
+omnimolty memory clear --confirm
 \`\`\`
 
 ## Configuration
@@ -1459,7 +1459,7 @@ memory:
     content: `
 # Data Sovereignty
 
-OmniClawd is built on a fundamental principle: **your data never leaves your infrastructure**.
+OmniMolty is built on a fundamental principle: **your data never leaves your infrastructure**.
 
 ## Zero Cloud Dependency
 
@@ -1477,7 +1477,7 @@ OmniClawd is built on a fundamental principle: **your data never leaves your inf
 models:
   provider: "local"
   model: "llama3.1-70b"
-  path: "~/.omniclawd/models"
+  path: "~/.omnimolty/models"
 \`\`\`
 100% offline, no external API calls.
 
@@ -1512,7 +1512,7 @@ network:
 ┌────────────────────────────────────────────┐
 │              YOUR INFRASTRUCTURE           │
 │  ┌──────────┐  ┌──────────┐  ┌──────────┐ │
-│  │ Your     │  │OmniClawd │  │ Vector   │ │
+│  │ Your     │  │OmniMolty │  │ Vector   │ │
 │  │ Codebase │─►│ Agents   │─►│ Memory   │ │
 │  └──────────┘  └──────────┘  └──────────┘ │
 │                     │                      │
@@ -1534,13 +1534,13 @@ network:
 
 \`\`\`bash
 # Verify no outbound connections
-omniclawd audit --network
+omnimolty audit --network
 
 # View all external requests
-omniclawd logs --type=network
+omnimolty logs --type=network
 
 # Run in isolated mode
-omniclawd deploy --network=none
+omnimolty deploy --network=none
 \`\`\`
     `,
   },
@@ -1550,7 +1550,7 @@ omniclawd deploy --network=none
     content: `
 # Cross-Agent Tasks
 
-Complex business tasks require coordination between multiple agents. OmniClawd automatically orchestrates cross-agent collaboration.
+Complex business tasks require coordination between multiple agents. OmniMolty automatically orchestrates cross-agent collaboration.
 
 ## How It Works
 
@@ -1676,13 +1676,13 @@ cross_agent:
 
 \`\`\`bash
 # View all cross-agent tasks
-omniclawd tasks --cross-agent
+omnimolty tasks --cross-agent
 
 # View task dependency graph
-omniclawd tasks <task-id> --graph
+omnimolty tasks <task-id> --graph
 
 # Monitor real-time coordination
-omniclawd monitor --coordination
+omnimolty monitor --coordination
 \`\`\`
     `,
   },
@@ -1692,7 +1692,7 @@ omniclawd monitor --coordination
     content: `
 # Self-Correction
 
-OmniClawd agents don't just execute—they learn. When errors occur, agents automatically analyze, correct, and prevent future occurrences.
+OmniMolty agents don't just execute—they learn. When errors occur, agents automatically analyze, correct, and prevent future occurrences.
 
 ## The Self-Correction Loop
 
@@ -1829,13 +1829,13 @@ self_correction:
 
 \`\`\`bash
 # View correction history
-omniclawd logs --type=corrections
+omnimolty logs --type=corrections
 
 # View learned lessons
-omniclawd memory search "lessons"
+omnimolty memory search "lessons"
 
 # Correction statistics
-omniclawd stats --corrections
+omnimolty stats --corrections
 
 # Output example:
 # Corrections this week: 47
@@ -1850,10 +1850,10 @@ For sensitive operations:
 
 \`\`\`bash
 # Run task without auto-correction
-omniclawd task "Deploy to production" --no-auto-correct
+omnimolty task "Deploy to production" --no-auto-correct
 
 # Require approval for all fixes
-omniclawd config set self_correction.require_approval true
+omnimolty config set self_correction.require_approval true
 \`\`\`
     `,
   },
@@ -1868,7 +1868,7 @@ Each agent can be individually configured to match your workflow and preferences
 ## Global Agent Settings
 
 \`\`\`yaml
-# .omniclawd/config.yaml
+# .omnimolty/config.yaml
 agents:
   # Global settings apply to all agents
   global:
@@ -2038,36 +2038,36 @@ Override settings for specific tasks:
 
 \`\`\`bash
 # Override auto-commit for this task
-omniclawd task "Quick fix typo" --auto-commit=true
+omnimolty task "Quick fix typo" --auto-commit=true
 
 # Skip tests for documentation changes
-omniclawd task "Update README" --skip-tests
+omnimolty task "Update README" --skip-tests
 
 # Force specific agent
-omniclawd task "Write blog post" --agent=growth
+omnimolty task "Write blog post" --agent=growth
 \`\`\`
 
 ## Viewing Current Settings
 
 \`\`\`bash
 # Show all agent settings
-omniclawd config --show --agents
+omnimolty config --show --agents
 
 # Show specific agent
-omniclawd config --show --agent=engineer
+omnimolty config --show --agent=engineer
 
 # Validate settings
-omniclawd config --validate
+omnimolty config --validate
 \`\`\`
     `,
   },
   'integrations': {
     title: 'Integrations',
-    description: 'Connect OmniClawd with your tools',
+    description: 'Connect OmniMolty with your tools',
     content: `
 # Integrations
 
-OmniClawd integrates with your existing tools and services to enhance agent capabilities.
+OmniMolty integrates with your existing tools and services to enhance agent capabilities.
 
 ## Version Control
 
@@ -2087,7 +2087,7 @@ integrations:
     auto_pr: true
     pr_template: ".github/PULL_REQUEST_TEMPLATE.md"
     reviewers: ["@team-lead", "@senior-dev"]
-    labels: ["automated", "omniclawd"]
+    labels: ["automated", "omnimolty"]
 
     # Branch protection
     respect_branch_protection: true
@@ -2172,7 +2172,7 @@ integrations:
 
     # Rich embeds
     use_embeds: true
-    embed_color: "#FBBF24"  # amber
+    embed_color: "#FF6B4A"  # amber
 \`\`\`
 
 ## Project Management
@@ -2272,7 +2272,7 @@ integrations:
     # Services
     services:
       s3:
-        bucket: "omniclawd-assets"
+        bucket: "omnimolty-assets"
       ses:
         from_email: "noreply@company.com"
 \`\`\`
@@ -2281,13 +2281,13 @@ integrations:
 
 \`\`\`bash
 # Test all integrations
-omniclawd integrations test
+omnimolty integrations test
 
 # Test specific integration
-omniclawd integrations test github
+omnimolty integrations test github
 
 # View integration status
-omniclawd integrations status
+omnimolty integrations status
 \`\`\`
     `,
   },
@@ -2473,19 +2473,19 @@ notifications:
 
 \`\`\`bash
 # Send test notification
-omniclawd notify test --channel=telegram
+omnimolty notify test --channel=telegram
 
 # Preview notification
-omniclawd notify preview --event=task_completed
+omnimolty notify preview --event=task_completed
 
 # View notification history
-omniclawd logs --type=notifications
+omnimolty logs --type=notifications
 \`\`\`
 
 ## Notification Statistics
 
 \`\`\`bash
-omniclawd stats --notifications
+omnimolty stats --notifications
 
 # Output:
 # Notifications this week: 127
@@ -2507,7 +2507,7 @@ omniclawd stats --notifications
     content: `
 # Hardware Setup
 
-OmniClawd is designed for local-first deployment. Here are recommended hardware configurations for different use cases.
+OmniMolty is designed for local-first deployment. Here are recommended hardware configurations for different use cases.
 
 ## Quick Reference
 
@@ -2540,15 +2540,15 @@ Mac Mini M4
 
 **Setup:**
 \`\`\`bash
-# Install OmniClawd
-brew install omniclawd
+# Install OmniMolty
+brew install omnimolty
 
 # Enable always-on
 sudo pmset -a sleep 0
 sudo pmset -a disksleep 0
 
 # Install as launch daemon
-omniclawd service install --macos
+omnimolty service install --macos
 \`\`\`
 
 ## Raspberry Pi 5
@@ -2576,15 +2576,15 @@ Raspberry Pi 5 (8GB)
 # Flash Raspberry Pi OS (64-bit)
 # Connect NVMe SSD
 
-# Install OmniClawd
-curl -fsSL https://get.omniclawd.dev | bash
+# Install OmniMolty
+curl -fsSL https://get.omnimolty.dev | bash
 
 # Optimize for Pi
-omniclawd config set performance.mode "efficiency"
+omnimolty config set performance.mode "efficiency"
 
 # Install as systemd service
-sudo omniclawd service install
-sudo systemctl enable omniclawd
+sudo omnimolty service install
+sudo systemctl enable omnimolty
 \`\`\`
 
 **Limitations:**
@@ -2617,12 +2617,12 @@ sudo apt update && sudo apt upgrade
 # Install dependencies
 sudo apt install build-essential git
 
-# Install OmniClawd
-curl -fsSL https://get.omniclawd.dev | bash
+# Install OmniMolty
+curl -fsSL https://get.omnimolty.dev | bash
 
 # Install as systemd service
-sudo omniclawd service install
-sudo systemctl enable omniclawd
+sudo omnimolty service install
+sudo systemctl enable omnimolty
 \`\`\`
 
 ## GPU Acceleration (Optional)
@@ -2678,13 +2678,13 @@ network:
 
 \`\`\`bash
 # Check system compatibility
-omniclawd doctor
+omnimolty doctor
 
 # Performance benchmark
-omniclawd benchmark
+omnimolty benchmark
 
 # Resource monitoring
-omniclawd monitor --resources
+omnimolty monitor --resources
 \`\`\`
     `,
   },
@@ -2694,7 +2694,7 @@ omniclawd monitor --resources
     content: `
 # CLI Flags & Options
 
-Complete reference for OmniClawd CLI flags and options.
+Complete reference for OmniMolty CLI flags and options.
 
 ## Global Flags
 
@@ -2713,7 +2713,7 @@ These flags work with any command:
 ## Deploy Command
 
 \`\`\`bash
-omniclawd deploy [flags]
+omnimolty deploy [flags]
 \`\`\`
 
 | Flag | Description | Default |
@@ -2727,19 +2727,19 @@ omniclawd deploy [flags]
 **Examples:**
 \`\`\`bash
 # Deploy all agents in autonomous mode
-omniclawd deploy --mode=autonomous
+omnimolty deploy --mode=autonomous
 
 # Deploy only engineer and architect
-omniclawd deploy --agents=architect,engineer
+omnimolty deploy --agents=architect,engineer
 
 # Preview deployment
-omniclawd deploy --dry-run
+omnimolty deploy --dry-run
 \`\`\`
 
 ## Task Command
 
 \`\`\`bash
-omniclawd task <description> [flags]
+omnimolty task <description> [flags]
 \`\`\`
 
 | Flag | Description | Default |
@@ -2754,19 +2754,19 @@ omniclawd task <description> [flags]
 **Examples:**
 \`\`\`bash
 # High priority task
-omniclawd task "Fix production bug" --priority=critical
+omnimolty task "Fix production bug" --priority=critical
 
 # Task with deadline
-omniclawd task "Write docs" --deadline="2024-01-30"
+omnimolty task "Write docs" --deadline="2024-01-30"
 
 # Assign to specific agent
-omniclawd task "Research competitors" --agent=growth
+omnimolty task "Research competitors" --agent=growth
 \`\`\`
 
 ## Logs Command
 
 \`\`\`bash
-omniclawd logs [flags]
+omnimolty logs [flags]
 \`\`\`
 
 | Flag | Description | Default |
@@ -2781,19 +2781,19 @@ omniclawd logs [flags]
 **Examples:**
 \`\`\`bash
 # Follow all logs
-omniclawd logs --follow
+omnimolty logs --follow
 
 # Engineer errors only
-omniclawd logs --agent=engineer --type=errors
+omnimolty logs --agent=engineer --type=errors
 
 # Search for specific term
-omniclawd logs --search="authentication"
+omnimolty logs --search="authentication"
 \`\`\`
 
 ## Status Command
 
 \`\`\`bash
-omniclawd status [flags]
+omnimolty status [flags]
 \`\`\`
 
 | Flag | Description | Default |
@@ -2807,19 +2807,19 @@ omniclawd status [flags]
 **Examples:**
 \`\`\`bash
 # Full status with metrics
-omniclawd status --metrics --resources
+omnimolty status --metrics --resources
 
 # Watch status updates
-omniclawd status --watch
+omnimolty status --watch
 
 # Specific agent status
-omniclawd status --agent=engineer --tasks
+omnimolty status --agent=engineer --tasks
 \`\`\`
 
 ## Config Command
 
 \`\`\`bash
-omniclawd config [flags]
+omnimolty config [flags]
 \`\`\`
 
 | Flag | Description |
@@ -2834,19 +2834,19 @@ omniclawd config [flags]
 **Examples:**
 \`\`\`bash
 # Show current config
-omniclawd config --show
+omnimolty config --show
 
 # Set a value
-omniclawd config --set agents.engineer.auto_commit=true
+omnimolty config --set agents.engineer.auto_commit=true
 
 # Get a value
-omniclawd config --get agents.architect.daily_standup.time
+omnimolty config --get agents.architect.daily_standup.time
 \`\`\`
 
 ## Audit Command
 
 \`\`\`bash
-omniclawd audit [flags]
+omnimolty audit [flags]
 \`\`\`
 
 | Flag | Description | Default |
@@ -2859,16 +2859,16 @@ omniclawd audit [flags]
 **Examples:**
 \`\`\`bash
 # Security audit with fixes
-omniclawd audit --type=security --fix
+omnimolty audit --type=security --fix
 
 # Generate HTML report
-omniclawd audit --report --format=html
+omnimolty audit --report --format=html
 \`\`\`
 
 ## Memory Command
 
 \`\`\`bash
-omniclawd memory [subcommand] [flags]
+omnimolty memory [subcommand] [flags]
 \`\`\`
 
 | Subcommand | Description |
@@ -2881,10 +2881,10 @@ omniclawd memory [subcommand] [flags]
 **Examples:**
 \`\`\`bash
 # Search memory
-omniclawd memory search "authentication patterns"
+omnimolty memory search "authentication patterns"
 
 # Export memory
-omniclawd memory export --format=json > backup.json
+omnimolty memory export --format=json > backup.json
 \`\`\`
     `,
   },
@@ -2894,20 +2894,20 @@ omniclawd memory export --format=json > backup.json
     content: `
 # CLI Examples
 
-Practical examples for common OmniClawd CLI operations.
+Practical examples for common OmniMolty CLI operations.
 
 ## Getting Started
 
 \`\`\`bash
 # Initialize in a new project
 cd my-project
-omniclawd init
+omnimolty init
 
 # Answer setup questions or use defaults
-omniclawd init --defaults
+omnimolty init --defaults
 
 # Deploy your squad
-omniclawd deploy --mode=autonomous
+omnimolty deploy --mode=autonomous
 \`\`\`
 
 ## Daily Operations
@@ -2915,40 +2915,40 @@ omniclawd deploy --mode=autonomous
 ### Morning Routine
 \`\`\`bash
 # Check what happened overnight
-omniclawd standup
+omnimolty standup
 
 # View all agent status
-omniclawd status --metrics
+omnimolty status --metrics
 
 # Check pending tasks
-omniclawd tasks --pending
+omnimolty tasks --pending
 \`\`\`
 
 ### Assigning Tasks
 \`\`\`bash
 # Simple task (auto-assigned)
-omniclawd task "Add user authentication"
+omnimolty task "Add user authentication"
 
 # High priority bug fix
-omniclawd task "Fix checkout error" --priority=critical --deadline="today"
+omnimolty task "Fix checkout error" --priority=critical --deadline="today"
 
 # Specific agent task
-omniclawd task "Research competitor pricing" --agent=growth
+omnimolty task "Research competitor pricing" --agent=growth
 
 # Blocking task (wait for completion)
-omniclawd task "Run full test suite" --blocking
+omnimolty task "Run full test suite" --blocking
 \`\`\`
 
 ### Monitoring Progress
 \`\`\`bash
 # Real-time log streaming
-omniclawd logs --follow
+omnimolty logs --follow
 
 # Watch specific agent
-omniclawd logs --agent=engineer --follow
+omnimolty logs --agent=engineer --follow
 
 # Dashboard view
-omniclawd monitor --dashboard
+omnimolty monitor --dashboard
 \`\`\`
 
 ## Code & Development
@@ -2956,37 +2956,37 @@ omniclawd monitor --dashboard
 ### Feature Development
 \`\`\`bash
 # Build a feature
-omniclawd task "Implement user profile page"
+omnimolty task "Implement user profile page"
 
 # Watch the engineer work
-omniclawd logs --agent=engineer --follow
+omnimolty logs --agent=engineer --follow
 
 # Check PR when ready
-omniclawd status --agent=engineer --tasks
+omnimolty status --agent=engineer --tasks
 \`\`\`
 
 ### Bug Fixing
 \`\`\`bash
 # Report a bug
-omniclawd task "Fix: Login fails on mobile" --priority=high
+omnimolty task "Fix: Login fails on mobile" --priority=high
 
 # Debug with logs
-omniclawd logs --search="login" --type=errors
+omnimolty logs --search="login" --type=errors
 
 # Verify fix
-omniclawd task "Test login on mobile devices" --blocking
+omnimolty task "Test login on mobile devices" --blocking
 \`\`\`
 
 ### Deployment
 \`\`\`bash
 # Deploy to staging
-omniclawd task "Deploy latest changes to staging"
+omnimolty task "Deploy latest changes to staging"
 
 # Deploy to production (always requires approval)
-omniclawd task "Deploy v2.1.0 to production" --approval-required
+omnimolty task "Deploy v2.1.0 to production" --approval-required
 
 # Rollback if needed
-omniclawd task "Rollback production to v2.0.9" --priority=critical
+omnimolty task "Rollback production to v2.0.9" --priority=critical
 \`\`\`
 
 ## Marketing & Content
@@ -2994,22 +2994,22 @@ omniclawd task "Rollback production to v2.0.9" --priority=critical
 ### Content Creation
 \`\`\`bash
 # Write a blog post
-omniclawd task "Write blog post about our new AI features"
+omnimolty task "Write blog post about our new AI features"
 
 # Create social campaign
-omniclawd task "Create Twitter thread about product launch"
+omnimolty task "Create Twitter thread about product launch"
 
 # Research competitors
-omniclawd task "Analyze competitor pricing strategies" --agent=growth
+omnimolty task "Analyze competitor pricing strategies" --agent=growth
 \`\`\`
 
 ### SEO & Analytics
 \`\`\`bash
 # Check SEO status
-omniclawd status --agent=growth --metrics
+omnimolty status --agent=growth --metrics
 
 # Generate SEO report
-omniclawd task "Generate monthly SEO report"
+omnimolty task "Generate monthly SEO report"
 \`\`\`
 
 ## Finance & Legal
@@ -3017,25 +3017,25 @@ omniclawd task "Generate monthly SEO report"
 ### Invoicing
 \`\`\`bash
 # Generate invoice
-omniclawd task "Invoice Acme Corp for January services"
+omnimolty task "Invoice Acme Corp for January services"
 
 # Check payment status
-omniclawd task "Check outstanding invoices"
+omnimolty task "Check outstanding invoices"
 
 # Send payment reminders
-omniclawd task "Send reminder for overdue invoices"
+omnimolty task "Send reminder for overdue invoices"
 \`\`\`
 
 ### Security & Compliance
 \`\`\`bash
 # Run security audit
-omniclawd audit --type=security
+omnimolty audit --type=security
 
 # Check compliance
-omniclawd audit --type=compliance
+omnimolty audit --type=compliance
 
 # Generate compliance report
-omniclawd audit --report --format=html > compliance-report.html
+omnimolty audit --report --format=html > compliance-report.html
 \`\`\`
 
 ## Maintenance & Admin
@@ -3043,37 +3043,37 @@ omniclawd audit --report --format=html > compliance-report.html
 ### Configuration
 \`\`\`bash
 # View current config
-omniclawd config --show
+omnimolty config --show
 
 # Update a setting
-omniclawd config --set heartbeat.morning_standup.time="09:00"
+omnimolty config --set heartbeat.morning_standup.time="09:00"
 
 # Validate config
-omniclawd config --validate
+omnimolty config --validate
 \`\`\`
 
 ### Agent Management
 \`\`\`bash
 # Pause an agent
-omniclawd pause --agent=growth --duration="4h"
+omnimolty pause --agent=growth --duration="4h"
 
 # Resume agent
-omniclawd resume --agent=growth
+omnimolty resume --agent=growth
 
 # Restart all agents
-omniclawd deploy --restart
+omnimolty deploy --restart
 \`\`\`
 
 ### System Health
 \`\`\`bash
 # Run diagnostics
-omniclawd doctor
+omnimolty doctor
 
 # Check resource usage
-omniclawd status --resources
+omnimolty status --resources
 
 # Performance benchmark
-omniclawd benchmark
+omnimolty benchmark
 \`\`\`
 
 ## Automation Scripts
@@ -3081,13 +3081,13 @@ omniclawd benchmark
 ### Cron Job Examples
 \`\`\`bash
 # Daily standup at 8 AM
-0 8 * * * /usr/local/bin/omniclawd standup --send
+0 8 * * * /usr/local/bin/omnimolty standup --send
 
 # Weekly security audit
-0 2 * * 0 /usr/local/bin/omniclawd audit --type=security --report
+0 2 * * 0 /usr/local/bin/omnimolty audit --type=security --report
 
 # Monthly backup
-0 0 1 * * /usr/local/bin/omniclawd memory export > /backup/memory-$(date +%Y%m).json
+0 0 1 * * /usr/local/bin/omnimolty memory export > /backup/memory-$(date +%Y%m).json
 \`\`\`
 
 ### Shell Scripts
@@ -3100,16 +3100,16 @@ FEATURE=$1
 echo "Starting feature deployment: $FEATURE"
 
 # Build and test
-omniclawd task "Build and test $FEATURE" --blocking
+omnimolty task "Build and test $FEATURE" --blocking
 
 # Deploy to staging
-omniclawd task "Deploy $FEATURE to staging" --blocking
+omnimolty task "Deploy $FEATURE to staging" --blocking
 
 # Run integration tests
-omniclawd task "Run integration tests for $FEATURE" --blocking
+omnimolty task "Run integration tests for $FEATURE" --blocking
 
 # Notify team
-omniclawd notify send --message="$FEATURE deployed to staging"
+omnimolty notify send --message="$FEATURE deployed to staging"
 
 echo "Feature $FEATURE deployed successfully!"
 \`\`\`
@@ -3121,7 +3121,7 @@ echo "Feature $FEATURE deployed successfully!"
     content: `
 # API Overview
 
-OmniClawd provides a comprehensive REST API for programmatic control and integration.
+OmniMolty provides a comprehensive REST API for programmatic control and integration.
 
 ## Base URL
 
@@ -3270,21 +3270,21 @@ Official SDK libraries:
 
 \`\`\`bash
 # Node.js / TypeScript
-npm install @omniclawd/sdk
+npm install @omnimolty/sdk
 
 # Python
-pip install omniclawd
+pip install omnimolty
 
 # Go
-go get github.com/omniclawd/sdk-go
+go get github.com/omnimolty/sdk-go
 \`\`\`
 
 ### Node.js Example
 \`\`\`javascript
-import { OmniClawd } from '@omniclawd/sdk';
+import { OmniMolty } from '@omnimolty/sdk';
 
-const client = new OmniClawd({
-  apiKey: process.env.OMNICLAWD_API_KEY,
+const client = new OmniMolty({
+  apiKey: process.env.OMNIMOLTY_API_KEY,
 });
 
 const task = await client.tasks.create({
@@ -3297,9 +3297,9 @@ console.log('Task created:', task.id);
 
 ### Python Example
 \`\`\`python
-from omniclawd import OmniClawd
+from omnimolty import OmniMolty
 
-client = OmniClawd(api_key=os.environ['OMNICLAWD_API_KEY'])
+client = OmniMolty(api_key=os.environ['OMNIMOLTY_API_KEY'])
 
 task = client.tasks.create(
     description='Build user authentication',
@@ -3324,7 +3324,7 @@ Generate API keys for programmatic access:
 
 \`\`\`bash
 # Generate new API key
-omniclawd api-key create --name="my-integration"
+omnimolty api-key create --name="my-integration"
 
 # Output:
 # API Key: omni_sk_abc123xyz...
@@ -3358,20 +3358,20 @@ curl "http://localhost:8080/api/v1/status?api_key=omni_sk_abc123xyz"
 
 \`\`\`bash
 # Read-only key
-omniclawd api-key create --name="dashboard" --type=readonly
+omnimolty api-key create --name="dashboard" --type=readonly
 
 # Agent-only key
-omniclawd api-key create --name="ci-cd" --type=agent
+omnimolty api-key create --name="ci-cd" --type=agent
 
 # Key with custom permissions
-omniclawd api-key create --name="custom" --permissions="tasks:read,tasks:create"
+omnimolty api-key create --name="custom" --permissions="tasks:read,tasks:create"
 \`\`\`
 
 ## Key Management
 
 \`\`\`bash
 # List all keys
-omniclawd api-key list
+omnimolty api-key list
 
 # Output:
 # NAME          TYPE      CREATED      LAST_USED
@@ -3380,10 +3380,10 @@ omniclawd api-key list
 # ci-cd          agent     2024-01-22   never
 
 # Revoke a key
-omniclawd api-key revoke --name="my-integration"
+omnimolty api-key revoke --name="my-integration"
 
 # Rotate a key (revoke old, create new)
-omniclawd api-key rotate --name="ci-cd"
+omnimolty api-key rotate --name="ci-cd"
 \`\`\`
 
 ## Configuration
@@ -3469,10 +3469,10 @@ fetch('http://localhost:8080/api/v1/tasks', {
 ### Environment Variables
 \`\`\`bash
 # .env (never commit!)
-OMNICLAWD_API_KEY=omni_sk_abc123xyz
+OMNIMOLTY_API_KEY=omni_sk_abc123xyz
 
 # Usage in code
-const apiKey = process.env.OMNICLAWD_API_KEY;
+const apiKey = process.env.OMNIMOLTY_API_KEY;
 \`\`\`
 
 ## Troubleshooting
@@ -3483,10 +3483,10 @@ curl -I http://localhost:8080/api/v1/status \\
   -H "Authorization: Bearer omni_sk_abc123xyz"
 
 # Check key validity
-omniclawd api-key verify omni_sk_abc123xyz
+omnimolty api-key verify omni_sk_abc123xyz
 
 # View auth logs
-omniclawd logs --type=auth
+omnimolty logs --type=auth
 \`\`\`
     `,
   },
@@ -3496,7 +3496,7 @@ omniclawd logs --type=auth
     content: `
 # API Endpoints
 
-Complete reference for all OmniClawd API endpoints.
+Complete reference for all OmniMolty API endpoints.
 
 ## Tasks
 
@@ -3750,17 +3750,17 @@ DELETE /api/v1/webhooks/:id
     content: `
 # Webhooks
 
-Receive real-time notifications when events occur in OmniClawd.
+Receive real-time notifications when events occur in OmniMolty.
 
 ## Overview
 
-Webhooks allow external systems to receive notifications when events occur. OmniClawd sends an HTTP POST request to your specified URL.
+Webhooks allow external systems to receive notifications when events occur. OmniMolty sends an HTTP POST request to your specified URL.
 
 ## Setting Up Webhooks
 
 ### Via CLI
 \`\`\`bash
-omniclawd webhook create \\
+omnimolty webhook create \\
   --url="https://your-server.com/webhook" \\
   --events="task.completed,task.failed" \\
   --secret="your-secret-key"
@@ -3858,8 +3858,8 @@ All webhooks include a signature for verification:
 
 **Headers:**
 \`\`\`
-X-OmniClawd-Signature: sha256=abc123...
-X-OmniClawd-Timestamp: 1706354400
+X-OmniMolty-Signature: sha256=abc123...
+X-OmniMolty-Timestamp: 1706354400
 \`\`\`
 
 **Verification (Node.js):**
@@ -3877,8 +3877,8 @@ function verifyWebhook(payload, signature, timestamp, secret) {
 
 // Express middleware
 app.post('/webhook', (req, res) => {
-  const signature = req.headers['x-omniclawd-signature'];
-  const timestamp = req.headers['x-omniclawd-timestamp'];
+  const signature = req.headers['x-omnimolty-signature'];
+  const timestamp = req.headers['x-omnimolty-timestamp'];
 
   if (!verifyWebhook(JSON.stringify(req.body), signature, timestamp, WEBHOOK_SECRET)) {
     return res.status(401).send('Invalid signature');
@@ -3908,19 +3908,19 @@ After 5 failures, the webhook is marked as failing and you're notified.
 
 \`\`\`bash
 # List all webhooks
-omniclawd webhook list
+omnimolty webhook list
 
 # View webhook details
-omniclawd webhook show <id>
+omnimolty webhook show <id>
 
 # Test a webhook
-omniclawd webhook test <id>
+omnimolty webhook test <id>
 
 # View delivery history
-omniclawd webhook logs <id>
+omnimolty webhook logs <id>
 
 # Delete webhook
-omniclawd webhook delete <id>
+omnimolty webhook delete <id>
 \`\`\`
 
 ## Best Practices
@@ -4113,7 +4113,7 @@ All access attempts are logged:
 
 \`\`\`bash
 # View access logs
-omniclawd logs --type=access
+omnimolty logs --type=access
 
 # Output:
 # [10:30:01] engineer READ src/auth/index.ts GRANTED
@@ -4126,7 +4126,7 @@ omniclawd logs --type=access
 
 \`\`\`bash
 # Test if agent can access file
-omniclawd access test --agent=engineer --file="src/index.ts" --action=write
+omnimolty access test --agent=engineer --file="src/index.ts" --action=write
 
 # Output:
 # Agent: engineer
@@ -4135,10 +4135,10 @@ omniclawd access test --agent=engineer --file="src/index.ts" --action=write
 # Result: GRANTED (matches allow pattern "src/**")
 
 # Validate all rules
-omniclawd access validate
+omnimolty access validate
 
 # Dry run with access report
-omniclawd task "Refactor auth module" --dry-run --access-report
+omnimolty task "Refactor auth module" --dry-run --access-report
 \`\`\`
     `,
   },
@@ -4152,7 +4152,7 @@ Comprehensive logging of all agent activities for compliance and debugging.
 
 ## Overview
 
-Every action taken by OmniClawd agents is logged with full context:
+Every action taken by OmniMolty agents is logged with full context:
 
 - **What** was done
 - **Who** (which agent) did it
@@ -4205,7 +4205,7 @@ logging:
     # Storage
     storage:
       type: "file"  # file, sqlite, postgresql
-      path: ".omniclawd/logs"
+      path: ".omnimolty/logs"
       rotation:
         max_size: "100MB"
         max_files: 30
@@ -4270,22 +4270,22 @@ agent.decision   - Autonomous decision made
 ### CLI
 \`\`\`bash
 # View recent logs
-omniclawd logs
+omnimolty logs
 
 # Filter by agent
-omniclawd logs --agent=engineer
+omnimolty logs --agent=engineer
 
 # Filter by action type
-omniclawd logs --action="file.*"
+omnimolty logs --action="file.*"
 
 # Filter by time range
-omniclawd logs --since="2024-01-27" --until="2024-01-28"
+omnimolty logs --since="2024-01-27" --until="2024-01-28"
 
 # Search logs
-omniclawd logs --search="authentication"
+omnimolty logs --search="authentication"
 
 # Export logs
-omniclawd logs --export --format=json > audit-log.json
+omnimolty logs --export --format=json > audit-log.json
 \`\`\`
 
 ### API
@@ -4298,7 +4298,7 @@ curl "http://localhost:8080/api/v1/logs?agent=engineer&since=1h" \\
 
 \`\`\`bash
 # Summary statistics
-omniclawd logs stats
+omnimolty logs stats
 
 # Output:
 # Time range: 2024-01-20 to 2024-01-27
@@ -4320,10 +4320,10 @@ omniclawd logs stats
 # Warnings: 892 (2.0%)
 
 # Anomaly detection
-omniclawd logs analyze --anomalies
+omnimolty logs analyze --anomalies
 
 # Generate audit report
-omniclawd logs report --format=html > audit-report.html
+omnimolty logs report --format=html > audit-report.html
 \`\`\`
 
 ## Compliance Reports
@@ -4332,13 +4332,13 @@ Generate reports for compliance audits:
 
 \`\`\`bash
 # SOC 2 report
-omniclawd compliance report --framework=soc2 --period="Q1 2024"
+omnimolty compliance report --framework=soc2 --period="Q1 2024"
 
 # GDPR data access report
-omniclawd compliance report --framework=gdpr --type=data-access
+omnimolty compliance report --framework=gdpr --type=data-access
 
 # Custom audit report
-omniclawd logs report \\
+omnimolty logs report \\
   --start="2024-01-01" \\
   --end="2024-03-31" \\
   --include="all" \\
@@ -4356,7 +4356,7 @@ logging:
     elasticsearch:
       enabled: true
       url: "https://elasticsearch.company.com:9200"
-      index: "omniclawd-logs"
+      index: "omnimolty-logs"
 
     # Datadog
     datadog:
@@ -4377,7 +4377,7 @@ logging:
     content: `
 # Compliance
 
-OmniClawd is designed with security and compliance in mind.
+OmniMolty is designed with security and compliance in mind.
 
 ## Supported Frameworks
 
@@ -4491,7 +4491,7 @@ compliance:
 
 \`\`\`bash
 # View compliance status
-omniclawd compliance status
+omnimolty compliance status
 
 # Output:
 # COMPLIANCE STATUS
@@ -4541,16 +4541,16 @@ security:
 ### Manual Scans
 \`\`\`bash
 # Full security scan
-omniclawd audit --type=security
+omnimolty audit --type=security
 
 # Dependency audit
-omniclawd audit --type=dependencies
+omnimolty audit --type=dependencies
 
 # Secret scan
-omniclawd audit --type=secrets
+omnimolty audit --type=secrets
 
 # OWASP scan
-omniclawd audit --type=owasp
+omnimolty audit --type=owasp
 \`\`\`
 
 ## Compliance Reports
@@ -4558,13 +4558,13 @@ omniclawd audit --type=owasp
 ### Generating Reports
 \`\`\`bash
 # SOC 2 audit report
-omniclawd compliance report --framework=soc2 --period="2024-Q1"
+omnimolty compliance report --framework=soc2 --period="2024-Q1"
 
 # GDPR processing records
-omniclawd compliance report --framework=gdpr --type=processing-records
+omnimolty compliance report --framework=gdpr --type=processing-records
 
 # Full compliance report
-omniclawd compliance report --all --format=pdf > compliance-2024.pdf
+omnimolty compliance report --all --format=pdf > compliance-2024.pdf
 \`\`\`
 
 ### Report Contents
@@ -4689,8 +4689,8 @@ const CodeBlock = ({ code, language = 'bash' }) => {
       <motion.pre
         className="bg-zinc-900/80 backdrop-blur-sm border border-zinc-800 rounded-lg p-4 pt-6 overflow-x-auto"
         animate={{
-          borderColor: isHovered ? 'rgba(251, 191, 36, 0.3)' : 'rgba(39, 39, 42, 1)',
-          boxShadow: isHovered ? '0 0 30px rgba(251, 191, 36, 0.1)' : '0 0 0 rgba(0, 0, 0, 0)'
+          borderColor: isHovered ? 'rgba(255, 107, 74, 0.3)' : 'rgba(39, 39, 42, 1)',
+          boxShadow: isHovered ? '0 0 30px rgba(255, 107, 74, 0.1)' : '0 0 0 rgba(0, 0, 0, 0)'
         }}
         transition={{ duration: 0.2 }}
       >
@@ -4702,7 +4702,7 @@ const CodeBlock = ({ code, language = 'bash' }) => {
         className="absolute top-4 right-3 p-2 rounded-md bg-zinc-800/80 backdrop-blur-sm border border-zinc-700 transition-colors"
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 1 : 0 }}
-        whileHover={{ scale: 1.05, backgroundColor: 'rgba(251, 191, 36, 0.2)' }}
+        whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 107, 74, 0.2)' }}
         whileTap={{ scale: 0.95 }}
       >
         <AnimatePresence mode="wait">
@@ -4802,10 +4802,10 @@ const AnimatedList = ({ items, ordered = false, index }) => {
           transition={{ type: 'spring', stiffness: 300 }}
         >
           {ordered ? (
-            <span className="text-amber-400 font-mono text-sm min-w-[1.5rem]">{idx + 1}.</span>
+            <span className="text-orange-400 font-mono text-sm min-w-[1.5rem]">{idx + 1}.</span>
           ) : (
             <motion.span
-              className="text-amber-400 mt-1.5"
+              className="text-orange-400 mt-1.5"
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
             >
@@ -4870,7 +4870,7 @@ const MarkdownRenderer = ({ content }) => {
             transition={{ duration: 0.4, type: 'spring' }}
           >
             <motion.span
-              className="w-1 h-8 bg-gradient-to-b from-amber-400 to-amber-600 rounded-full"
+              className="w-1 h-8 bg-gradient-to-b from-orange-400 to-orange-600 rounded-full"
               initial={{ scaleY: 0 }}
               animate={{ scaleY: 1 }}
               transition={{ duration: 0.3, delay: 0.2 }}
@@ -4899,7 +4899,7 @@ const MarkdownRenderer = ({ content }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <Sparkles className="w-4 h-4 text-amber-400" />
+            <Sparkles className="w-4 h-4 text-orange-400" />
             {line.slice(4)}
           </motion.h3>
         );
@@ -4959,7 +4959,7 @@ const MarkdownRenderer = ({ content }) => {
               __html: line
                 .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>')
                 .replace(/`(.*?)`/g, '<code class="bg-zinc-800 px-1.5 py-0.5 rounded text-emerald-400 text-sm font-mono">$1</code>')
-                .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-amber-400 hover:text-amber-300 underline decoration-amber-400/30 hover:decoration-amber-400 transition-colors">$1</a>')
+                .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-orange-400 hover:text-orange-300 underline decoration-orange-400/30 hover:decoration-orange-400 transition-colors">$1</a>')
             }}
           />
         );
@@ -4994,7 +4994,7 @@ const ScrollProgress = () => {
 
   return (
     <motion.div
-      className="fixed top-16 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 origin-left z-50"
+      className="fixed top-16 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-500 origin-left z-50"
       style={{ scaleX }}
     />
   );
@@ -5013,7 +5013,7 @@ const SidebarItem = ({ child, activeSection, setActiveSection, setSidebarOpen, i
       }}
       className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all relative overflow-hidden ${
         isActive
-          ? 'text-amber-400'
+          ? 'text-orange-400'
           : 'text-zinc-500 hover:text-zinc-300'
       }`}
       initial={{ opacity: 0, x: -10 }}
@@ -5023,7 +5023,7 @@ const SidebarItem = ({ child, activeSection, setActiveSection, setSidebarOpen, i
     >
       {isActive && (
         <motion.div
-          className="absolute inset-0 bg-amber-500/10 rounded-lg"
+          className="absolute inset-0 bg-orange-500/10 rounded-lg"
           layoutId="activeSection"
           transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
         />
@@ -5040,13 +5040,13 @@ const NavButton = ({ direction, page, onClick }) => {
   return (
     <motion.button
       onClick={onClick}
-      className="flex items-center gap-3 px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/50 backdrop-blur-sm text-zinc-400 hover:text-white hover:border-amber-500/50 transition-all group"
+      className="flex items-center gap-3 px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/50 backdrop-blur-sm text-zinc-400 hover:text-white hover:border-orange-500/50 transition-all group"
       whileHover={{ scale: 1.02, y: -2 }}
       whileTap={{ scale: 0.98 }}
     >
       {isPrev && (
         <motion.div
-          className="p-2 rounded-lg bg-zinc-800 group-hover:bg-amber-500/20"
+          className="p-2 rounded-lg bg-zinc-800 group-hover:bg-orange-500/20"
           whileHover={{ x: -4 }}
         >
           <ArrowLeft className="w-4 h-4" />
@@ -5058,7 +5058,7 @@ const NavButton = ({ direction, page, onClick }) => {
       </div>
       {!isPrev && (
         <motion.div
-          className="p-2 rounded-lg bg-zinc-800 group-hover:bg-amber-500/20"
+          className="p-2 rounded-lg bg-zinc-800 group-hover:bg-orange-500/20"
           whileHover={{ x: 4 }}
         >
           <ArrowRight className="w-4 h-4" />
@@ -5137,7 +5137,7 @@ const Documentation = () => {
 
       {/* Ambient Background */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl" />
       </div>
 
@@ -5189,7 +5189,7 @@ const Documentation = () => {
                 className="relative"
                 animate={{
                   scale: searchFocused ? 1.02 : 1,
-                  boxShadow: searchFocused ? '0 0 20px rgba(251, 191, 36, 0.1)' : '0 0 0 rgba(0, 0, 0, 0)'
+                  boxShadow: searchFocused ? '0 0 20px rgba(255, 107, 74, 0.1)' : '0 0 0 rgba(0, 0, 0, 0)'
                 }}
               >
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
@@ -5200,7 +5200,7 @@ const Documentation = () => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onFocus={() => setSearchFocused(true)}
                   onBlur={() => setSearchFocused(false)}
-                  className="w-full pl-10 pr-4 py-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500/50 transition-colors"
+                  className="w-full pl-10 pr-4 py-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-orange-500/50 transition-colors"
                 />
                 {searchQuery && (
                   <motion.button
@@ -5240,11 +5240,11 @@ const Documentation = () => {
                       >
                         <div className="flex items-center gap-2.5">
                           <motion.div
-                            className="p-1.5 rounded-md bg-zinc-900 group-hover:bg-amber-500/20 transition-colors"
+                            className="p-1.5 rounded-md bg-zinc-900 group-hover:bg-orange-500/20 transition-colors"
                             whileHover={{ rotate: [0, -10, 10, 0] }}
                             transition={{ duration: 0.3 }}
                           >
-                            <Icon className="w-4 h-4 text-zinc-500 group-hover:text-amber-400 transition-colors" />
+                            <Icon className="w-4 h-4 text-zinc-500 group-hover:text-orange-400 transition-colors" />
                           </motion.div>
                           <span className="text-sm font-medium text-zinc-300">{section.title}</span>
                         </div>
@@ -5370,7 +5370,7 @@ const Documentation = () => {
                   transition={{ delay: 0.1 }}
                 >
                   <motion.div
-                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-medium mb-4"
+                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-medium mb-4"
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 0.2 }}

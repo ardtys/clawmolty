@@ -6,7 +6,7 @@ import Footer from './Footer';
 
 const CTAFooter = () => {
   const [copied, setCopied] = useState(false);
-  const installCommand = 'curl -fsSL https://get.omniclawd.dev | bash';
+  const installCommand = 'curl -fsSL https://get.omnimolty.dev | bash';
 
   const copyCommand = () => {
     navigator.clipboard.writeText(installCommand);
@@ -26,7 +26,7 @@ const CTAFooter = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-sm font-medium mb-6">
               <Rocket className="w-4 h-4" />
               Ready to Lead Your Digital Enterprise?
             </div>
@@ -49,7 +49,7 @@ const CTAFooter = () => {
             className="max-w-xl mx-auto mb-12"
           >
             <div className="flex items-center gap-2 bg-zinc-900 border border-zinc-800 rounded-lg p-4">
-              <span className="text-amber-400 font-mono text-sm">$</span>
+              <span className="text-orange-400 font-mono text-sm">$</span>
               <code className="flex-1 text-zinc-300 font-mono text-sm">
                 {installCommand}
               </code>

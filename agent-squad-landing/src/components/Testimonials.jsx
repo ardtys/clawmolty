@@ -1,6 +1,55 @@
 import { motion } from 'framer-motion';
 import { Newspaper, Code2, MessageSquare, Users, Zap, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  }
+};
+
+const taskVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: (i) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.4
+    }
+  })
+};
+
+const phaseVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.3 + i * 0.15,
+      duration: 0.5
+    }
+  })
+};
+
 const priorityTasks = {
   highImpactLowEffort: [
     {
@@ -44,7 +93,7 @@ const Testimonials = () => {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <span className="text-amber-400 text-sm font-medium mb-4 block">Priority Matrix</span>
+          <span className="text-orange-400 text-sm font-medium mb-4 block">Priority Matrix</span>
           <h2 className="text-4xl sm:text-5xl font-semibold text-white mb-6 tracking-tight">
             What Will Your Squad<br />
             <span className="text-zinc-500">Build First?</span>
@@ -56,19 +105,42 @@ const Testimonials = () => {
         </motion.div>
 
         {/* Priority Grid */}
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
+        <motion.div
+          className="grid md:grid-cols-2 gap-6 mb-16"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {/* High Impact / Low Effort */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            viewport={{ once: true }}
-            className="p-6 bg-emerald-500/5 border border-emerald-500/20 rounded-xl"
+            variants={cardVariants}
+            whileHover={{
+              y: -5,
+              borderColor: 'rgba(16, 185, 129, 0.4)',
+              boxShadow: '0 20px 40px -20px rgba(16, 185, 129, 0.15)'
+            }}
+            className="p-6 bg-emerald-500/5 border border-emerald-500/20 rounded-xl transition-colors"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center">
-                <Zap className="w-4 h-4 text-emerald-400" />
-              </div>
+              <motion.div
+                className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center"
+                animate={{
+                  boxShadow: [
+                    '0 0 0 0 rgba(16, 185, 129, 0)',
+                    '0 0 0 6px rgba(16, 185, 129, 0.1)',
+                    '0 0 0 0 rgba(16, 185, 129, 0)'
+                  ]
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <motion.div
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                >
+                  <Zap className="w-4 h-4 text-emerald-400" />
+                </motion.div>
+              </motion.div>
               <div>
                 <h3 className="text-white font-semibold">Quick Wins</h3>
                 <p className="text-emerald-400/80 text-xs">High Impact / Low Effort</p>
@@ -78,16 +150,37 @@ const Testimonials = () => {
               {priorityTasks.highImpactLowEffort.map((task, index) => {
                 const Icon = task.icon;
                 return (
-                  <div key={index} className="flex gap-4 p-4 bg-zinc-900/50 rounded-lg">
-                    <div className="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center shrink-0">
+                  <motion.div
+                    key={index}
+                    custom={index}
+                    variants={taskVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    whileHover={{
+                      x: 5,
+                      backgroundColor: 'rgba(39, 39, 42, 0.7)',
+                      borderColor: 'rgba(16, 185, 129, 0.3)'
+                    }}
+                    className="flex gap-4 p-4 bg-zinc-900/50 rounded-lg border border-transparent cursor-default transition-colors"
+                  >
+                    <motion.div
+                      className="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center shrink-0"
+                      whileHover={{ scale: 1.1, backgroundColor: 'rgba(16, 185, 129, 0.1)' }}
+                    >
                       <Icon className="w-5 h-5 text-zinc-400" />
-                    </div>
+                    </motion.div>
                     <div>
                       <h4 className="text-white font-medium mb-1">{task.title}</h4>
                       <p className="text-zinc-500 text-sm mb-2">{task.desc}</p>
-                      <span className="text-xs text-emerald-400/80">Assigned to: {task.agent}</span>
+                      <motion.span
+                        className="text-xs text-emerald-400/80"
+                        whileHover={{ color: '#10b981' }}
+                      >
+                        Assigned to: {task.agent}
+                      </motion.span>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
@@ -95,40 +188,71 @@ const Testimonials = () => {
 
           {/* High Impact / High Effort */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="p-6 bg-amber-500/5 border border-amber-500/20 rounded-xl"
+            variants={cardVariants}
+            whileHover={{
+              y: -5,
+              borderColor: 'rgba(255, 107, 74, 0.4)',
+              boxShadow: '0 20px 40px -20px rgba(255, 107, 74, 0.15)'
+            }}
+            className="p-6 bg-orange-500/5 border border-orange-500/20 rounded-xl transition-colors"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">
-                <ArrowUpRight className="w-4 h-4 text-amber-400" />
-              </div>
+              <motion.div
+                className="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center"
+                whileHover={{ scale: 1.1 }}
+              >
+                <motion.div
+                  animate={{ y: [-2, 2, -2], x: [2, -2, 2] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <ArrowUpRight className="w-4 h-4 text-orange-400" />
+                </motion.div>
+              </motion.div>
               <div>
                 <h3 className="text-white font-semibold">Major Projects</h3>
-                <p className="text-amber-400/80 text-xs">High Impact / High Effort</p>
+                <p className="text-orange-400/80 text-xs">High Impact / High Effort</p>
               </div>
             </div>
             <div className="space-y-4">
               {priorityTasks.highImpactHighEffort.map((task, index) => {
                 const Icon = task.icon;
                 return (
-                  <div key={index} className="flex gap-4 p-4 bg-zinc-900/50 rounded-lg">
-                    <div className="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center shrink-0">
+                  <motion.div
+                    key={index}
+                    custom={index}
+                    variants={taskVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    whileHover={{
+                      x: 5,
+                      backgroundColor: 'rgba(39, 39, 42, 0.7)',
+                      borderColor: 'rgba(255, 107, 74, 0.3)'
+                    }}
+                    className="flex gap-4 p-4 bg-zinc-900/50 rounded-lg border border-transparent cursor-default transition-colors"
+                  >
+                    <motion.div
+                      className="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center shrink-0"
+                      whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 107, 74, 0.1)' }}
+                    >
                       <Icon className="w-5 h-5 text-zinc-400" />
-                    </div>
+                    </motion.div>
                     <div>
                       <h4 className="text-white font-medium mb-1">{task.title}</h4>
                       <p className="text-zinc-500 text-sm mb-2">{task.desc}</p>
-                      <span className="text-xs text-amber-400/80">Assigned to: {task.agent}</span>
+                      <motion.span
+                        className="text-xs text-orange-400/80"
+                        whileHover={{ color: '#FF6B4A' }}
+                      >
+                        Assigned to: {task.agent}
+                      </motion.span>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Roadmap Phases */}
         <motion.div
@@ -138,41 +262,96 @@ const Testimonials = () => {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h3 className="text-xl font-semibold text-white mb-6">Your Roadmap to Autonomy</h3>
+          <motion.h3
+            className="text-xl font-semibold text-white mb-6"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Your Roadmap to Autonomy
+          </motion.h3>
           <div className="grid md:grid-cols-3 gap-4">
             {[
               {
                 phase: 'Phase 1',
                 title: 'The Foundation',
                 desc: 'Start with a single core agent, mastering terminal and browser control. Your chat app becomes central command.',
-                items: ['Single agent setup', 'Terminal access', 'Basic automation']
+                items: ['Single agent setup', 'Terminal access', 'Basic automation'],
+                color: 'blue'
               },
               {
                 phase: 'Phase 2',
                 title: 'Expanding the Squad',
                 desc: 'Introduce specialized "Skills" for automated coding, market research, and content posting.',
-                items: ['Multi-agent deploy', 'Skill modules', 'Cross-agent comms']
+                items: ['Multi-agent deploy', 'Skill modules', 'Cross-agent comms'],
+                color: 'orange'
               },
               {
                 phase: 'Phase 3',
                 title: 'Hands-off Mode',
                 desc: 'Activate Cron Jobs for 24/7 background operation. Your Squad works while you sleep.',
-                items: ['24/7 automation', 'Payment integrations', 'Full autonomy']
+                items: ['24/7 automation', 'Payment integrations', 'Full autonomy'],
+                color: 'emerald'
               }
             ].map((phase, index) => (
-              <div key={index} className="p-5 bg-zinc-900/30 border border-zinc-800 rounded-xl">
-                <span className="text-amber-400 text-xs font-mono mb-2 block">{phase.phase}</span>
-                <h4 className="text-white font-semibold mb-2">{phase.title}</h4>
-                <p className="text-zinc-500 text-sm mb-4">{phase.desc}</p>
-                <ul className="space-y-2">
+              <motion.div
+                key={index}
+                custom={index}
+                variants={phaseVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover={{
+                  y: -8,
+                  borderColor: 'rgba(255, 107, 74, 0.3)',
+                  boxShadow: '0 20px 40px -20px rgba(0, 0, 0, 0.3)'
+                }}
+                className="p-5 bg-zinc-900/30 border border-zinc-800 rounded-xl cursor-default transition-colors relative overflow-hidden"
+              >
+                {/* Phase number background */}
+                <motion.span
+                  className="absolute top-2 right-2 text-6xl font-bold text-zinc-800/30 select-none"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.5 + index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  {index + 1}
+                </motion.span>
+
+                <motion.span
+                  className="text-orange-400 text-xs font-mono mb-2 block relative z-10"
+                  whileHover={{ x: 5 }}
+                >
+                  {phase.phase}
+                </motion.span>
+                <h4 className="text-white font-semibold mb-2 relative z-10">{phase.title}</h4>
+                <p className="text-zinc-500 text-sm mb-4 relative z-10">{phase.desc}</p>
+                <ul className="space-y-2 relative z-10">
                   {phase.items.map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-zinc-400 text-sm">
-                      <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.6 + index * 0.1 + i * 0.05 }}
+                      viewport={{ once: true }}
+                      whileHover={{ x: 5 }}
+                      className="flex items-center gap-2 text-zinc-400 text-sm"
+                    >
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        transition={{ delay: 0.7 + index * 0.1 + i * 0.05, type: "spring" }}
+                        viewport={{ once: true }}
+                      >
+                        <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                      </motion.div>
                       {item}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
@@ -186,24 +365,74 @@ const Testimonials = () => {
           className="pt-12 border-t border-zinc-800/50"
         >
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-            <div>
-              <p className="text-2xl sm:text-3xl font-medium text-white mb-2">
-                "Finally, AI that respects our security policies."
-              </p>
-              <p className="text-zinc-500">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <motion.p
+                className="text-2xl sm:text-3xl font-medium text-white mb-2"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <motion.span
+                  className="text-orange-400"
+                  animate={{ opacity: [0.8, 1, 0.8] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  "
+                </motion.span>
+                Finally, AI that respects our security policies.
+                <motion.span
+                  className="text-orange-400"
+                  animate={{ opacity: [0.8, 1, 0.8] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  "
+                </motion.span>
+              </motion.p>
+              <motion.p
+                className="text-zinc-500"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+                viewport={{ once: true }}
+              >
                 — Engineering Lead, Fortune 500 Company
-              </p>
-            </div>
-            <div className="flex gap-8 text-center">
-              <div>
-                <div className="text-3xl font-semibold text-white">0</div>
-                <div className="text-zinc-500 text-sm">Data sent to cloud</div>
-              </div>
-              <div>
-                <div className="text-3xl font-semibold text-white">100%</div>
-                <div className="text-zinc-500 text-sm">Local processing</div>
-              </div>
-            </div>
+              </motion.p>
+            </motion.div>
+            <motion.div
+              className="flex gap-8 text-center"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              {[
+                { value: '0', label: 'Data sent to cloud' },
+                { value: '100%', label: 'Local processing' }
+              ].map((stat, i) => (
+                <motion.div
+                  key={i}
+                  whileHover={{ scale: 1.1, y: -5 }}
+                  className="cursor-default"
+                >
+                  <motion.div
+                    className="text-3xl font-semibold text-white"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.8 + i * 0.1, type: "spring" }}
+                    viewport={{ once: true }}
+                  >
+                    {stat.value}
+                  </motion.div>
+                  <div className="text-zinc-500 text-sm">{stat.label}</div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </motion.div>
       </div>

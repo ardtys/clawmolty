@@ -44,8 +44,8 @@ const agentResponses = {
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Creating User model with bcrypt password hashing...', delay: 2200 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Implementing JWT token generation and validation...', delay: 3000 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Building /auth/login and /auth/register endpoints...', delay: 3800 },
-    { agent: 'The Auditor', color: 'text-amber-400', message: 'Security scan initiated... Checking for vulnerabilities...', delay: 4500 },
-    { agent: 'The Auditor', color: 'text-amber-400', message: 'Verified: Password hashing, token expiry, rate limiting', delay: 5200 },
+    { agent: 'The Auditor', color: 'text-orange-400', message: 'Security scan initiated... Checking for vulnerabilities...', delay: 4500 },
+    { agent: 'The Auditor', color: 'text-orange-400', message: 'Verified: Password hashing, token expiry, rate limiting', delay: 5200 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Writing unit tests for auth module (12 test cases)...', delay: 5900 },
     { agent: 'The Architect', color: 'text-blue-400', message: 'Task completed! PR #142 ready for review', delay: 6600, final: true }
   ],
@@ -55,7 +55,7 @@ const agentResponses = {
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Setting up Express router with validation middleware...', delay: 2400 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Implementing CRUD operations with Prisma ORM...', delay: 3200 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Adding pagination, filtering, and sorting support...', delay: 4000 },
-    { agent: 'The Auditor', color: 'text-amber-400', message: 'Validating input sanitization and SQL injection prevention...', delay: 4800 },
+    { agent: 'The Auditor', color: 'text-orange-400', message: 'Validating input sanitization and SQL injection prevention...', delay: 4800 },
     { agent: 'Growth Hacker', color: 'text-purple-400', message: 'Generating OpenAPI 3.0 specification...', delay: 5500 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'All 18 API tests passing. Coverage: 94%', delay: 6200 },
     { agent: 'The Architect', color: 'text-blue-400', message: 'API ready! Documentation at /api/docs', delay: 6900, final: true }
@@ -66,8 +66,8 @@ const agentResponses = {
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Refactoring database queries with eager loading...', delay: 2500 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Converting payment processing to async/await pattern...', delay: 3300 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Implementing Redis caching for payment methods...', delay: 4100 },
-    { agent: 'The Auditor', color: 'text-amber-400', message: 'Running performance benchmarks...', delay: 4900 },
-    { agent: 'The Auditor', color: 'text-amber-400', message: 'Result: 73% faster response time, 45% less memory usage', delay: 5700 },
+    { agent: 'The Auditor', color: 'text-orange-400', message: 'Running performance benchmarks...', delay: 4900 },
+    { agent: 'The Auditor', color: 'text-orange-400', message: 'Result: 73% faster response time, 45% less memory usage', delay: 5700 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'All existing tests passing. No breaking changes.', delay: 6400 },
     { agent: 'The Architect', color: 'text-blue-400', message: 'Refactoring complete! Performance optimized', delay: 7100, final: true }
   ],
@@ -78,7 +78,7 @@ const agentResponses = {
     { agent: 'Growth Hacker', color: 'text-purple-400', message: 'Generating request/response schemas...', delay: 3000 },
     { agent: 'Growth Hacker', color: 'text-purple-400', message: 'Creating example requests with realistic data...', delay: 3800 },
     { agent: 'Growth Hacker', color: 'text-purple-400', message: 'Building interactive Swagger UI documentation...', delay: 4600 },
-    { agent: 'The Auditor', color: 'text-amber-400', message: 'Validating documentation accuracy against codebase...', delay: 5300 },
+    { agent: 'The Auditor', color: 'text-orange-400', message: 'Validating documentation accuracy against codebase...', delay: 5300 },
     { agent: 'Growth Hacker', color: 'text-purple-400', message: 'Generating markdown docs for GitHub wiki...', delay: 6000 },
     { agent: 'The Architect', color: 'text-blue-400', message: 'Documentation complete! 34 endpoints documented', delay: 6700, final: true }
   ]
@@ -170,7 +170,7 @@ const InteractiveDemo = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="text-amber-400 text-sm font-medium mb-4 block">See It In Action</span>
+          <span className="text-orange-400 text-sm font-medium mb-4 block">See It In Action</span>
           <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4 tracking-tight">
             Watch Your Squad<br />
             <span className="text-zinc-500">Collaborate.</span>
@@ -235,7 +235,7 @@ const InteractiveDemo = () => {
               </div>
               <div className="flex items-center gap-2 text-white/40 text-xs font-mono">
                 <Terminal className="w-4 h-4" />
-                omniclawd demo
+                omnimolty demo
               </div>
               <button
                 onClick={resetDemo}
@@ -296,7 +296,7 @@ const InteractiveDemo = () => {
                   {/* Initial command display */}
                   {selectedScenario && (
                     <div className="text-white/50 mb-4">
-                      <span className="text-cyan-400">$</span> omniclawd task "{selectedScenario.command}"
+                      <span className="text-cyan-400">$</span> omnimolty task "{selectedScenario.command}"
                     </div>
                   )}
 
