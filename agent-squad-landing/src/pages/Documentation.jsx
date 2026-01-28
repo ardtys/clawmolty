@@ -123,6 +123,16 @@ const docStructure = [
     ]
   },
   {
+    id: 'sdk',
+    title: 'SDK',
+    icon: Cpu,
+    children: [
+      { id: 'sdk-overview', title: 'Overview' },
+      { id: 'sdk-javascript', title: 'JavaScript / Node.js' },
+      { id: 'sdk-python', title: 'Python' },
+    ]
+  },
+  {
     id: 'security',
     title: 'Security & Privacy',
     icon: Shield,
@@ -1451,6 +1461,231 @@ memory:
   embedding_batch: 100
   search_limit: 10
 \`\`\`
+    `,
+  },
+  'sdk-overview': {
+    title: 'SDK Overview',
+    description: 'Official ClawMolty SDKs',
+    content: `
+# SDK Overview
+
+ClawMolty provides official SDKs for popular programming languages.
+
+## Available SDKs
+
+| Language | Package | Version |
+|----------|---------|---------|
+| JavaScript/Node.js | \`@clawmolty/sdk\` | 2.1.0 |
+| Python | \`clawmolty\` | 2.1.0 |
+
+## Quick Installation
+
+\`\`\`bash
+# JavaScript/Node.js
+npm install @clawmolty/sdk
+
+# Python
+pip install clawmolty
+\`\`\`
+
+## Basic Usage
+
+\`\`\`javascript
+import { ClawMolty } from '@clawmolty/sdk';
+
+const client = new ClawMolty({
+  apiKey: process.env.CLAWMOLTY_API_KEY
+});
+
+// Deploy agents
+const squad = await client.squad.deploy({
+  agents: ['architect', 'engineer', 'growth', 'auditor'],
+  mode: 'autonomous'
+});
+
+// Assign a task
+const task = await client.tasks.create({
+  description: 'Build a landing page',
+  assignee: 'engineer',
+  priority: 'high'
+});
+\`\`\`
+    `,
+  },
+  'sdk-javascript': {
+    title: 'JavaScript / Node.js SDK',
+    description: 'Official JavaScript SDK',
+    content: `
+# JavaScript / Node.js SDK
+
+The official ClawMolty SDK for JavaScript and Node.js.
+
+## Installation
+
+\`\`\`bash
+npm install @clawmolty/sdk
+\`\`\`
+
+## Quick Start
+
+\`\`\`javascript
+import { ClawMolty } from '@clawmolty/sdk';
+
+const client = new ClawMolty({
+  apiKey: process.env.CLAWMOLTY_API_KEY,
+  baseUrl: 'http://localhost:8080'
+});
+
+// Check connection
+const status = await client.health.check();
+\`\`\`
+
+## Agent Management
+
+\`\`\`javascript
+// Deploy a full squad
+const squad = await client.squad.deploy({
+  agents: ['architect', 'engineer', 'growth', 'auditor'],
+  mode: 'autonomous'
+});
+
+// Get agent status
+const architect = await client.agents.get('architect');
+
+// List all active agents
+const agents = await client.agents.list({ status: 'active' });
+
+// Stop an agent
+await client.agents.stop('engineer');
+\`\`\`
+
+## Task Operations
+
+\`\`\`javascript
+// Create a task
+const task = await client.tasks.create({
+  description: 'Implement user authentication',
+  assignee: 'engineer',
+  priority: 'high'
+});
+
+// Get task status
+const taskStatus = await client.tasks.get(task.id);
+
+// Cancel a task
+await client.tasks.cancel(task.id);
+\`\`\`
+
+## Event Streaming
+
+\`\`\`javascript
+const stream = client.events.subscribe({
+  events: ['task.completed', 'agent.error']
+});
+
+stream.on('task.completed', (event) => {
+  console.log('Task completed:', event.data.taskId);
+});
+
+stream.unsubscribe();
+\`\`\`
+
+## Configuration
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| \`apiKey\` | string | required | Your API key |
+| \`baseUrl\` | string | \`localhost:8080\` | API base URL |
+| \`timeout\` | number | \`30000\` | Request timeout (ms) |
+    `,
+  },
+  'sdk-python': {
+    title: 'Python SDK',
+    description: 'Official Python SDK',
+    content: `
+# Python SDK
+
+The official ClawMolty SDK for Python.
+
+## Installation
+
+\`\`\`bash
+pip install clawmolty
+\`\`\`
+
+## Quick Start
+
+\`\`\`python
+from clawmolty import ClawMolty
+
+client = ClawMolty(
+    api_key=os.environ.get('CLAWMOLTY_API_KEY'),
+    base_url='http://localhost:8080'
+)
+
+status = client.health.check()
+\`\`\`
+
+## Agent Management
+
+\`\`\`python
+# Deploy a full squad
+squad = client.squad.deploy(
+    agents=['architect', 'engineer', 'growth', 'auditor'],
+    mode='autonomous'
+)
+
+# Get agent status
+architect = client.agents.get('architect')
+
+# List all active agents
+agents = client.agents.list(status='active')
+
+# Stop an agent
+client.agents.stop('engineer')
+\`\`\`
+
+## Task Operations
+
+\`\`\`python
+# Create a task
+task = client.tasks.create(
+    description='Implement user authentication',
+    assignee='engineer',
+    priority='high'
+)
+
+# Get task status
+task_status = client.tasks.get(task.id)
+
+# Cancel a task
+client.tasks.cancel(task.id)
+\`\`\`
+
+## Async Support
+
+\`\`\`python
+import asyncio
+from clawmolty import AsyncClawMolty
+
+async def main():
+    client = AsyncClawMolty(api_key='your-api-key')
+
+    task = await client.tasks.create(
+        description='Build landing page',
+        assignee='engineer'
+    )
+
+asyncio.run(main())
+\`\`\`
+
+## Configuration
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| \`api_key\` | str | required | Your API key |
+| \`base_url\` | str | \`localhost:8080\` | API base URL |
+| \`timeout\` | int | \`30\` | Request timeout (s) |
     `,
   },
   'data-sovereignty': {

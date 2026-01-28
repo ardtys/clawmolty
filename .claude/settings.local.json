@@ -18,7 +18,8 @@
       "Bash(npx png-to-ico:*)",
       "Bash(find:*)",
       "Bash(node remove-bg.cjs:*)",
-      "Bash(node process-logo.cjs:*)"
+      "Bash(node process-logo.cjs:*)",
+      "Bash(git checkout:*)"
     ]
   }
 }
