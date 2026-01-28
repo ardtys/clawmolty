@@ -1,6 +1,6 @@
 # ClawMolty
 
-ClawMolty is an autonomous AI squad platform that provides a team of specialized AI agents working together 24/7 to build and grow your business.
+ClawMolty is your autonomous AI squad that works 24/7. They code, market, audit, and manage — so you can focus on what matters.
 
 ## Overview
 

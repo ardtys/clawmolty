@@ -58,8 +58,7 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
-              <span className="text-white font-semibold">ClawMolty</span> is your autonomous AI squad that works 24/7.
-              They code, market, audit, and manage — so you can focus on what matters.
+              ClawMolty is your autonomous AI squad that works 24/7. They code, market, audit, and manage you can focus on what matters.
             </motion.p>
 
             {/* CTAs */}
