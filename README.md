@@ -1,6 +1,6 @@
 # ClawMolty
 
-ClawMolty is your autonomous AI squad that works 24/7. They code, market, audit, and manage — so you can focus on what matters.
+ClawMolty is your autonomous AI squad that works 24/7. They code, market, audit, and manage so you can focus on what matters.
 
 ## Overview
 
