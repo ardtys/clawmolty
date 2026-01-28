@@ -5,25 +5,25 @@ const valueProps = [
   {
     icon: Shield,
     title: 'Your Code Never Leaves',
-    description: 'Unlike cloud-based AI assistants that send your code to external servers, omnimolty runs entirely on your infrastructure. Your proprietary code, trade secrets, and customer data stay exactly where they belong—under your control.',
+    description: 'Unlike cloud-based AI assistants that send your code to external servers, clawmolty runs entirely on your infrastructure. Your proprietary code, trade secrets, and customer data stay exactly where they belong—under your control.',
     highlight: '100% Local',
-    color: 'from-cyan-500 to-teal-500',
+    color: 'from-orange-500 to-orange-600',
     detail: 'Supports air-gapped deployments for maximum security'
   },
   {
     icon: Zap,
     title: 'Instant Response Times',
-    description: 'No waiting for API calls to complete. No cloud latency. omnimolty executes directly on your machine with sub-10ms response times. When you need a file read, a command run, or code written—it happens immediately.',
+    description: 'No waiting for API calls to complete. No cloud latency. clawmolty executes directly on your machine with sub-10ms response times. When you need a file read, a command run, or code written—it happens immediately.',
     highlight: '<10ms Latency',
-    color: 'from-teal-500 to-emerald-500',
+    color: 'from-orange-600 to-emerald-500',
     detail: 'Direct access to filesystem, terminal, and databases'
   },
   {
     icon: Brain,
     title: 'Context That Compounds',
-    description: 'Every session builds on the last. omnimolty maintains persistent memory of your codebase architecture, your preferred patterns, your past decisions, and your team\'s conventions. The longer you use it, the more it understands.',
+    description: 'Every session builds on the last. clawmolty maintains persistent memory of your codebase architecture, your preferred patterns, your past decisions, and your team\'s conventions. The longer you use it, the more it understands.',
     highlight: 'Adaptive Memory',
-    color: 'from-sky-500 to-cyan-500',
+    color: 'from-orange-500 to-orange-500',
     detail: 'Learns your coding style and project structure over time'
   },
 ];
@@ -36,7 +36,7 @@ const comparisonPoints = [
     details: ['Recruiting takes months', 'Onboarding takes weeks', 'Limited availability']
   },
   {
-    label: 'omnimolty Pro',
+    label: 'clawmolty Pro',
     cost: '$1,788/year',
     icon: Zap,
     details: ['Deploys in minutes', 'Works 24/7', 'Scales instantly'],
@@ -80,8 +80,8 @@ const ValueProps = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-sm font-medium mb-6">
-            Why Choose omnimolty
+          <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-300 text-sm font-medium mb-6">
+            Why Choose clawmolty
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             The Advantages You Can't Get
@@ -89,7 +89,7 @@ const ValueProps = () => {
             <span className="text-white/60">From Cloud-Based AI</span>
           </h2>
           <p className="text-xl text-white/60 max-w-3xl mx-auto">
-            We built omnimolty for teams who can't compromise on security, performance, or control.
+            We built clawmolty for teams who can't compromise on security, performance, or control.
             Here's what makes local-first AI different.
           </p>
         </motion.div>
@@ -113,7 +113,7 @@ const ValueProps = () => {
                 </div>
 
                 {/* Highlight Badge */}
-                <div className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cyan-400 text-xs font-medium mb-4">
+                <div className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-orange-400 text-xs font-medium mb-4">
                   {prop.highlight}
                 </div>
 
@@ -147,21 +147,21 @@ const ValueProps = () => {
                   key={index}
                   className={`p-6 rounded-xl border ${
                     point.highlighted
-                      ? 'bg-cyan-500/10 border-cyan-500/30'
+                      ? 'bg-orange-500/10 border-orange-500/30'
                       : 'bg-white/5 border-white/10'
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <Icon className={`w-6 h-6 ${point.highlighted ? 'text-cyan-400' : 'text-white/40'}`} />
+                    <Icon className={`w-6 h-6 ${point.highlighted ? 'text-orange-400' : 'text-white/40'}`} />
                     <span className="text-white/70 text-sm">{point.label}</span>
                   </div>
-                  <div className={`text-3xl font-bold mb-4 ${point.highlighted ? 'text-cyan-300' : 'text-white'}`}>
+                  <div className={`text-3xl font-bold mb-4 ${point.highlighted ? 'text-orange-300' : 'text-white'}`}>
                     {point.cost}
                   </div>
                   <ul className="space-y-2">
                     {point.details.map((detail, i) => (
                       <li key={i} className="text-white/50 text-sm flex items-center gap-2">
-                        <span className={`w-1.5 h-1.5 rounded-full ${point.highlighted ? 'bg-cyan-400' : 'bg-white/30'}`} />
+                        <span className={`w-1.5 h-1.5 rounded-full ${point.highlighted ? 'bg-orange-400' : 'bg-white/30'}`} />
                         {detail}
                       </li>
                     ))}
@@ -213,8 +213,8 @@ const ValueProps = () => {
                 viewport={{ once: true }}
                 className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
               >
-                <div className="p-2 rounded-lg bg-cyan-500/20">
-                  <Icon className="w-5 h-5 text-cyan-400" />
+                <div className="p-2 rounded-lg bg-orange-500/20">
+                  <Icon className="w-5 h-5 text-orange-400" />
                 </div>
                 <div>
                   <h4 className="text-white font-medium">{feature.title}</h4>

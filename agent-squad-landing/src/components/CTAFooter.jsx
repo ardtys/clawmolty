@@ -6,7 +6,7 @@ import Footer from './Footer';
 
 const CTAFooter = () => {
   const [copied, setCopied] = useState(false);
-  const installCommand = 'curl -fsSL https://get.omnimolty.dev | bash';
+  const installCommand = 'curl -fsSL https://get.clawmolty.dev | bash';
 
   const copyCommand = () => {
     navigator.clipboard.writeText(installCommand);

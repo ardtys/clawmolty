@@ -16,7 +16,7 @@ const plans = [
     description: 'For individual developers exploring AI-assisted development.',
     price: { monthly: 49, yearly: 39 },
     icon: Rocket,
-    color: 'from-blue-500 to-cyan-500',
+    color: 'from-orange-500 to-orange-500',
     popular: false,
     features: [
       { text: '2 Active Projects', included: true },
@@ -37,7 +37,7 @@ const plans = [
     description: 'For teams that need more power and collaboration features.',
     price: { monthly: 149, yearly: 119 },
     icon: Zap,
-    color: 'from-cyan-500 to-teal-500',
+    color: 'from-orange-500 to-orange-600',
     popular: true,
     features: [
       { text: '10 Active Projects', included: true },
@@ -109,7 +109,7 @@ const faqs = [
     answer: 'A task is any discrete action an agent performs: writing a function, running a test, generating a changelog entry, or scanning for vulnerabilities. Complex operations like "build a login system" will be broken into multiple tasks by the Architect.'
   },
   {
-    question: 'Can I try omnimolty before purchasing?',
+    question: 'Can I try clawmolty before purchasing?',
     answer: 'Yes! All plans include a 14-day free trial with full access to every feature. No credit card required. Start building immediately and only pay when you\'re convinced.'
   },
   {
@@ -122,11 +122,11 @@ const faqs = [
   },
   {
     question: 'Do you offer refunds?',
-    answer: 'Yes. We offer a 30-day money-back guarantee on all paid plans. If omnimolty isn\'t right for you, contact support for a full refund—no questions asked.'
+    answer: 'Yes. We offer a 30-day money-back guarantee on all paid plans. If clawmolty isn\'t right for you, contact support for a full refund—no questions asked.'
   },
   {
-    question: 'Is my code secure with omnimolty?',
-    answer: 'Your code never leaves your machine. omnimolty runs 100% locally. We don\'t have access to your codebase, credentials, or any project data. Everything stays on-premise.'
+    question: 'Is my code secure with clawmolty?',
+    answer: 'Your code never leaves your machine. clawmolty runs 100% locally. We don\'t have access to your codebase, credentials, or any project data. Everything stays on-premise.'
   },
   {
     question: 'What payment methods do you accept?',
@@ -160,7 +160,7 @@ const Pricing = () => {
       {/* Hero Section */}
       <section className="relative py-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(34,211,211,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(34,211,211,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyan-500/20 rounded-full blur-[120px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-orange-500/20 rounded-full blur-[120px]" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <motion.div
@@ -168,7 +168,7 @@ const Pricing = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-medium mb-6">
+            <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-sm font-medium mb-6">
               Simple, Transparent Pricing
             </span>
 
@@ -189,7 +189,7 @@ const Pricing = () => {
                 onClick={() => setBillingCycle('monthly')}
                 className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all ${
                   billingCycle === 'monthly'
-                    ? 'bg-cyan-500 text-white'
+                    ? 'bg-orange-500 text-white'
                     : 'text-white/60 hover:text-white'
                 }`}
               >
@@ -199,7 +199,7 @@ const Pricing = () => {
                 onClick={() => setBillingCycle('yearly')}
                 className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
                   billingCycle === 'yearly'
-                    ? 'bg-cyan-500 text-white'
+                    ? 'bg-orange-500 text-white'
                     : 'text-white/60 hover:text-white'
                 }`}
               >
@@ -228,12 +228,12 @@ const Pricing = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className={`relative glass-card p-8 ${
-                    plan.popular ? 'border-cyan-500/50 shadow-[0_0_30px_rgba(34,211,211,0.15)]' : ''
+                    plan.popular ? 'border-orange-500/50 shadow-[0_0_30px_rgba(34,211,211,0.15)]' : ''
                   }`}
                 >
                   {plan.popular && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <span className="px-4 py-1.5 rounded-full bg-cyan-500 text-white text-sm font-medium">
+                      <span className="px-4 py-1.5 rounded-full bg-orange-500 text-white text-sm font-medium">
                         Most Popular
                       </span>
                     </div>
@@ -310,8 +310,8 @@ const Pricing = () => {
                   viewport={{ once: true }}
                   className="text-center"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mx-auto mb-3">
-                    <Icon className="w-6 h-6 text-cyan-400" />
+                  <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center mx-auto mb-3">
+                    <Icon className="w-6 h-6 text-orange-400" />
                   </div>
                   <h4 className="text-white font-medium mb-1">{item.title}</h4>
                   <p className="text-white/50 text-sm">{item.desc}</p>
@@ -349,13 +349,13 @@ const Pricing = () => {
                   <th className="text-left p-4 text-white/60 font-medium w-1/4">Feature</th>
                   <th className="text-center p-4 text-white font-medium">
                     <div className="flex flex-col items-center">
-                      <Rocket className="w-5 h-5 text-blue-400 mb-1" />
+                      <Rocket className="w-5 h-5 text-orange-400 mb-1" />
                       Starter
                     </div>
                   </th>
-                  <th className="text-center p-4 text-white font-medium bg-cyan-500/10">
+                  <th className="text-center p-4 text-white font-medium bg-orange-500/10">
                     <div className="flex flex-col items-center">
-                      <Zap className="w-5 h-5 text-cyan-400 mb-1" />
+                      <Zap className="w-5 h-5 text-orange-400 mb-1" />
                       Professional
                     </div>
                   </th>
@@ -389,7 +389,7 @@ const Pricing = () => {
                             <span className="text-white/70 text-sm">{feature.starter}</span>
                           )}
                         </td>
-                        <td className="p-4 text-center bg-cyan-500/5">
+                        <td className="p-4 text-center bg-orange-500/5">
                           {typeof feature.professional === 'boolean' ? (
                             feature.professional ? (
                               <Check className="w-5 h-5 text-green-400 mx-auto" />
@@ -446,7 +446,7 @@ const Pricing = () => {
                 className="glass-card p-5"
               >
                 <h4 className="text-white font-medium mb-1">{addon.name}</h4>
-                <p className="text-cyan-400 font-bold mb-2">{addon.price}</p>
+                <p className="text-orange-400 font-bold mb-2">{addon.price}</p>
                 <p className="text-white/50 text-sm">{addon.desc}</p>
               </motion.div>
             ))}
@@ -465,7 +465,7 @@ const Pricing = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-white mb-4">Every Plan Includes</h2>
-            <p className="text-white/60">Core features available to all omnimolty users.</p>
+            <p className="text-white/60">Core features available to all clawmolty users.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -489,8 +489,8 @@ const Pricing = () => {
                   viewport={{ once: true }}
                   className="flex items-start gap-4 p-4 rounded-xl bg-white/5"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-cyan-400" />
+                  <div className="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5 text-orange-400" />
                   </div>
                   <div>
                     <h4 className="text-white font-medium">{feature.title}</h4>
@@ -532,7 +532,7 @@ const Pricing = () => {
                 className="glass-card p-6"
               >
                 <div className="flex items-start gap-3">
-                  <HelpCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                  <HelpCircle className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
                   <div>
                     <h4 className="text-white font-medium mb-2">{faq.question}</h4>
                     <p className="text-white/60 text-sm leading-relaxed">{faq.answer}</p>

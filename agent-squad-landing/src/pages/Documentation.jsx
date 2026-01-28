@@ -138,16 +138,16 @@ const docStructure = [
 // Documentation content
 const docContent = {
   introduction: {
-    title: 'Introduction to OmniMolty',
+    title: 'Introduction to ClawMolty',
     description: 'Your autonomous digital enterprise',
     content: `
-# Introduction to OmniMolty
+# Introduction to ClawMolty
 
-Welcome to OmniMolty — your autonomous AI enterprise that lives on your infrastructure.
+Welcome to ClawMolty — your autonomous AI enterprise that lives on your infrastructure.
 
-## What is OmniMolty?
+## What is ClawMolty?
 
-OmniMolty is a revolutionary platform that transforms your vision into a self-sufficient digital enterprise. Unlike single-task AI tools, OmniMolty deploys a complete **C-Suite Squad** of specialized AI agents that work together autonomously to drive your business forward.
+ClawMolty is a revolutionary platform that transforms your vision into a self-sufficient digital enterprise. Unlike single-task AI tools, ClawMolty deploys a complete **C-Suite Squad** of specialized AI agents that work together autonomously to drive your business forward.
 
 ## The C-Suite Squad
 
@@ -170,11 +170,11 @@ Your digital organization consists of four specialized agents:
 
 ## How It's Different
 
-Traditional AI assistants wait for your commands. OmniMolty agents are **proactive** — they monitor, plan, execute, and report autonomously. They don't just advise; they build your business.
+Traditional AI assistants wait for your commands. ClawMolty agents are **proactive** — they monitor, plan, execute, and report autonomously. They don't just advise; they build your business.
 
 \`\`\`bash
 # Deploy your squad with one command
-omnimolty deploy --squad=full --mode=autonomous
+clawmolty deploy --squad=full --mode=autonomous
 \`\`\`
 
 Ready to get started? Continue to [Installation](/docs#installation).
@@ -182,20 +182,20 @@ Ready to get started? Continue to [Installation](/docs#installation).
   },
   installation: {
     title: 'Installation',
-    description: 'Install OmniMolty on your machine',
+    description: 'Install ClawMolty on your machine',
     content: `
 # Installation
 
-OmniMolty runs locally on your infrastructure. Choose your platform below.
+ClawMolty runs locally on your infrastructure. Choose your platform below.
 
 ## macOS
 
 \`\`\`bash
 # Using Homebrew (recommended)
-brew install omnimolty
+brew install clawmolty
 
 # Or using curl
-curl -fsSL https://get.omnimolty.dev | bash
+curl -fsSL https://get.clawmolty.dev | bash
 \`\`\`
 
 Supports Apple Silicon (M1/M2/M3/M4) and Intel Macs.
@@ -204,10 +204,10 @@ Supports Apple Silicon (M1/M2/M3/M4) and Intel Macs.
 
 \`\`\`bash
 # Ubuntu/Debian
-curl -fsSL https://get.omnimolty.dev | bash
+curl -fsSL https://get.clawmolty.dev | bash
 
 # Or using apt
-sudo apt install omnimolty
+sudo apt install clawmolty
 \`\`\`
 
 Supports Ubuntu 20.04+, Debian 11+, Fedora 36+.
@@ -216,10 +216,10 @@ Supports Ubuntu 20.04+, Debian 11+, Fedora 36+.
 
 \`\`\`bash
 # Using winget
-winget install omnimolty
+winget install clawmolty
 
 # Or in WSL2
-curl -fsSL https://get.omnimolty.dev | bash
+curl -fsSL https://get.clawmolty.dev | bash
 \`\`\`
 
 Requires Windows 10/11 with WSL2 enabled.
@@ -227,15 +227,15 @@ Requires Windows 10/11 with WSL2 enabled.
 ## Docker
 
 \`\`\`bash
-docker pull omnimolty/omnimolty:latest
-docker run -v $(pwd):/workspace omnimolty/omnimolty start
+docker pull clawmolty/clawmolty:latest
+docker run -v $(pwd):/workspace clawmolty/clawmolty start
 \`\`\`
 
 ## Verify Installation
 
 \`\`\`bash
-omnimolty --version
-# omnimolty v2.1.0
+clawmolty --version
+# clawmolty v2.1.0
 \`\`\`
 
 ## Next Steps
@@ -257,23 +257,23 @@ Navigate to your project directory and run:
 
 \`\`\`bash
 cd your-project
-omnimolty init
+clawmolty init
 \`\`\`
 
 This will:
 - Scan your codebase structure
 - Detect language and frameworks
-- Create \`.omnimolty/\` config folder
+- Create \`.clawmolty/\` config folder
 
 ## Step 2: Configure Your Squad
 
 Open the configuration wizard:
 
 \`\`\`bash
-omnimolty config
+clawmolty config
 \`\`\`
 
-Or edit \`.omnimolty/config.yaml\` directly:
+Or edit \`.clawmolty/config.yaml\` directly:
 
 \`\`\`yaml
 project:
@@ -299,7 +299,7 @@ notifications:
 ## Step 3: Deploy Your Squad
 
 \`\`\`bash
-omnimolty deploy --mode=autonomous
+clawmolty deploy --mode=autonomous
 \`\`\`
 
 Your squad is now active!
@@ -307,7 +307,7 @@ Your squad is now active!
 ## Step 4: Assign Your First Task
 
 \`\`\`bash
-omnimolty task "Build user authentication with JWT"
+clawmolty task "Build user authentication with JWT"
 \`\`\`
 
 Watch your agents collaborate in real-time:
@@ -333,7 +333,7 @@ Watch your agents collaborate in real-time:
     content: `
 # System Requirements
 
-OmniMolty is designed to run efficiently on modern hardware.
+ClawMolty is designed to run efficiently on modern hardware.
 
 ## Minimum Requirements
 
@@ -364,7 +364,7 @@ For 24/7 autonomous operation, we recommend:
 
 ## Software Dependencies
 
-OmniMolty automatically manages these dependencies:
+ClawMolty automatically manages these dependencies:
 
 - Node.js 18+
 - Python 3.10+
@@ -381,7 +381,7 @@ For faster AI processing:
 
 ## Network Requirements
 
-OmniMolty works **100% offline** after initial setup.
+ClawMolty works **100% offline** after initial setup.
 
 Optional network access for:
 - License validation (can be disabled)
@@ -451,13 +451,13 @@ The Architect:
 
 \`\`\`bash
 # Assign task to Architect
-omnimolty task "Launch new feature by Friday"
+clawmolty task "Launch new feature by Friday"
 
 # Check Architect's current plan
-omnimolty status --agent=architect
+clawmolty status --agent=architect
 
 # View decision history
-omnimolty logs --agent=architect --type=decisions
+clawmolty logs --agent=architect --type=decisions
 \`\`\`
     `,
   },
@@ -530,13 +530,13 @@ agents:
 
 \`\`\`bash
 # Direct task to Engineer
-omnimolty task "Fix memory leak in DataProcessor" --agent=engineer
+clawmolty task "Fix memory leak in DataProcessor" --agent=engineer
 
 # View Engineer's activity
-omnimolty logs --agent=engineer --follow
+clawmolty logs --agent=engineer --follow
 
 # Check code coverage
-omnimolty status --agent=engineer --metrics
+clawmolty status --agent=engineer --metrics
 \`\`\`
     `,
   },
@@ -619,13 +619,13 @@ agents:
 
 \`\`\`bash
 # Research competitors
-omnimolty task "Analyze competitor pricing" --agent=growth
+clawmolty task "Analyze competitor pricing" --agent=growth
 
 # Generate content
-omnimolty task "Write blog post about AI automation"
+clawmolty task "Write blog post about AI automation"
 
 # View social metrics
-omnimolty status --agent=growth --metrics
+clawmolty status --agent=growth --metrics
 \`\`\`
     `,
   },
@@ -705,13 +705,13 @@ agents:
 
 \`\`\`bash
 # Generate invoice
-omnimolty task "Invoice client for Project Alpha"
+clawmolty task "Invoice client for Project Alpha"
 
 # Run security scan
-omnimolty audit --type=security
+clawmolty audit --type=security
 
 # Check compliance status
-omnimolty status --agent=auditor --compliance
+clawmolty status --agent=auditor --compliance
 \`\`\`
     `,
   },
@@ -721,7 +721,7 @@ omnimolty status --agent=auditor --compliance
     content: `
 # Agent Communication
 
-OmniMolty agents communicate using the **Model Context Protocol (MCP)**, enabling seamless collaboration and context sharing.
+ClawMolty agents communicate using the **Model Context Protocol (MCP)**, enabling seamless collaboration and context sharing.
 
 ## How It Works
 
@@ -791,13 +791,13 @@ action:
 
 \`\`\`bash
 # View all agent messages
-omnimolty logs --type=mcp
+clawmolty logs --type=mcp
 
 # View specific agent communication
-omnimolty logs --agent=architect --type=messages
+clawmolty logs --agent=architect --type=messages
 
 # Real-time monitoring
-omnimolty monitor --agents=all
+clawmolty monitor --agents=all
 \`\`\`
     `,
   },
@@ -807,7 +807,7 @@ omnimolty monitor --agents=all
     content: `
 # Proactive Heartbeat
 
-The Proactive Heartbeat is OmniMolty's autonomous operation system. Unlike reactive AI that waits for commands, your squad continuously monitors, plans, and acts.
+The Proactive Heartbeat is ClawMolty's autonomous operation system. Unlike reactive AI that waits for commands, your squad continuously monitors, plans, and acts.
 
 ## The Loop
 
@@ -882,7 +882,7 @@ heartbeat:
 Or pause temporarily:
 
 \`\`\`bash
-omnimolty pause --duration=4h
+clawmolty pause --duration=4h
 \`\`\`
     `,
   },
@@ -918,7 +918,7 @@ Every day at your configured time, The Architect delivers a comprehensive daily 
 None detected.
 
 ---
-*Generated by OmniMolty at 08:00 AM*
+*Generated by ClawMolty at 08:00 AM*
 \`\`\`
 
 ## Configuration
@@ -972,10 +972,10 @@ notifications:
 
 \`\`\`bash
 # Generate standup now
-omnimolty standup
+clawmolty standup
 
 # Generate and send
-omnimolty standup --send
+clawmolty standup --send
 \`\`\`
     `,
   },
@@ -985,12 +985,12 @@ omnimolty standup --send
     content: `
 # Configuration File
 
-OmniMolty uses a YAML configuration file stored at \`.omnimolty/config.yaml\`.
+ClawMolty uses a YAML configuration file stored at \`.clawmolty/config.yaml\`.
 
 ## Full Example
 
 \`\`\`yaml
-# .omnimolty/config.yaml
+# .clawmolty/config.yaml
 
 # Project settings
 project:
@@ -1083,10 +1083,10 @@ integrations:
 
 \`\`\`bash
 # Validate config file
-omnimolty config --validate
+clawmolty config --validate
 
 # Show current config
-omnimolty config --show
+clawmolty config --show
 \`\`\`
     `,
   },
@@ -1096,77 +1096,77 @@ omnimolty config --show
     content: `
 # CLI Commands
 
-Complete reference for OmniMolty CLI commands.
+Complete reference for ClawMolty CLI commands.
 
 ## Core Commands
 
 | Command | Description |
 |---------|-------------|
-| \`omnimolty init\` | Initialize OmniMolty in current directory |
-| \`omnimolty deploy\` | Deploy the agent squad |
-| \`omnimolty stop\` | Stop all running agents |
-| \`omnimolty status\` | View current status |
+| \`clawmolty init\` | Initialize ClawMolty in current directory |
+| \`clawmolty deploy\` | Deploy the agent squad |
+| \`clawmolty stop\` | Stop all running agents |
+| \`clawmolty status\` | View current status |
 
 ## Task Commands
 
 | Command | Description |
 |---------|-------------|
-| \`omnimolty task "..."\` | Assign a new task |
-| \`omnimolty tasks\` | List all tasks |
-| \`omnimolty tasks --pending\` | List pending tasks |
-| \`omnimolty task cancel <id>\` | Cancel a task |
+| \`clawmolty task "..."\` | Assign a new task |
+| \`clawmolty tasks\` | List all tasks |
+| \`clawmolty tasks --pending\` | List pending tasks |
+| \`clawmolty task cancel <id>\` | Cancel a task |
 
 ## Agent Commands
 
 | Command | Description |
 |---------|-------------|
-| \`omnimolty agents\` | List all agents |
-| \`omnimolty logs --agent=<name>\` | View agent logs |
-| \`omnimolty pause --agent=<name>\` | Pause an agent |
-| \`omnimolty resume --agent=<name>\` | Resume an agent |
+| \`clawmolty agents\` | List all agents |
+| \`clawmolty logs --agent=<name>\` | View agent logs |
+| \`clawmolty pause --agent=<name>\` | Pause an agent |
+| \`clawmolty resume --agent=<name>\` | Resume an agent |
 
 ## Configuration Commands
 
 | Command | Description |
 |---------|-------------|
-| \`omnimolty config\` | Open config wizard |
-| \`omnimolty config --show\` | Show current config |
-| \`omnimolty config --validate\` | Validate config |
-| \`omnimolty config --reset\` | Reset to defaults |
+| \`clawmolty config\` | Open config wizard |
+| \`clawmolty config --show\` | Show current config |
+| \`clawmolty config --validate\` | Validate config |
+| \`clawmolty config --reset\` | Reset to defaults |
 
 ## Utility Commands
 
 | Command | Description |
 |---------|-------------|
-| \`omnimolty standup\` | Generate standup report |
-| \`omnimolty audit\` | Run security audit |
-| \`omnimolty monitor\` | Real-time monitoring |
-| \`omnimolty upgrade\` | Upgrade OmniMolty |
+| \`clawmolty standup\` | Generate standup report |
+| \`clawmolty audit\` | Run security audit |
+| \`clawmolty monitor\` | Real-time monitoring |
+| \`clawmolty upgrade\` | Upgrade ClawMolty |
 
 ## Examples
 
 \`\`\`bash
 # Deploy with specific agents
-omnimolty deploy --agents=architect,engineer
+clawmolty deploy --agents=architect,engineer
 
 # Assign high-priority task
-omnimolty task "Fix production bug" --priority=high
+clawmolty task "Fix production bug" --priority=high
 
 # View logs in real-time
-omnimolty logs --follow
+clawmolty logs --follow
 
 # Export configuration
-omnimolty config --export > backup.yaml
+clawmolty config --export > backup.yaml
 \`\`\`
     `,
   },
   'local-deployment': {
     title: 'Local Deployment',
-    description: 'Running OmniMolty on your hardware',
+    description: 'Running ClawMolty on your hardware',
     content: `
 # Local Deployment
 
-OmniMolty is designed for 100% local execution. Your code and data never leave your infrastructure.
+ClawMolty is designed for 100% local execution. Your code and data never leave your infrastructure.
 
 ## Deployment Options
 
@@ -1174,7 +1174,7 @@ OmniMolty is designed for 100% local execution. Your code and data never leave y
 
 \`\`\`bash
 # Install and run directly
-omnimolty deploy --mode=autonomous
+clawmolty deploy --mode=autonomous
 \`\`\`
 
 Best for: Development machines, dedicated servers
@@ -1183,10 +1183,10 @@ Best for: Development machines, dedicated servers
 
 \`\`\`bash
 docker run -d \\
-  --name omnimolty \\
+  --name clawmolty \\
   -v $(pwd):/workspace \\
-  -v ~/.omnimolty:/root/.omnimolty \\
-  omnimolty/omnimolty:latest \\
+  -v ~/.clawmolty:/root/.clawmolty \\
+  clawmolty/clawmolty:latest \\
   deploy --mode=autonomous
 \`\`\`
 
@@ -1196,11 +1196,11 @@ Best for: Isolated environments, CI/CD
 
 \`\`\`bash
 # Install as system service
-sudo omnimolty service install
+sudo clawmolty service install
 
 # Start service
-sudo systemctl start omnimolty
-sudo systemctl enable omnimolty
+sudo systemctl start clawmolty
+sudo systemctl enable clawmolty
 \`\`\`
 
 Best for: 24/7 operation on Linux servers
@@ -1209,10 +1209,10 @@ Best for: 24/7 operation on Linux servers
 
 \`\`\`bash
 # Install as launch daemon
-omnimolty service install --macos
+clawmolty service install --macos
 
 # Start automatically on boot
-launchctl load ~/Library/LaunchAgents/com.omnimolty.plist
+launchctl load ~/Library/LaunchAgents/com.clawmolty.plist
 \`\`\`
 
 Best for: 24/7 operation on Mac Mini
@@ -1228,7 +1228,7 @@ Best for: 24/7 operation on Mac Mini
 
 ## Network Configuration
 
-OmniMolty works offline, but for integrations:
+ClawMolty works offline, but for integrations:
 
 \`\`\`yaml
 # Allow specific outbound connections
@@ -1246,13 +1246,13 @@ network:
 
 \`\`\`bash
 # Check health
-omnimolty health
+clawmolty health
 
 # View resource usage
-omnimolty status --resources
+clawmolty status --resources
 
 # Real-time monitoring
-omnimolty monitor --dashboard
+clawmolty monitor --dashboard
 \`\`\`
     `,
   },
@@ -1262,7 +1262,7 @@ omnimolty monitor --dashboard
     content: `
 # MCP Protocol
 
-The Model Context Protocol (MCP) is the communication backbone of OmniMolty, enabling agents to share context and collaborate seamlessly.
+The Model Context Protocol (MCP) is the communication backbone of ClawMolty, enabling agents to share context and collaborate seamlessly.
 
 ## What is MCP?
 
@@ -1347,13 +1347,13 @@ mcp:
 
 \`\`\`bash
 # View MCP messages
-omnimolty logs --type=mcp
+clawmolty logs --type=mcp
 
 # Debug mode
-omnimolty deploy --mcp-debug
+clawmolty deploy --mcp-debug
 
 # Message inspector
-omnimolty mcp inspect
+clawmolty mcp inspect
 \`\`\`
     `,
   },
@@ -1363,7 +1363,7 @@ omnimolty mcp inspect
     content: `
 # Vector Database
 
-The vector database serves as OmniMolty's "long-term memory," enabling your squad to remember past decisions, learnings, and project context.
+The vector database serves as ClawMolty's "long-term memory," enabling your squad to remember past decisions, learnings, and project context.
 
 ## Why Vector Storage?
 
@@ -1379,7 +1379,7 @@ Traditional databases store exact matches. Vector databases store **semantic mea
 \`\`\`yaml
 memory:
   backend: "chroma"
-  path: ".omnimolty/memory"
+  path: ".clawmolty/memory"
   embedding_model: "default"
 \`\`\`
 
@@ -1390,7 +1390,7 @@ Best for: Local development, single projects
 memory:
   backend: "pinecone"
   api_key: \${PINECONE_API_KEY}
-  index: "omnimolty-memory"
+  index: "clawmolty-memory"
 \`\`\`
 
 Best for: Cloud deployments, large scale
@@ -1400,7 +1400,7 @@ Best for: Cloud deployments, large scale
 memory:
   backend: "qdrant"
   url: "http://localhost:6333"
-  collection: "omnimolty"
+  collection: "clawmolty"
 \`\`\`
 
 Best for: Self-hosted, high performance
@@ -1418,16 +1418,16 @@ Best for: Self-hosted, high performance
 
 \`\`\`bash
 # View memory stats
-omnimolty memory stats
+clawmolty memory stats
 
 # Search memory
-omnimolty memory search "authentication patterns"
+clawmolty memory search "authentication patterns"
 
 # Export memory
-omnimolty memory export > backup.json
+clawmolty memory export > backup.json
 
 # Clear memory (careful!)
-omnimolty memory clear --confirm
+clawmolty memory clear --confirm
 \`\`\`
 
 ## Configuration
@@ -1459,7 +1459,7 @@ memory:
     content: `
 # Data Sovereignty
 
-OmniMolty is built on a fundamental principle: **your data never leaves your infrastructure**.
+ClawMolty is built on a fundamental principle: **your data never leaves your infrastructure**.
 
 ## Zero Cloud Dependency
 
@@ -1477,7 +1477,7 @@ OmniMolty is built on a fundamental principle: **your data never leaves your inf
 models:
   provider: "local"
   model: "llama3.1-70b"
-  path: "~/.omnimolty/models"
+  path: "~/.clawmolty/models"
 \`\`\`
 100% offline, no external API calls.
 
@@ -1512,7 +1512,7 @@ network:
 ┌────────────────────────────────────────────┐
 │              YOUR INFRASTRUCTURE           │
 │  ┌──────────┐  ┌──────────┐  ┌──────────┐ │
-│  │ Your     │  │OmniMolty │  │ Vector   │ │
+│  │ Your     │  │ClawMolty │  │ Vector   │ │
 │  │ Codebase │─►│ Agents   │─►│ Memory   │ │
 │  └──────────┘  └──────────┘  └──────────┘ │
 │                     │                      │
@@ -1534,13 +1534,13 @@ network:
 
 \`\`\`bash
 # Verify no outbound connections
-omnimolty audit --network
+clawmolty audit --network
 
 # View all external requests
-omnimolty logs --type=network
+clawmolty logs --type=network
 
 # Run in isolated mode
-omnimolty deploy --network=none
+clawmolty deploy --network=none
 \`\`\`
     `,
   },
@@ -1550,7 +1550,7 @@ omnimolty deploy --network=none
     content: `
 # Cross-Agent Tasks
 
-Complex business tasks require coordination between multiple agents. OmniMolty automatically orchestrates cross-agent collaboration.
+Complex business tasks require coordination between multiple agents. ClawMolty automatically orchestrates cross-agent collaboration.
 
 ## How It Works
 
@@ -1676,13 +1676,13 @@ cross_agent:
 
 \`\`\`bash
 # View all cross-agent tasks
-omnimolty tasks --cross-agent
+clawmolty tasks --cross-agent
 
 # View task dependency graph
-omnimolty tasks <task-id> --graph
+clawmolty tasks <task-id> --graph
 
 # Monitor real-time coordination
-omnimolty monitor --coordination
+clawmolty monitor --coordination
 \`\`\`
     `,
   },
@@ -1692,7 +1692,7 @@ omnimolty monitor --coordination
     content: `
 # Self-Correction
 
-OmniMolty agents don't just execute—they learn. When errors occur, agents automatically analyze, correct, and prevent future occurrences.
+ClawMolty agents don't just execute—they learn. When errors occur, agents automatically analyze, correct, and prevent future occurrences.
 
 ## The Self-Correction Loop
 
@@ -1829,13 +1829,13 @@ self_correction:
 
 \`\`\`bash
 # View correction history
-omnimolty logs --type=corrections
+clawmolty logs --type=corrections
 
 # View learned lessons
-omnimolty memory search "lessons"
+clawmolty memory search "lessons"
 
 # Correction statistics
-omnimolty stats --corrections
+clawmolty stats --corrections
 
 # Output example:
 # Corrections this week: 47
@@ -1850,10 +1850,10 @@ For sensitive operations:
 
 \`\`\`bash
 # Run task without auto-correction
-omnimolty task "Deploy to production" --no-auto-correct
+clawmolty task "Deploy to production" --no-auto-correct
 
 # Require approval for all fixes
-omnimolty config set self_correction.require_approval true
+clawmolty config set self_correction.require_approval true
 \`\`\`
     `,
   },
@@ -1868,7 +1868,7 @@ Each agent can be individually configured to match your workflow and preferences
 ## Global Agent Settings
 
 \`\`\`yaml
-# .omnimolty/config.yaml
+# .clawmolty/config.yaml
 agents:
   # Global settings apply to all agents
   global:
@@ -2038,36 +2038,36 @@ Override settings for specific tasks:
 
 \`\`\`bash
 # Override auto-commit for this task
-omnimolty task "Quick fix typo" --auto-commit=true
+clawmolty task "Quick fix typo" --auto-commit=true
 
 # Skip tests for documentation changes
-omnimolty task "Update README" --skip-tests
+clawmolty task "Update README" --skip-tests
 
 # Force specific agent
-omnimolty task "Write blog post" --agent=growth
+clawmolty task "Write blog post" --agent=growth
 \`\`\`
 
 ## Viewing Current Settings
 
 \`\`\`bash
 # Show all agent settings
-omnimolty config --show --agents
+clawmolty config --show --agents
 
 # Show specific agent
-omnimolty config --show --agent=engineer
+clawmolty config --show --agent=engineer
 
 # Validate settings
-omnimolty config --validate
+clawmolty config --validate
 \`\`\`
     `,
   },
   'integrations': {
     title: 'Integrations',
-    description: 'Connect OmniMolty with your tools',
+    description: 'Connect ClawMolty with your tools',
     content: `
 # Integrations
 
-OmniMolty integrates with your existing tools and services to enhance agent capabilities.
+ClawMolty integrates with your existing tools and services to enhance agent capabilities.
 
 ## Version Control
 
@@ -2087,7 +2087,7 @@ integrations:
     auto_pr: true
     pr_template: ".github/PULL_REQUEST_TEMPLATE.md"
     reviewers: ["@team-lead", "@senior-dev"]
-    labels: ["automated", "omnimolty"]
+    labels: ["automated", "clawmolty"]
 
     # Branch protection
     respect_branch_protection: true
@@ -2272,7 +2272,7 @@ integrations:
     # Services
     services:
       s3:
-        bucket: "omnimolty-assets"
+        bucket: "clawmolty-assets"
       ses:
         from_email: "noreply@company.com"
 \`\`\`
@@ -2281,13 +2281,13 @@ integrations:
 
 \`\`\`bash
 # Test all integrations
-omnimolty integrations test
+clawmolty integrations test
 
 # Test specific integration
-omnimolty integrations test github
+clawmolty integrations test github
 
 # View integration status
-omnimolty integrations status
+clawmolty integrations status
 \`\`\`
     `,
   },
@@ -2473,19 +2473,19 @@ notifications:
 
 \`\`\`bash
 # Send test notification
-omnimolty notify test --channel=telegram
+clawmolty notify test --channel=telegram
 
 # Preview notification
-omnimolty notify preview --event=task_completed
+clawmolty notify preview --event=task_completed
 
 # View notification history
-omnimolty logs --type=notifications
+clawmolty logs --type=notifications
 \`\`\`
 
 ## Notification Statistics
 
 \`\`\`bash
-omnimolty stats --notifications
+clawmolty stats --notifications
 
 # Output:
 # Notifications this week: 127
@@ -2507,7 +2507,7 @@ omnimolty stats --notifications
     content: `
 # Hardware Setup
 
-OmniMolty is designed for local-first deployment. Here are recommended hardware configurations for different use cases.
+ClawMolty is designed for local-first deployment. Here are recommended hardware configurations for different use cases.
 
 ## Quick Reference
 
@@ -2540,15 +2540,15 @@ Mac Mini M4
 
 **Setup:**
 \`\`\`bash
-# Install OmniMolty
-brew install omnimolty
+# Install ClawMolty
+brew install clawmolty
 
 # Enable always-on
 sudo pmset -a sleep 0
 sudo pmset -a disksleep 0
 
 # Install as launch daemon
-omnimolty service install --macos
+clawmolty service install --macos
 \`\`\`
 
 ## Raspberry Pi 5
@@ -2576,15 +2576,15 @@ Raspberry Pi 5 (8GB)
 # Flash Raspberry Pi OS (64-bit)
 # Connect NVMe SSD
 
-# Install OmniMolty
-curl -fsSL https://get.omnimolty.dev | bash
+# Install ClawMolty
+curl -fsSL https://get.clawmolty.dev | bash
 
 # Optimize for Pi
-omnimolty config set performance.mode "efficiency"
+clawmolty config set performance.mode "efficiency"
 
 # Install as systemd service
-sudo omnimolty service install
-sudo systemctl enable omnimolty
+sudo clawmolty service install
+sudo systemctl enable clawmolty
 \`\`\`
 
 **Limitations:**
@@ -2617,12 +2617,12 @@ sudo apt update && sudo apt upgrade
 # Install dependencies
 sudo apt install build-essential git
 
-# Install OmniMolty
-curl -fsSL https://get.omnimolty.dev | bash
+# Install ClawMolty
+curl -fsSL https://get.clawmolty.dev | bash
 
 # Install as systemd service
-sudo omnimolty service install
-sudo systemctl enable omnimolty
+sudo clawmolty service install
+sudo systemctl enable clawmolty
 \`\`\`
 
 ## GPU Acceleration (Optional)
@@ -2678,13 +2678,13 @@ network:
 
 \`\`\`bash
 # Check system compatibility
-omnimolty doctor
+clawmolty doctor
 
 # Performance benchmark
-omnimolty benchmark
+clawmolty benchmark
 
 # Resource monitoring
-omnimolty monitor --resources
+clawmolty monitor --resources
 \`\`\`
     `,
   },
@@ -2694,7 +2694,7 @@ omnimolty monitor --resources
     content: `
 # CLI Flags & Options
 
-Complete reference for OmniMolty CLI flags and options.
+Complete reference for ClawMolty CLI flags and options.
 
 ## Global Flags
 
@@ -2713,7 +2713,7 @@ These flags work with any command:
 ## Deploy Command
 
 \`\`\`bash
-omnimolty deploy [flags]
+clawmolty deploy [flags]
 \`\`\`
 
 | Flag | Description | Default |
@@ -2727,19 +2727,19 @@ omnimolty deploy [flags]
 **Examples:**
 \`\`\`bash
 # Deploy all agents in autonomous mode
-omnimolty deploy --mode=autonomous
+clawmolty deploy --mode=autonomous
 
 # Deploy only engineer and architect
-omnimolty deploy --agents=architect,engineer
+clawmolty deploy --agents=architect,engineer
 
 # Preview deployment
-omnimolty deploy --dry-run
+clawmolty deploy --dry-run
 \`\`\`
 
 ## Task Command
 
 \`\`\`bash
-omnimolty task <description> [flags]
+clawmolty task <description> [flags]
 \`\`\`
 
 | Flag | Description | Default |
@@ -2754,19 +2754,19 @@ omnimolty task <description> [flags]
 **Examples:**
 \`\`\`bash
 # High priority task
-omnimolty task "Fix production bug" --priority=critical
+clawmolty task "Fix production bug" --priority=critical
 
 # Task with deadline
-omnimolty task "Write docs" --deadline="2024-01-30"
+clawmolty task "Write docs" --deadline="2024-01-30"
 
 # Assign to specific agent
-omnimolty task "Research competitors" --agent=growth
+clawmolty task "Research competitors" --agent=growth
 \`\`\`
 
 ## Logs Command
 
 \`\`\`bash
-omnimolty logs [flags]
+clawmolty logs [flags]
 \`\`\`
 
 | Flag | Description | Default |
@@ -2781,19 +2781,19 @@ omnimolty logs [flags]
 **Examples:**
 \`\`\`bash
 # Follow all logs
-omnimolty logs --follow
+clawmolty logs --follow
 
 # Engineer errors only
-omnimolty logs --agent=engineer --type=errors
+clawmolty logs --agent=engineer --type=errors
 
 # Search for specific term
-omnimolty logs --search="authentication"
+clawmolty logs --search="authentication"
 \`\`\`
 
 ## Status Command
 
 \`\`\`bash
-omnimolty status [flags]
+clawmolty status [flags]
 \`\`\`
 
 | Flag | Description | Default |
@@ -2807,19 +2807,19 @@ omnimolty status [flags]
 **Examples:**
 \`\`\`bash
 # Full status with metrics
-omnimolty status --metrics --resources
+clawmolty status --metrics --resources
 
 # Watch status updates
-omnimolty status --watch
+clawmolty status --watch
 
 # Specific agent status
-omnimolty status --agent=engineer --tasks
+clawmolty status --agent=engineer --tasks
 \`\`\`
 
 ## Config Command
 
 \`\`\`bash
-omnimolty config [flags]
+clawmolty config [flags]
 \`\`\`
 
 | Flag | Description |
@@ -2834,19 +2834,19 @@ omnimolty config [flags]
 **Examples:**
 \`\`\`bash
 # Show current config
-omnimolty config --show
+clawmolty config --show
 
 # Set a value
-omnimolty config --set agents.engineer.auto_commit=true
+clawmolty config --set agents.engineer.auto_commit=true
 
 # Get a value
-omnimolty config --get agents.architect.daily_standup.time
+clawmolty config --get agents.architect.daily_standup.time
 \`\`\`
 
 ## Audit Command
 
 \`\`\`bash
-omnimolty audit [flags]
+clawmolty audit [flags]
 \`\`\`
 
 | Flag | Description | Default |
@@ -2859,16 +2859,16 @@ omnimolty audit [flags]
 **Examples:**
 \`\`\`bash
 # Security audit with fixes
-omnimolty audit --type=security --fix
+clawmolty audit --type=security --fix
 
 # Generate HTML report
-omnimolty audit --report --format=html
+clawmolty audit --report --format=html
 \`\`\`
 
 ## Memory Command
 
 \`\`\`bash
-omnimolty memory [subcommand] [flags]
+clawmolty memory [subcommand] [flags]
 \`\`\`
 
 | Subcommand | Description |
@@ -2881,10 +2881,10 @@ omnimolty memory [subcommand] [flags]
 **Examples:**
 \`\`\`bash
 # Search memory
-omnimolty memory search "authentication patterns"
+clawmolty memory search "authentication patterns"
 
 # Export memory
-omnimolty memory export --format=json > backup.json
+clawmolty memory export --format=json > backup.json
 \`\`\`
     `,
   },
@@ -2894,20 +2894,20 @@ omnimolty memory export --format=json > backup.json
     content: `
 # CLI Examples
 
-Practical examples for common OmniMolty CLI operations.
+Practical examples for common ClawMolty CLI operations.
 
 ## Getting Started
 
 \`\`\`bash
 # Initialize in a new project
 cd my-project
-omnimolty init
+clawmolty init
 
 # Answer setup questions or use defaults
-omnimolty init --defaults
+clawmolty init --defaults
 
 # Deploy your squad
-omnimolty deploy --mode=autonomous
+clawmolty deploy --mode=autonomous
 \`\`\`
 
 ## Daily Operations
@@ -2915,40 +2915,40 @@ omnimolty deploy --mode=autonomous
 ### Morning Routine
 \`\`\`bash
 # Check what happened overnight
-omnimolty standup
+clawmolty standup
 
 # View all agent status
-omnimolty status --metrics
+clawmolty status --metrics
 
 # Check pending tasks
-omnimolty tasks --pending
+clawmolty tasks --pending
 \`\`\`
 
 ### Assigning Tasks
 \`\`\`bash
 # Simple task (auto-assigned)
-omnimolty task "Add user authentication"
+clawmolty task "Add user authentication"
 
 # High priority bug fix
-omnimolty task "Fix checkout error" --priority=critical --deadline="today"
+clawmolty task "Fix checkout error" --priority=critical --deadline="today"
 
 # Specific agent task
-omnimolty task "Research competitor pricing" --agent=growth
+clawmolty task "Research competitor pricing" --agent=growth
 
 # Blocking task (wait for completion)
-omnimolty task "Run full test suite" --blocking
+clawmolty task "Run full test suite" --blocking
 \`\`\`
 
 ### Monitoring Progress
 \`\`\`bash
 # Real-time log streaming
-omnimolty logs --follow
+clawmolty logs --follow
 
 # Watch specific agent
-omnimolty logs --agent=engineer --follow
+clawmolty logs --agent=engineer --follow
 
 # Dashboard view
-omnimolty monitor --dashboard
+clawmolty monitor --dashboard
 \`\`\`
 
 ## Code & Development
@@ -2956,37 +2956,37 @@ omnimolty monitor --dashboard
 ### Feature Development
 \`\`\`bash
 # Build a feature
-omnimolty task "Implement user profile page"
+clawmolty task "Implement user profile page"
 
 # Watch the engineer work
-omnimolty logs --agent=engineer --follow
+clawmolty logs --agent=engineer --follow
 
 # Check PR when ready
-omnimolty status --agent=engineer --tasks
+clawmolty status --agent=engineer --tasks
 \`\`\`
 
 ### Bug Fixing
 \`\`\`bash
 # Report a bug
-omnimolty task "Fix: Login fails on mobile" --priority=high
+clawmolty task "Fix: Login fails on mobile" --priority=high
 
 # Debug with logs
-omnimolty logs --search="login" --type=errors
+clawmolty logs --search="login" --type=errors
 
 # Verify fix
-omnimolty task "Test login on mobile devices" --blocking
+clawmolty task "Test login on mobile devices" --blocking
 \`\`\`
 
 ### Deployment
 \`\`\`bash
 # Deploy to staging
-omnimolty task "Deploy latest changes to staging"
+clawmolty task "Deploy latest changes to staging"
 
 # Deploy to production (always requires approval)
-omnimolty task "Deploy v2.1.0 to production" --approval-required
+clawmolty task "Deploy v2.1.0 to production" --approval-required
 
 # Rollback if needed
-omnimolty task "Rollback production to v2.0.9" --priority=critical
+clawmolty task "Rollback production to v2.0.9" --priority=critical
 \`\`\`
 
 ## Marketing & Content
@@ -2994,22 +2994,22 @@ omnimolty task "Rollback production to v2.0.9" --priority=critical
 ### Content Creation
 \`\`\`bash
 # Write a blog post
-omnimolty task "Write blog post about our new AI features"
+clawmolty task "Write blog post about our new AI features"
 
 # Create social campaign
-omnimolty task "Create Twitter thread about product launch"
+clawmolty task "Create Twitter thread about product launch"
 
 # Research competitors
-omnimolty task "Analyze competitor pricing strategies" --agent=growth
+clawmolty task "Analyze competitor pricing strategies" --agent=growth
 \`\`\`
 
 ### SEO & Analytics
 \`\`\`bash
 # Check SEO status
-omnimolty status --agent=growth --metrics
+clawmolty status --agent=growth --metrics
 
 # Generate SEO report
-omnimolty task "Generate monthly SEO report"
+clawmolty task "Generate monthly SEO report"
 \`\`\`
 
 ## Finance & Legal
@@ -3017,25 +3017,25 @@ omnimolty task "Generate monthly SEO report"
 ### Invoicing
 \`\`\`bash
 # Generate invoice
-omnimolty task "Invoice Acme Corp for January services"
+clawmolty task "Invoice Acme Corp for January services"
 
 # Check payment status
-omnimolty task "Check outstanding invoices"
+clawmolty task "Check outstanding invoices"
 
 # Send payment reminders
-omnimolty task "Send reminder for overdue invoices"
+clawmolty task "Send reminder for overdue invoices"
 \`\`\`
 
 ### Security & Compliance
 \`\`\`bash
 # Run security audit
-omnimolty audit --type=security
+clawmolty audit --type=security
 
 # Check compliance
-omnimolty audit --type=compliance
+clawmolty audit --type=compliance
 
 # Generate compliance report
-omnimolty audit --report --format=html > compliance-report.html
+clawmolty audit --report --format=html > compliance-report.html
 \`\`\`
 
 ## Maintenance & Admin
@@ -3043,37 +3043,37 @@ omnimolty audit --report --format=html > compliance-report.html
 ### Configuration
 \`\`\`bash
 # View current config
-omnimolty config --show
+clawmolty config --show
 
 # Update a setting
-omnimolty config --set heartbeat.morning_standup.time="09:00"
+clawmolty config --set heartbeat.morning_standup.time="09:00"
 
 # Validate config
-omnimolty config --validate
+clawmolty config --validate
 \`\`\`
 
 ### Agent Management
 \`\`\`bash
 # Pause an agent
-omnimolty pause --agent=growth --duration="4h"
+clawmolty pause --agent=growth --duration="4h"
 
 # Resume agent
-omnimolty resume --agent=growth
+clawmolty resume --agent=growth
 
 # Restart all agents
-omnimolty deploy --restart
+clawmolty deploy --restart
 \`\`\`
 
 ### System Health
 \`\`\`bash
 # Run diagnostics
-omnimolty doctor
+clawmolty doctor
 
 # Check resource usage
-omnimolty status --resources
+clawmolty status --resources
 
 # Performance benchmark
-omnimolty benchmark
+clawmolty benchmark
 \`\`\`
 
 ## Automation Scripts
@@ -3081,13 +3081,13 @@ omnimolty benchmark
 ### Cron Job Examples
 \`\`\`bash
 # Daily standup at 8 AM
-0 8 * * * /usr/local/bin/omnimolty standup --send
+0 8 * * * /usr/local/bin/clawmolty standup --send
 
 # Weekly security audit
-0 2 * * 0 /usr/local/bin/omnimolty audit --type=security --report
+0 2 * * 0 /usr/local/bin/clawmolty audit --type=security --report
 
 # Monthly backup
-0 0 1 * * /usr/local/bin/omnimolty memory export > /backup/memory-$(date +%Y%m).json
+0 0 1 * * /usr/local/bin/clawmolty memory export > /backup/memory-$(date +%Y%m).json
 \`\`\`
 
 ### Shell Scripts
@@ -3100,16 +3100,16 @@ FEATURE=$1
 echo "Starting feature deployment: $FEATURE"
 
 # Build and test
-omnimolty task "Build and test $FEATURE" --blocking
+clawmolty task "Build and test $FEATURE" --blocking
 
 # Deploy to staging
-omnimolty task "Deploy $FEATURE to staging" --blocking
+clawmolty task "Deploy $FEATURE to staging" --blocking
 
 # Run integration tests
-omnimolty task "Run integration tests for $FEATURE" --blocking
+clawmolty task "Run integration tests for $FEATURE" --blocking
 
 # Notify team
-omnimolty notify send --message="$FEATURE deployed to staging"
+clawmolty notify send --message="$FEATURE deployed to staging"
 
 echo "Feature $FEATURE deployed successfully!"
 \`\`\`
@@ -3121,7 +3121,7 @@ echo "Feature $FEATURE deployed successfully!"
     content: `
 # API Overview
 
-OmniMolty provides a comprehensive REST API for programmatic control and integration.
+ClawMolty provides a comprehensive REST API for programmatic control and integration.
 
 ## Base URL
 
@@ -3270,21 +3270,21 @@ Official SDK libraries:
 
 \`\`\`bash
 # Node.js / TypeScript
-npm install @omnimolty/sdk
+npm install @clawmolty/sdk
 
 # Python
-pip install omnimolty
+pip install clawmolty
 
 # Go
-go get github.com/omnimolty/sdk-go
+go get github.com/clawmolty/sdk-go
 \`\`\`
 
 ### Node.js Example
 \`\`\`javascript
-import { OmniMolty } from '@omnimolty/sdk';
+import { ClawMolty } from '@clawmolty/sdk';
 
-const client = new OmniMolty({
-  apiKey: process.env.OMNIMOLTY_API_KEY,
+const client = new ClawMolty({
+  apiKey: process.env.CLAWMOLTY_API_KEY,
 });
 
 const task = await client.tasks.create({
@@ -3297,9 +3297,9 @@ console.log('Task created:', task.id);
 
 ### Python Example
 \`\`\`python
-from omnimolty import OmniMolty
+from clawmolty import ClawMolty
 
-client = OmniMolty(api_key=os.environ['OMNIMOLTY_API_KEY'])
+client = ClawMolty(api_key=os.environ['CLAWMOLTY_API_KEY'])
 
 task = client.tasks.create(
     description='Build user authentication',
@@ -3324,7 +3324,7 @@ Generate API keys for programmatic access:
 
 \`\`\`bash
 # Generate new API key
-omnimolty api-key create --name="my-integration"
+clawmolty api-key create --name="my-integration"
 
 # Output:
 # API Key: omni_sk_abc123xyz...
@@ -3358,20 +3358,20 @@ curl "http://localhost:8080/api/v1/status?api_key=omni_sk_abc123xyz"
 
 \`\`\`bash
 # Read-only key
-omnimolty api-key create --name="dashboard" --type=readonly
+clawmolty api-key create --name="dashboard" --type=readonly
 
 # Agent-only key
-omnimolty api-key create --name="ci-cd" --type=agent
+clawmolty api-key create --name="ci-cd" --type=agent
 
 # Key with custom permissions
-omnimolty api-key create --name="custom" --permissions="tasks:read,tasks:create"
+clawmolty api-key create --name="custom" --permissions="tasks:read,tasks:create"
 \`\`\`
 
 ## Key Management
 
 \`\`\`bash
 # List all keys
-omnimolty api-key list
+clawmolty api-key list
 
 # Output:
 # NAME          TYPE      CREATED      LAST_USED
@@ -3380,10 +3380,10 @@ omnimolty api-key list
 # ci-cd          agent     2024-01-22   never
 
 # Revoke a key
-omnimolty api-key revoke --name="my-integration"
+clawmolty api-key revoke --name="my-integration"
 
 # Rotate a key (revoke old, create new)
-omnimolty api-key rotate --name="ci-cd"
+clawmolty api-key rotate --name="ci-cd"
 \`\`\`
 
 ## Configuration
@@ -3469,10 +3469,10 @@ fetch('http://localhost:8080/api/v1/tasks', {
 ### Environment Variables
 \`\`\`bash
 # .env (never commit!)
-OMNIMOLTY_API_KEY=omni_sk_abc123xyz
+CLAWMOLTY_API_KEY=omni_sk_abc123xyz
 
 # Usage in code
-const apiKey = process.env.OMNIMOLTY_API_KEY;
+const apiKey = process.env.CLAWMOLTY_API_KEY;
 \`\`\`
 
 ## Troubleshooting
@@ -3483,10 +3483,10 @@ curl -I http://localhost:8080/api/v1/status \\
   -H "Authorization: Bearer omni_sk_abc123xyz"
 
 # Check key validity
-omnimolty api-key verify omni_sk_abc123xyz
+clawmolty api-key verify omni_sk_abc123xyz
 
 # View auth logs
-omnimolty logs --type=auth
+clawmolty logs --type=auth
 \`\`\`
     `,
   },
@@ -3496,7 +3496,7 @@ omnimolty logs --type=auth
     content: `
 # API Endpoints
 
-Complete reference for all OmniMolty API endpoints.
+Complete reference for all ClawMolty API endpoints.
 
 ## Tasks
 
@@ -3750,17 +3750,17 @@ DELETE /api/v1/webhooks/:id
     content: `
 # Webhooks
 
-Receive real-time notifications when events occur in OmniMolty.
+Receive real-time notifications when events occur in ClawMolty.
 
 ## Overview
 
-Webhooks allow external systems to receive notifications when events occur. OmniMolty sends an HTTP POST request to your specified URL.
+Webhooks allow external systems to receive notifications when events occur. ClawMolty sends an HTTP POST request to your specified URL.
 
 ## Setting Up Webhooks
 
 ### Via CLI
 \`\`\`bash
-omnimolty webhook create \\
+clawmolty webhook create \\
   --url="https://your-server.com/webhook" \\
   --events="task.completed,task.failed" \\
   --secret="your-secret-key"
@@ -3858,8 +3858,8 @@ All webhooks include a signature for verification:
 
 **Headers:**
 \`\`\`
-X-OmniMolty-Signature: sha256=abc123...
-X-OmniMolty-Timestamp: 1706354400
+X-ClawMolty-Signature: sha256=abc123...
+X-ClawMolty-Timestamp: 1706354400
 \`\`\`
 
 **Verification (Node.js):**
@@ -3877,8 +3877,8 @@ function verifyWebhook(payload, signature, timestamp, secret) {
 
 // Express middleware
 app.post('/webhook', (req, res) => {
-  const signature = req.headers['x-omnimolty-signature'];
-  const timestamp = req.headers['x-omnimolty-timestamp'];
+  const signature = req.headers['x-clawmolty-signature'];
+  const timestamp = req.headers['x-clawmolty-timestamp'];
 
   if (!verifyWebhook(JSON.stringify(req.body), signature, timestamp, WEBHOOK_SECRET)) {
     return res.status(401).send('Invalid signature');
@@ -3908,19 +3908,19 @@ After 5 failures, the webhook is marked as failing and you're notified.
 
 \`\`\`bash
 # List all webhooks
-omnimolty webhook list
+clawmolty webhook list
 
 # View webhook details
-omnimolty webhook show <id>
+clawmolty webhook show <id>
 
 # Test a webhook
-omnimolty webhook test <id>
+clawmolty webhook test <id>
 
 # View delivery history
-omnimolty webhook logs <id>
+clawmolty webhook logs <id>
 
 # Delete webhook
-omnimolty webhook delete <id>
+clawmolty webhook delete <id>
 \`\`\`
 
 ## Best Practices
@@ -4113,7 +4113,7 @@ All access attempts are logged:
 
 \`\`\`bash
 # View access logs
-omnimolty logs --type=access
+clawmolty logs --type=access
 
 # Output:
 # [10:30:01] engineer READ src/auth/index.ts GRANTED
@@ -4126,7 +4126,7 @@ omnimolty logs --type=access
 
 \`\`\`bash
 # Test if agent can access file
-omnimolty access test --agent=engineer --file="src/index.ts" --action=write
+clawmolty access test --agent=engineer --file="src/index.ts" --action=write
 
 # Output:
 # Agent: engineer
@@ -4135,10 +4135,10 @@ omnimolty access test --agent=engineer --file="src/index.ts" --action=write
 # Result: GRANTED (matches allow pattern "src/**")
 
 # Validate all rules
-omnimolty access validate
+clawmolty access validate
 
 # Dry run with access report
-omnimolty task "Refactor auth module" --dry-run --access-report
+clawmolty task "Refactor auth module" --dry-run --access-report
 \`\`\`
     `,
   },
@@ -4152,7 +4152,7 @@ Comprehensive logging of all agent activities for compliance and debugging.
 
 ## Overview
 
-Every action taken by OmniMolty agents is logged with full context:
+Every action taken by ClawMolty agents is logged with full context:
 
 - **What** was done
 - **Who** (which agent) did it
@@ -4205,7 +4205,7 @@ logging:
     # Storage
     storage:
       type: "file"  # file, sqlite, postgresql
-      path: ".omnimolty/logs"
+      path: ".clawmolty/logs"
       rotation:
         max_size: "100MB"
         max_files: 30
@@ -4270,22 +4270,22 @@ agent.decision   - Autonomous decision made
 ### CLI
 \`\`\`bash
 # View recent logs
-omnimolty logs
+clawmolty logs
 
 # Filter by agent
-omnimolty logs --agent=engineer
+clawmolty logs --agent=engineer
 
 # Filter by action type
-omnimolty logs --action="file.*"
+clawmolty logs --action="file.*"
 
 # Filter by time range
-omnimolty logs --since="2024-01-27" --until="2024-01-28"
+clawmolty logs --since="2024-01-27" --until="2024-01-28"
 
 # Search logs
-omnimolty logs --search="authentication"
+clawmolty logs --search="authentication"
 
 # Export logs
-omnimolty logs --export --format=json > audit-log.json
+clawmolty logs --export --format=json > audit-log.json
 \`\`\`
 
 ### API
@@ -4298,7 +4298,7 @@ curl "http://localhost:8080/api/v1/logs?agent=engineer&since=1h" \\
 
 \`\`\`bash
 # Summary statistics
-omnimolty logs stats
+clawmolty logs stats
 
 # Output:
 # Time range: 2024-01-20 to 2024-01-27
@@ -4320,10 +4320,10 @@ omnimolty logs stats
 # Warnings: 892 (2.0%)
 
 # Anomaly detection
-omnimolty logs analyze --anomalies
+clawmolty logs analyze --anomalies
 
 # Generate audit report
-omnimolty logs report --format=html > audit-report.html
+clawmolty logs report --format=html > audit-report.html
 \`\`\`
 
 ## Compliance Reports
@@ -4332,13 +4332,13 @@ Generate reports for compliance audits:
 
 \`\`\`bash
 # SOC 2 report
-omnimolty compliance report --framework=soc2 --period="Q1 2024"
+clawmolty compliance report --framework=soc2 --period="Q1 2024"
 
 # GDPR data access report
-omnimolty compliance report --framework=gdpr --type=data-access
+clawmolty compliance report --framework=gdpr --type=data-access
 
 # Custom audit report
-omnimolty logs report \\
+clawmolty logs report \\
   --start="2024-01-01" \\
   --end="2024-03-31" \\
   --include="all" \\
@@ -4356,7 +4356,7 @@ logging:
     elasticsearch:
       enabled: true
       url: "https://elasticsearch.company.com:9200"
-      index: "omnimolty-logs"
+      index: "clawmolty-logs"
 
     # Datadog
     datadog:
@@ -4377,7 +4377,7 @@ logging:
     content: `
 # Compliance
 
-OmniMolty is designed with security and compliance in mind.
+ClawMolty is designed with security and compliance in mind.
 
 ## Supported Frameworks
 
@@ -4491,7 +4491,7 @@ compliance:
 
 \`\`\`bash
 # View compliance status
-omnimolty compliance status
+clawmolty compliance status
 
 # Output:
 # COMPLIANCE STATUS
@@ -4541,16 +4541,16 @@ security:
 ### Manual Scans
 \`\`\`bash
 # Full security scan
-omnimolty audit --type=security
+clawmolty audit --type=security
 
 # Dependency audit
-omnimolty audit --type=dependencies
+clawmolty audit --type=dependencies
 
 # Secret scan
-omnimolty audit --type=secrets
+clawmolty audit --type=secrets
 
 # OWASP scan
-omnimolty audit --type=owasp
+clawmolty audit --type=owasp
 \`\`\`
 
 ## Compliance Reports
@@ -4558,13 +4558,13 @@ omnimolty audit --type=owasp
 ### Generating Reports
 \`\`\`bash
 # SOC 2 audit report
-omnimolty compliance report --framework=soc2 --period="2024-Q1"
+clawmolty compliance report --framework=soc2 --period="2024-Q1"
 
 # GDPR processing records
-omnimolty compliance report --framework=gdpr --type=processing-records
+clawmolty compliance report --framework=gdpr --type=processing-records
 
 # Full compliance report
-omnimolty compliance report --all --format=pdf > compliance-2024.pdf
+clawmolty compliance report --all --format=pdf > compliance-2024.pdf
 \`\`\`
 
 ### Report Contents
@@ -4657,7 +4657,7 @@ const CodeBlock = ({ code, language = 'bash' }) => {
     const colors = {
       bash: 'text-emerald-400',
       javascript: 'text-yellow-400',
-      typescript: 'text-blue-400',
+      typescript: 'text-orange-400',
       python: 'text-green-400',
       yaml: 'text-pink-400',
       json: 'text-orange-400',

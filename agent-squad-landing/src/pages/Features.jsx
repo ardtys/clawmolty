@@ -17,7 +17,7 @@ const agents = [
     tagline: 'Strategic Orchestration',
     description: 'The brain of your operation. Give it a high-level objective and watch it break down complex projects into actionable tasks, delegate to specialized agents, and track progress to completion.',
     icon: Brain,
-    color: 'from-cyan-500 to-purple-600',
+    color: 'from-orange-500 to-purple-600',
     capabilities: [
       { title: 'Codebase Analysis', desc: 'Understands your entire repository structure', icon: FileSearch },
       { title: 'Task Planning', desc: 'Breaks objectives into atomic tasks', icon: Workflow },
@@ -31,7 +31,7 @@ const agents = [
     tagline: 'Code Implementation',
     description: 'Writes production-quality code that matches your patterns. It reads your codebase, follows your conventions, writes tests, and creates PRs ready for review.',
     icon: Code2,
-    color: 'from-blue-500 to-cyan-500',
+    color: 'from-orange-500 to-orange-500',
     capabilities: [
       { title: 'Context-Aware', desc: 'Matches your coding style', icon: Eye },
       { title: 'Test-Driven', desc: 'Writes unit and integration tests', icon: CheckCircle2 },
@@ -144,7 +144,7 @@ const Features = () => {
       {/* Hero Section */}
       <section className="relative py-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(34,211,211,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(34,211,211,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyan-500/20 rounded-full blur-[120px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-orange-500/20 rounded-full blur-[120px]" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <motion.div
@@ -152,7 +152,7 @@ const Features = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-medium mb-6">
+            <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-sm font-medium mb-6">
               Platform Capabilities
             </span>
 
@@ -177,7 +177,7 @@ const Features = () => {
                   transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                   className="text-center p-4 rounded-xl bg-white/5 border border-white/10"
                 >
-                  <div className="text-2xl font-bold text-cyan-400 mb-1">{spec.value}</div>
+                  <div className="text-2xl font-bold text-orange-400 mb-1">{spec.value}</div>
                   <div className="text-white text-sm font-medium">{spec.label}</div>
                   <div className="text-white/40 text-xs mt-1">{spec.desc}</div>
                 </motion.div>
@@ -235,7 +235,7 @@ const Features = () => {
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-white">{agent.name}</h3>
-                      <p className="text-cyan-400 text-sm">{agent.tagline}</p>
+                      <p className="text-orange-400 text-sm">{agent.tagline}</p>
                     </div>
                   </div>
 
@@ -248,7 +248,7 @@ const Features = () => {
                       const CapIcon = cap.icon;
                       return (
                         <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-white/5">
-                          <CapIcon className="w-4 h-4 text-cyan-400 mt-0.5" />
+                          <CapIcon className="w-4 h-4 text-orange-400 mt-0.5" />
                           <div>
                             <div className="text-white text-sm font-medium">{cap.title}</div>
                             <div className="text-white/40 text-xs">{cap.desc}</div>
@@ -274,11 +274,11 @@ const Features = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-sm font-medium mb-6">
+            <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-300 text-sm font-medium mb-6">
               Use Cases
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              See How Teams Use omnimolty
+              See How Teams Use clawmolty
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
               From feature development to release management, see how agents collaborate on real tasks.
@@ -306,11 +306,11 @@ const Features = () => {
                   <div className="space-y-3 mb-6">
                     {useCase.workflow.map((step, i) => (
                       <div key={i} className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-xs font-bold shrink-0">
+                        <div className="w-6 h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400 text-xs font-bold shrink-0">
                           {i + 1}
                         </div>
                         <div>
-                          <span className="text-cyan-400 text-sm font-medium">{step.agent}: </span>
+                          <span className="text-orange-400 text-sm font-medium">{step.agent}: </span>
                           <span className="text-white/70 text-sm">{step.action}</span>
                         </div>
                       </div>
@@ -320,7 +320,7 @@ const Features = () => {
                   {/* Example Command */}
                   <div className="p-4 rounded-lg bg-[#0d0d14] border border-white/5">
                     <div className="text-white/40 text-xs mb-2">Example input:</div>
-                    <code className="text-cyan-400 text-sm font-mono">{useCase.example}</code>
+                    <code className="text-orange-400 text-sm font-mono">{useCase.example}</code>
                   </div>
                 </div>
               </motion.div>
@@ -357,9 +357,9 @@ const Features = () => {
             {/* Workflow Steps */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {[
-                { step: 1, title: 'You Describe', desc: 'Tell omnimolty what you want in plain language', icon: MessageCircle, color: 'from-white/20 to-white/10' },
-                { step: 2, title: 'Architect Plans', desc: 'Breaks down into tasks and assigns to agents', icon: Brain, color: 'from-cyan-500 to-purple-600' },
-                { step: 3, title: 'Agents Execute', desc: 'Engineer codes, Auditor reviews, Growth documents', icon: Sparkles, color: 'from-blue-500 to-cyan-500' },
+                { step: 1, title: 'You Describe', desc: 'Tell clawmolty what you want in plain language', icon: MessageCircle, color: 'from-white/20 to-white/10' },
+                { step: 2, title: 'Architect Plans', desc: 'Breaks down into tasks and assigns to agents', icon: Brain, color: 'from-orange-500 to-purple-600' },
+                { step: 3, title: 'Agents Execute', desc: 'Engineer codes, Auditor reviews, Growth documents', icon: Sparkles, color: 'from-orange-500 to-orange-500' },
                 { step: 4, title: 'You Review', desc: 'Approve changes, merge PRs, ship to production', icon: CheckCircle2, color: 'from-green-500 to-emerald-500' },
               ].map((item, index) => {
                 const Icon = item.icon;
@@ -376,7 +376,7 @@ const Features = () => {
                       <div className={`w-12 h-12 mx-auto rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-4`}>
                         <Icon className="w-6 h-6 text-white" />
                       </div>
-                      <div className="text-cyan-400 text-xs font-medium mb-2">Step {item.step}</div>
+                      <div className="text-orange-400 text-xs font-medium mb-2">Step {item.step}</div>
                       <h4 className="text-white font-semibold mb-2">{item.title}</h4>
                       <p className="text-white/50 text-sm">{item.desc}</p>
                     </div>
@@ -405,7 +405,7 @@ const Features = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-sm font-medium mb-6">
+            <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-300 text-sm font-medium mb-6">
               Native Access
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -428,7 +428,7 @@ const Features = () => {
                   viewport={{ once: true }}
                   className="glass-card p-4 text-center hover:border-white/20 transition-colors"
                 >
-                  <Icon className="w-6 h-6 text-cyan-400 mx-auto mb-2" />
+                  <Icon className="w-6 h-6 text-orange-400 mx-auto mb-2" />
                   <h4 className="text-white font-medium text-sm">{integration.name}</h4>
                   <p className="text-white/40 text-xs">{integration.desc}</p>
                 </motion.div>
@@ -455,7 +455,7 @@ const Features = () => {
               </h2>
 
               <p className="text-white/60 mb-8 leading-relaxed">
-                omnimolty runs entirely on your machine. No cloud calls, no data leaving your
+                clawmolty runs entirely on your machine. No cloud calls, no data leaving your
                 infrastructure, no network latency. Your code stays private while you get
                 instant responses.
               </p>
@@ -475,7 +475,7 @@ const Features = () => {
                     viewport={{ once: true }}
                     className="flex items-start gap-3"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-cyan-400 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-orange-400 mt-0.5" />
                     <div>
                       <div className="text-white font-medium">{item.title}</div>
                       <div className="text-white/50 text-sm">{item.desc}</div>
@@ -492,7 +492,7 @@ const Features = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-3xl blur-3xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-purple-500/20 rounded-3xl blur-3xl" />
               <div className="relative glass-card p-8 rounded-3xl">
                 <div className="grid grid-cols-2 gap-6">
                   {[
@@ -504,7 +504,7 @@ const Features = () => {
                     const Icon = stat.icon;
                     return (
                       <div key={index} className="text-center p-4 rounded-xl bg-white/5">
-                        <Icon className="w-6 h-6 text-cyan-400 mx-auto mb-2" />
+                        <Icon className="w-6 h-6 text-orange-400 mx-auto mb-2" />
                         <div className="text-2xl font-bold text-white">{stat.value}</div>
                         <div className="text-white/40 text-sm">{stat.label}</div>
                       </div>
@@ -530,7 +530,7 @@ const Features = () => {
               Ready to Deploy Your Squad?
             </h2>
             <p className="text-white/60 mb-8 max-w-xl mx-auto">
-              Install omnimolty and start building in minutes. No cloud accounts, no complex setup.
+              Install clawmolty and start building in minutes. No cloud accounts, no complex setup.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/pricing" className="btn-primary flex items-center justify-center gap-2">

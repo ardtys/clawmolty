@@ -12,21 +12,21 @@ const demoScenarios = [
     title: 'Build Authentication',
     command: 'Implement user authentication with JWT',
     icon: Shield,
-    color: 'from-cyan-500 to-teal-500'
+    color: 'from-orange-500 to-orange-600'
   },
   {
     id: 'api',
     title: 'Create REST API',
     command: 'Create a REST API for user management',
     icon: Code2,
-    color: 'from-sky-500 to-cyan-500'
+    color: 'from-orange-500 to-orange-500'
   },
   {
     id: 'refactor',
     title: 'Refactor Code',
     command: 'Refactor the payment module for better performance',
     icon: GitBranch,
-    color: 'from-teal-500 to-emerald-500'
+    color: 'from-orange-600 to-emerald-500'
   },
   {
     id: 'docs',
@@ -39,48 +39,48 @@ const demoScenarios = [
 
 const agentResponses = {
   auth: [
-    { agent: 'The Architect', color: 'text-blue-400', message: 'Analyzing authentication requirements...', delay: 800 },
-    { agent: 'The Architect', color: 'text-blue-400', message: 'Delegating to Engineer: JWT setup, user model, endpoints', delay: 1500 },
+    { agent: 'The Architect', color: 'text-orange-400', message: 'Analyzing authentication requirements...', delay: 800 },
+    { agent: 'The Architect', color: 'text-orange-400', message: 'Delegating to Engineer: JWT setup, user model, endpoints', delay: 1500 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Creating User model with bcrypt password hashing...', delay: 2200 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Implementing JWT token generation and validation...', delay: 3000 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Building /auth/login and /auth/register endpoints...', delay: 3800 },
     { agent: 'The Auditor', color: 'text-orange-400', message: 'Security scan initiated... Checking for vulnerabilities...', delay: 4500 },
     { agent: 'The Auditor', color: 'text-orange-400', message: 'Verified: Password hashing, token expiry, rate limiting', delay: 5200 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Writing unit tests for auth module (12 test cases)...', delay: 5900 },
-    { agent: 'The Architect', color: 'text-blue-400', message: 'Task completed! PR #142 ready for review', delay: 6600, final: true }
+    { agent: 'The Architect', color: 'text-orange-400', message: 'Task completed! PR #142 ready for review', delay: 6600, final: true }
   ],
   api: [
-    { agent: 'The Architect', color: 'text-blue-400', message: 'Designing REST API structure for user management...', delay: 800 },
-    { agent: 'The Architect', color: 'text-blue-400', message: 'Endpoints: GET /users, POST /users, PUT /users/:id, DELETE /users/:id', delay: 1600 },
+    { agent: 'The Architect', color: 'text-orange-400', message: 'Designing REST API structure for user management...', delay: 800 },
+    { agent: 'The Architect', color: 'text-orange-400', message: 'Endpoints: GET /users, POST /users, PUT /users/:id, DELETE /users/:id', delay: 1600 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Setting up Express router with validation middleware...', delay: 2400 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Implementing CRUD operations with Prisma ORM...', delay: 3200 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Adding pagination, filtering, and sorting support...', delay: 4000 },
     { agent: 'The Auditor', color: 'text-orange-400', message: 'Validating input sanitization and SQL injection prevention...', delay: 4800 },
     { agent: 'Growth Hacker', color: 'text-purple-400', message: 'Generating OpenAPI 3.0 specification...', delay: 5500 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'All 18 API tests passing. Coverage: 94%', delay: 6200 },
-    { agent: 'The Architect', color: 'text-blue-400', message: 'API ready! Documentation at /api/docs', delay: 6900, final: true }
+    { agent: 'The Architect', color: 'text-orange-400', message: 'API ready! Documentation at /api/docs', delay: 6900, final: true }
   ],
   refactor: [
-    { agent: 'The Architect', color: 'text-blue-400', message: 'Analyzing payment module... Found 847 lines across 12 files', delay: 800 },
-    { agent: 'The Architect', color: 'text-blue-400', message: 'Identified bottlenecks: N+1 queries, synchronous calls, no caching', delay: 1700 },
+    { agent: 'The Architect', color: 'text-orange-400', message: 'Analyzing payment module... Found 847 lines across 12 files', delay: 800 },
+    { agent: 'The Architect', color: 'text-orange-400', message: 'Identified bottlenecks: N+1 queries, synchronous calls, no caching', delay: 1700 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Refactoring database queries with eager loading...', delay: 2500 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Converting payment processing to async/await pattern...', delay: 3300 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'Implementing Redis caching for payment methods...', delay: 4100 },
     { agent: 'The Auditor', color: 'text-orange-400', message: 'Running performance benchmarks...', delay: 4900 },
     { agent: 'The Auditor', color: 'text-orange-400', message: 'Result: 73% faster response time, 45% less memory usage', delay: 5700 },
     { agent: 'The Engineer', color: 'text-emerald-400', message: 'All existing tests passing. No breaking changes.', delay: 6400 },
-    { agent: 'The Architect', color: 'text-blue-400', message: 'Refactoring complete! Performance optimized', delay: 7100, final: true }
+    { agent: 'The Architect', color: 'text-orange-400', message: 'Refactoring complete! Performance optimized', delay: 7100, final: true }
   ],
   docs: [
-    { agent: 'The Architect', color: 'text-blue-400', message: 'Scanning codebase for API endpoints...', delay: 800 },
-    { agent: 'The Architect', color: 'text-blue-400', message: 'Found 34 endpoints across 8 modules', delay: 1500 },
+    { agent: 'The Architect', color: 'text-orange-400', message: 'Scanning codebase for API endpoints...', delay: 800 },
+    { agent: 'The Architect', color: 'text-orange-400', message: 'Found 34 endpoints across 8 modules', delay: 1500 },
     { agent: 'Growth Hacker', color: 'text-purple-400', message: 'Extracting JSDoc comments and type definitions...', delay: 2200 },
     { agent: 'Growth Hacker', color: 'text-purple-400', message: 'Generating request/response schemas...', delay: 3000 },
     { agent: 'Growth Hacker', color: 'text-purple-400', message: 'Creating example requests with realistic data...', delay: 3800 },
     { agent: 'Growth Hacker', color: 'text-purple-400', message: 'Building interactive Swagger UI documentation...', delay: 4600 },
     { agent: 'The Auditor', color: 'text-orange-400', message: 'Validating documentation accuracy against codebase...', delay: 5300 },
     { agent: 'Growth Hacker', color: 'text-purple-400', message: 'Generating markdown docs for GitHub wiki...', delay: 6000 },
-    { agent: 'The Architect', color: 'text-blue-400', message: 'Documentation complete! 34 endpoints documented', delay: 6700, final: true }
+    { agent: 'The Architect', color: 'text-orange-400', message: 'Documentation complete! 34 endpoints documented', delay: 6700, final: true }
   ]
 };
 
@@ -158,8 +158,8 @@ const InteractiveDemo = () => {
   return (
     <section id="demo" className="py-24 px-6 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/5 rounded-full blur-[150px]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-950/10 to-transparent" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orange-500/5 rounded-full blur-[150px]" />
 
       <div className="max-w-6xl mx-auto relative">
         {/* Header */}
@@ -199,8 +199,8 @@ const InteractiveDemo = () => {
                 disabled={isRunning}
                 className={`p-4 rounded-xl border transition-all text-left ${
                   isSelected
-                    ? 'bg-cyan-500/20 border-cyan-500/50'
-                    : 'bg-white/5 border-white/10 hover:border-cyan-500/30 hover:bg-white/10'
+                    ? 'bg-orange-500/20 border-orange-500/50'
+                    : 'bg-white/5 border-white/10 hover:border-orange-500/30 hover:bg-white/10'
                 } ${isRunning ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
               >
                 <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${scenario.color} flex items-center justify-center mb-3`}>
@@ -222,7 +222,7 @@ const InteractiveDemo = () => {
           className="relative"
         >
           {/* Glow */}
-          <div className="absolute -inset-4 bg-gradient-to-r from-cyan-600/20 via-teal-600/10 to-cyan-600/20 rounded-3xl blur-2xl" />
+          <div className="absolute -inset-4 bg-gradient-to-r from-orange-600/20 via-orange-700/10 to-orange-600/20 rounded-3xl blur-2xl" />
 
           {/* Terminal Window */}
           <div className="relative bg-[#0a0f1a] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
@@ -235,7 +235,7 @@ const InteractiveDemo = () => {
               </div>
               <div className="flex items-center gap-2 text-white/40 text-xs font-mono">
                 <Terminal className="w-4 h-4" />
-                omnimolty demo
+                clawmolty demo
               </div>
               <button
                 onClick={resetDemo}
@@ -249,7 +249,7 @@ const InteractiveDemo = () => {
             {/* Command Input */}
             <div className="px-4 py-3 border-b border-white/5 bg-[#0d1420]">
               <div className="flex items-center gap-3">
-                <span className="text-cyan-400 font-mono text-sm">$</span>
+                <span className="text-orange-400 font-mono text-sm">$</span>
                 <input
                   type="text"
                   value={customCommand}
@@ -265,7 +265,7 @@ const InteractiveDemo = () => {
                   className={`p-2 rounded-lg transition-all ${
                     isRunning || !customCommand.trim()
                       ? 'bg-white/5 text-white/30 cursor-not-allowed'
-                      : 'bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30'
+                      : 'bg-orange-500/20 text-orange-400 hover:bg-orange-500/30'
                   }`}
                 >
                   {isRunning ? (
@@ -296,7 +296,7 @@ const InteractiveDemo = () => {
                   {/* Initial command display */}
                   {selectedScenario && (
                     <div className="text-white/50 mb-4">
-                      <span className="text-cyan-400">$</span> omnimolty task "{selectedScenario.command}"
+                      <span className="text-orange-400">$</span> clawmolty task "{selectedScenario.command}"
                     </div>
                   )}
 
@@ -338,7 +338,7 @@ const InteractiveDemo = () => {
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="mt-6 p-4 rounded-lg bg-gradient-to-r from-cyan-500/10 to-teal-500/10 border border-cyan-500/20"
+                      className="mt-6 p-4 rounded-lg bg-gradient-to-r from-orange-500/10 to-orange-600/10 border border-orange-500/20"
                     >
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
@@ -359,7 +359,7 @@ const InteractiveDemo = () => {
                 <motion.span
                   animate={{ opacity: [1, 0, 1] }}
                   transition={{ duration: 1, repeat: Infinity }}
-                  className="inline-block w-2 h-4 bg-cyan-500 ml-1"
+                  className="inline-block w-2 h-4 bg-orange-500 ml-1"
                 />
               )}
             </div>

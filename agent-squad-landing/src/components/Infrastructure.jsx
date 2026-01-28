@@ -97,7 +97,7 @@ const Infrastructure = () => {
             <span className="text-zinc-500">Sovereignty.</span>
           </h2>
           <p className="text-zinc-400 text-lg max-w-2xl">
-            OmniMolty is designed for ultimate privacy and performance,
+            ClawMolty is designed for ultimate privacy and performance,
             running directly on your chosen hardware.
           </p>
         </motion.div>
@@ -148,7 +148,7 @@ const Infrastructure = () => {
                 </div>
                 <div className="space-y-2">
                   {[
-                    { label: 'OmniMolty Core', status: 'Running' },
+                    { label: 'ClawMolty Core', status: 'Running' },
                     { label: 'Agent Squad', status: '4 Active' },
                     { label: 'Vector DB', status: 'Synced' }
                   ].map((item, i) => (
@@ -187,7 +187,7 @@ const Infrastructure = () => {
               >
                 <div className="flex items-center gap-3 mb-4">
                   <motion.div
-                    className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center"
+                    className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center"
                     animate={{
                       boxShadow: [
                         '0 0 0 0 rgba(59, 130, 246, 0)',
@@ -197,7 +197,7 @@ const Infrastructure = () => {
                     }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    <Zap className="w-5 h-5 text-blue-400" />
+                    <Zap className="w-5 h-5 text-orange-400" />
                   </motion.div>
                   <div>
                     <h4 className="text-white font-semibold">MCP Protocol</h4>

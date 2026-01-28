@@ -12,7 +12,7 @@ const useCases = [
     icon: Rocket,
     title: 'SaaS Startups',
     subtitle: 'Ship faster without hiring',
-    description: 'Early-stage startups use omnimolty to maintain development velocity without burning through runway on expensive engineering hires. One founder ran a solo SaaS to $50k MRR with omnimolty handling 80% of the coding.',
+    description: 'Early-stage startups use clawmolty to maintain development velocity without burning through runway on expensive engineering hires. One founder ran a solo SaaS to $50k MRR with clawmolty handling 80% of the coding.',
     metrics: [
       { label: 'Avg time saved', value: '32 hrs/week' },
       { label: 'Bug reduction', value: '47%' },
@@ -25,7 +25,7 @@ const useCases = [
       { step: 'Auditor reviews and approves', icon: CheckCircle2 }
     ],
     testimonial: {
-      quote: "I went from idea to production in 3 weeks. omnimolty wrote 90% of my backend while I focused on talking to customers.",
+      quote: "I went from idea to production in 3 weeks. clawmolty wrote 90% of my backend while I focused on talking to customers.",
       author: 'Marcus Chen',
       role: 'Founder, DataSync.io'
     }
@@ -35,7 +35,7 @@ const useCases = [
     icon: ShoppingCart,
     title: 'E-commerce Teams',
     subtitle: 'Automate the boring stuff',
-    description: 'E-commerce engineering teams offload repetitive tasks like inventory sync integrations, payment gateway updates, and CMS migrations to omnimolty while focusing on customer-facing features.',
+    description: 'E-commerce engineering teams offload repetitive tasks like inventory sync integrations, payment gateway updates, and CMS migrations to clawmolty while focusing on customer-facing features.',
     metrics: [
       { label: 'Integration time', value: '-65%' },
       { label: 'Incidents reduced', value: '52%' },
@@ -58,7 +58,7 @@ const useCases = [
     icon: Building2,
     title: 'Enterprise DevOps',
     subtitle: 'Scale without complexity',
-    description: 'Large organizations deploy omnimolty for internal tooling, CI/CD optimization, and technical debt reduction. On-premise deployment satisfies security requirements while accelerating delivery.',
+    description: 'Large organizations deploy clawmolty for internal tooling, CI/CD optimization, and technical debt reduction. On-premise deployment satisfies security requirements while accelerating delivery.',
     metrics: [
       { label: 'CI/CD time', value: '-70%' },
       { label: 'Tech debt cleared', value: '2x faster' },
@@ -71,7 +71,7 @@ const useCases = [
       { step: 'Automated documentation', icon: CheckCircle2 }
     ],
     testimonial: {
-      quote: "omnimolty helped us modernize a 15-year-old codebase without disrupting production. Security loved the audit trails.",
+      quote: "clawmolty helped us modernize a 15-year-old codebase without disrupting production. Security loved the audit trails.",
       author: 'James Morrison',
       role: 'VP Engineering, Fortune 500'
     }
@@ -81,7 +81,7 @@ const useCases = [
     icon: Stethoscope,
     title: 'Healthcare & Fintech',
     subtitle: 'Compliance-first development',
-    description: 'Regulated industries require on-premise solutions. omnimolty runs entirely within your security perimeter with HIPAA and SOC2 compliance documentation built into every workflow.',
+    description: 'Regulated industries require on-premise solutions. clawmolty runs entirely within your security perimeter with HIPAA and SOC2 compliance documentation built into every workflow.',
     metrics: [
       { label: 'Compliance docs', value: 'Auto-generated' },
       { label: 'Audit prep time', value: '-80%' },
@@ -94,7 +94,7 @@ const useCases = [
       { step: 'Auto-generated compliance reports', icon: CheckCircle2 }
     ],
     testimonial: {
-      quote: "We passed our SOC2 audit with flying colors. omnimolty's audit trails impressed our assessors.",
+      quote: "We passed our SOC2 audit with flying colors. clawmolty's audit trails impressed our assessors.",
       author: 'Dr. Emily Watson',
       role: 'CTO, HealthData Systems'
     }
@@ -124,7 +124,7 @@ const UseCases = () => {
           </h2>
           <p className="text-xl text-white/60 max-w-2xl mx-auto">
             From solo founders to enterprise teams, see how organizations
-            are using omnimolty to transform their development process.
+            are using clawmolty to transform their development process.
           </p>
         </motion.div>
 
@@ -164,7 +164,7 @@ const UseCases = () => {
                 <div>
                   <div className="mb-8">
                     <h3 className="text-3xl font-bold text-white mb-2">{currentCase.title}</h3>
-                    <p className="text-cyan-300">{currentCase.subtitle}</p>
+                    <p className="text-orange-300">{currentCase.subtitle}</p>
                   </div>
 
                   <p className="text-white/70 text-lg leading-relaxed mb-8">
@@ -185,7 +185,7 @@ const UseCases = () => {
                   <div className="glass-card p-6">
                     <p className="text-white/80 italic mb-4">"{currentCase.testimonial.quote}"</p>
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center text-white font-bold">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-white font-bold">
                         {currentCase.testimonial.author.charAt(0)}
                       </div>
                       <div>
@@ -210,8 +210,8 @@ const UseCases = () => {
                           transition={{ duration: 0.3, delay: index * 0.1 }}
                           className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
                         >
-                          <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center shrink-0">
-                            <Icon className="w-5 h-5 text-cyan-400" />
+                          <div className="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center shrink-0">
+                            <Icon className="w-5 h-5 text-orange-400" />
                           </div>
                           <div className="flex-1">
                             <span className="text-white/50 text-xs">Step {index + 1}</span>
@@ -226,9 +226,9 @@ const UseCases = () => {
                   </div>
 
                   {/* Time Saved */}
-                  <div className="mt-8 p-6 rounded-xl bg-gradient-to-r from-cyan-500/10 to-cyan-500/10 border border-cyan-500/20">
+                  <div className="mt-8 p-6 rounded-xl bg-gradient-to-r from-orange-500/10 to-orange-500/10 border border-orange-500/20">
                     <div className="flex items-center gap-4">
-                      <Clock className="w-8 h-8 text-cyan-400" />
+                      <Clock className="w-8 h-8 text-orange-400" />
                       <div>
                         <div className="text-white font-semibold">Average time saved per week</div>
                         <div className="text-3xl font-bold text-white">{currentCase.metrics[0].value}</div>

@@ -1,362 +1,155 @@
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play, Sparkles } from 'lucide-react';
+import { ArrowRight, Play, Rocket } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const stats = [
-  { value: '24/7', label: 'Autonomous operation' },
-  { value: '4', label: 'Specialized agents' },
-  { value: '100%', label: 'On your infrastructure' },
-];
-
-// Animation variants
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94]
-    }
-  }
-};
-
-const floatingVariants = {
-  animate: {
-    y: [-5, 5, -5],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
-  }
-};
-
-const glowPulse = {
-  animate: {
-    boxShadow: [
-      '0 0 20px rgba(255, 107, 74, 0.1)',
-      '0 0 40px rgba(255, 107, 74, 0.2)',
-      '0 0 20px rgba(255, 107, 74, 0.1)'
-    ],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
-  }
-};
-
 const Hero = () => {
-  const [terminalText, setTerminalText] = useState('');
-  const fullText = 'omnimolty deploy --squad=full --mode=autonomous';
-
-  useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setTerminalText(fullText.slice(0, index));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 40);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <section className="relative min-h-screen overflow-hidden">
-      {/* Animated gradient orbs */}
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950">
+      {/* Background gradient orbs */}
       <motion.div
-        className="absolute top-20 right-1/4 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"
+        className="absolute top-10 right-10 w-[500px] h-[500px] bg-gradient-to-r from-orange-500/20 to-red-500/10 rounded-full blur-[120px]"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
         }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-20 left-1/4 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"
+        className="absolute bottom-20 left-0 w-[400px] h-[400px] bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-[100px]"
         animate={{
           scale: [1.2, 1, 1.2],
-          opacity: [0.2, 0.4, 0.2],
         }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Subtle grid background */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
-
-      {/* Content */}
-      <motion.div
-        className="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-24"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Top label */}
-        <motion.div variants={itemVariants} className="mb-8">
-          <motion.span
-            className="inline-flex items-center gap-2 text-sm text-zinc-400 px-4 py-2 rounded-full border border-zinc-800 bg-zinc-900/50"
-            whileHover={{ scale: 1.02, borderColor: 'rgba(255, 107, 74, 0.3)' }}
-          >
-            <motion.span
-              animate={{ rotate: [0, 15, -15, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <Sparkles className="w-4 h-4 text-orange-400" />
-            </motion.span>
-            Your Autonomous Digital Enterprise
-          </motion.span>
-        </motion.div>
-
-        {/* Main headline */}
-        <motion.div variants={itemVariants} className="max-w-4xl">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1] mb-8">
-            <motion.span
-              className="text-white inline-block"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              Build a Business,{' '}
-            </motion.span>
-            <motion.span
-              className="text-zinc-500 inline-block"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              Not Just Code.
-            </motion.span>
-          </h1>
-        </motion.div>
-
-        {/* Description */}
-        <motion.p
-          variants={itemVariants}
-          className="text-lg sm:text-xl text-zinc-400 max-w-2xl mb-12 leading-relaxed"
-        >
-          Introducing OmniMolty: Your autonomous AI enterprise, living on your infrastructure.
-          They don't just advise; they execute, manage, and build your business, 24/7.
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-20">
+      {/* Main Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-36 pb-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column - Text */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <a
-              href="https://bags.fm/GoqtGLdsQC34zrFboFyJZaBSTESxqm7JJ2QXUXpLBAGS"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 text-base font-semibold text-white bg-gradient-to-r from-[#00D26A] to-[#00B85C] rounded-lg hover:from-[#00B85C] hover:to-[#009E4F] transition-all shadow-lg shadow-[#00D26A]/30"
-            >
-              <motion.img
-                src="/bags-icon.png"
-                alt="Bags"
-                className="w-6 h-6"
-                animate={{ rotate: [0, -5, 5, 0], scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-              Buy on Bags
-            </a>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Link
-              to="/demo"
-              className="btn-primary inline-flex items-center gap-2 group"
-            >
-              Deploy Your Squad
+            {/* Headline */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
               <motion.span
-                animate={{ x: [0, 4, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+                className="block bg-gradient-to-r from-white via-orange-100 to-white bg-clip-text text-transparent"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
               >
-                <ArrowRight className="w-4 h-4" />
+                Meet Your
               </motion.span>
-            </Link>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Link
-              to="/demo"
-              className="btn-secondary inline-flex items-center gap-2 group"
-            >
               <motion.span
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                className="block bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
               >
-                <Play className="w-4 h-4" />
+                AI Dream Team
               </motion.span>
-              See Autonomous Demo
-            </Link>
-          </motion.div>
-        </motion.div>
+            </h1>
 
-        {/* Stats */}
-        <motion.div
-          variants={itemVariants}
-          className="flex flex-wrap gap-12 mb-20"
-        >
-          {stats.map((stat, index) => (
+            {/* Description */}
+            <motion.p
+              className="text-xl text-zinc-400 mb-10 leading-relaxed max-w-lg"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+            >
+              <span className="text-white font-semibold">ClawMolty</span> is your autonomous AI squad that works 24/7.
+              They code, market, audit, and manage — so you can focus on what matters.
+            </motion.p>
+
+            {/* CTAs */}
             <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-              whileHover={{ scale: 1.1, y: -5 }}
-              className="cursor-default"
+              className="flex flex-wrap gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
             >
-              <motion.div
-                className="text-3xl sm:text-4xl font-semibold text-white mb-1"
-                {...floatingVariants}
-              >
-                {stat.value}
-              </motion.div>
-              <div className="text-sm text-zinc-500">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Terminal preview */}
-        <motion.div
-          variants={itemVariants}
-          className="relative"
-          whileHover={{ scale: 1.01 }}
-          transition={{ duration: 0.3 }}
-        >
-          <motion.div
-            className="bg-zinc-900/50 border border-zinc-800 rounded-xl overflow-hidden relative"
-            variants={glowPulse}
-            animate="animate"
-          >
-            {/* Terminal glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 to-transparent pointer-events-none" />
-
-            {/* Terminal header */}
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-zinc-800 relative">
-              <div className="flex gap-1.5">
-                <motion.div
-                  className="w-3 h-3 rounded-full bg-red-500/80"
-                  whileHover={{ scale: 1.2 }}
-                />
-                <motion.div
-                  className="w-3 h-3 rounded-full bg-yellow-500/80"
-                  whileHover={{ scale: 1.2 }}
-                />
-                <motion.div
-                  className="w-3 h-3 rounded-full bg-green-500/80"
-                  whileHover={{ scale: 1.2 }}
-                />
-              </div>
-              <span className="text-xs text-zinc-500 ml-2 font-mono">omnimolty</span>
-              <motion.span
-                className="ml-auto text-xs text-emerald-400/80"
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                ● connected
-              </motion.span>
-            </div>
-
-            {/* Terminal content */}
-            <div className="p-6 font-mono text-sm relative">
-              <div className="flex items-start gap-3">
-                <motion.span
-                  className="text-orange-400 select-none"
-                  animate={{ opacity: [1, 0.5, 1] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  to="/demo"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-2xl shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all"
                 >
-                  $
-                </motion.span>
-                <div>
-                  <span className="text-zinc-300">{terminalText}</span>
-                  <motion.span
-                    className="inline-block w-2 h-5 bg-orange-400 ml-0.5"
-                    animate={{ opacity: [1, 0, 1] }}
-                    transition={{ duration: 0.8, repeat: Infinity }}
-                  />
+                  <Rocket className="w-5 h-5" />
+                  Launch Your Squad
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  to="/features"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-zinc-800/80 text-white font-semibold rounded-2xl border border-zinc-700 hover:bg-zinc-700/80 transition-all"
+                >
+                  <Play className="w-5 h-5 text-orange-400" />
+                  Watch Demo
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Column - Visual */}
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            {/* Main card */}
+            <motion.div
+              className="relative bg-gradient-to-br from-zinc-800/80 to-zinc-900/80 rounded-3xl p-8 border border-zinc-700/50 backdrop-blur-sm"
+              whileHover={{ y: -5 }}
+            >
+              {/* Decorative corner */}
+              <div className="absolute -top-3 -right-3 w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl -z-10 blur-sm opacity-50" />
+
+              {/* Header */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-2xl">
+                    🦐
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold">ClawMolty Squad</h3>
+                    <p className="text-zinc-500 text-sm">4 Agents</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-sm">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  Online
                 </div>
               </div>
 
-              {terminalText.length === fullText.length && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                  className="mt-6 space-y-3"
-                >
-                  {[
-                    { text: 'The Architect initialized — strategic planning ready', delay: 0 },
-                    { text: 'The Engineer deployed — code execution active', delay: 0.2 },
-                    { text: 'The Growth Hacker online — market engine running', delay: 0.4 },
-                    { text: 'The Auditor active — compliance monitoring engaged', delay: 0.6 },
-                  ].map((item, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5 + item.delay }}
-                      className="flex items-center gap-2"
-                    >
-                      <motion.span
-                        className="text-emerald-400"
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ delay: 0.5 + item.delay, type: "spring" }}
-                      >
-                        ✓
-                      </motion.span>
-                      <span className="text-zinc-400">{item.text}</span>
-                    </motion.div>
-                  ))}
+              {/* Agent cards */}
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { name: 'Architect', role: 'Strategy', emoji: '🧠', color: 'from-blue-500 to-indigo-500' },
+                  { name: 'Engineer', role: 'Building', emoji: '⚙️', color: 'from-emerald-500 to-teal-500' },
+                  { name: 'Growth', role: 'Marketing', emoji: '📈', color: 'from-purple-500 to-pink-500' },
+                  { name: 'Auditor', role: 'Security', emoji: '🛡️', color: 'from-orange-500 to-red-500' },
+                ].map((agent, i) => (
                   <motion.div
-                    initial={{ opacity: 0, y: 10 }}
+                    key={i}
+                    className="p-4 rounded-2xl bg-zinc-800/50 border border-zinc-700/50 hover:border-zinc-600 transition-all"
+                    initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.5 }}
-                    className="flex items-center gap-2 mt-4 pt-4 border-t border-zinc-800/50"
+                    transition={{ delay: 0.5 + i * 0.1 }}
                   >
-                    <motion.span
-                      className="text-orange-400"
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 1, repeat: Infinity }}
-                    >
-                      →
-                    </motion.span>
-                    <span className="text-zinc-300 font-medium">Squad deployed. Autonomous operation started.</span>
+                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${agent.color} flex items-center justify-center text-xl mb-3`}>
+                      {agent.emoji}
+                    </div>
+                    <h4 className="text-white font-semibold text-sm">{agent.name}</h4>
+                    <p className="text-zinc-500 text-xs">{agent.role}</p>
                   </motion.div>
-                </motion.div>
-              )}
-            </div>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 };
